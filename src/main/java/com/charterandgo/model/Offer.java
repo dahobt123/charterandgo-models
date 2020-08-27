@@ -7,12 +7,15 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JourneyOption implements Serializable {
+public class Offer implements Serializable {
 
     private int offerId;
     private List<OfferItem> offeritems = new ArrayList<>();
+    private OfferPrice pricing;
+    private RunwayItem runway;
+    private List<Tax> taxes = new ArrayList<>();
 
-    public JourneyOption() {
+    public Offer() {
 
     }
     public String toString() {
@@ -21,7 +24,7 @@ public class JourneyOption implements Serializable {
         for (OfferItem item : offeritems) {
             builder.append(item.toString() + "/");
         }
-
+        builder.append(runway.toString());
         return builder.toString();
     }
 
@@ -33,6 +36,12 @@ public class JourneyOption implements Serializable {
         for (OfferItem item : offeritems) {
             array.put(item.toJson());
         }
+        obj.put("pricing", pricing.toJson());
+        JSONArray taxArray = new JSONArray();
+        for (Tax tax : taxes) {
+            taxArray.put(tax.toJson());
+        }
+        obj.put("taxes", taxArray);
         return obj;
     }
 
@@ -50,5 +59,21 @@ public class JourneyOption implements Serializable {
 
     public void setOfferitems(List<OfferItem> offeritems) {
         this.offeritems = offeritems;
+    }
+
+    public RunwayItem getRunway() {
+        return runway;
+    }
+
+    public void setRunway(RunwayItem runway) {
+        this.runway = runway;
+    }
+
+    public OfferPrice getPricing() {
+        return pricing;
+    }
+
+    public void setPricing(OfferPrice pricing) {
+        this.pricing = pricing;
     }
 }
