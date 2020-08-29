@@ -36,7 +36,9 @@ public class Offer implements Serializable {
         for (OfferItem item : offeritems) {
             array.put(item.toJson());
         }
-        obj.put("pricing", pricing.toJson());
+        if (pricing != null) {
+            obj.put("pricing", pricing.toJson());
+        }
         JSONArray taxArray = new JSONArray();
         for (Tax tax : taxes) {
             taxArray.put(tax.toJson());

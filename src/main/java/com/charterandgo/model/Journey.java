@@ -19,6 +19,7 @@ public class Journey implements Serializable {
     private String manufacturer;
     private String model;
     private String date;
+    private String time;
     private String departuretime;
     private String arrivaltime;
 
@@ -171,5 +172,13 @@ public class Journey implements Serializable {
 
     public void setArrivaltime(String arrivaltime) {
         this.arrivaltime = arrivaltime;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 }

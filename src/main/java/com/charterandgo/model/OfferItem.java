@@ -70,11 +70,15 @@ public class OfferItem implements Serializable {
         }
         obj.put("crews", array);
         JSONArray costArray = new JSONArray();
-        for (Cost cost : costs) {
-            costArray.put(cost.toJson());
+        if (!costs.isEmpty()) {
+            for (Cost cost : costs) {
+                costArray.put(cost.toJson());
+            }
+            obj.put("costs", costArray);
         }
-        obj.put("costs", costArray);
-        obj.put("price", price.toJson());
+        if (price != null) {
+            obj.put("price", price.toJson());
+        }
         return obj;
     }
 
