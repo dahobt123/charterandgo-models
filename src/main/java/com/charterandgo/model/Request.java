@@ -77,4 +77,12 @@ public class Request implements Serializable {
     public void setFlightattendant(String flightattendant) {
         this.flightattendant = flightattendant;
     }
+
+    public List<Aircraft> getAircraft() {
+        return this.aircraft;
+    }
+
+    public void setAircraft(List<Aircraft> aircraft) {
+        this.aircraft = aircraft;
+    }
 }
