@@ -8,30 +8,29 @@ public class AircraftCosts {
 
     }
 
+    private int id;
+    private String charterSupplierId;
     private String tailNumber;
     private String make;
     private String model;
     private String ioacCode;
+    private int expectedLife;
     private BigDecimal utilization = new BigDecimal("0.00");
-    private BigDecimal maintenanceLabor = new BigDecimal("0.00");
-    private BigDecimal partsAirframeEngineAvionics = new BigDecimal("0.00");
-    private BigDecimal engineOverhaulReserve = new BigDecimal("0.00");
-    private BigDecimal otherOverhaulReserve = new BigDecimal("0.00");
+    private BigDecimal softwareMaintenance = new BigDecimal("0.00");
+    private BigDecimal hardwareMaintenance = new BigDecimal("0.00");
+    private BigDecimal faaMandatesAnnual = new BigDecimal("0.00");
+    private BigDecimal totalValueOfAircraft = new BigDecimal("0.00");
     private BigDecimal downPayment = new BigDecimal("0.00");
     private BigDecimal loanPayments = new BigDecimal("0.00");
     private BigDecimal insuranceHull = new BigDecimal("0.00");
     private BigDecimal insuranceLiability = new BigDecimal("0.00");
-    private BigDecimal hangarFees = new BigDecimal("0.00");
-    private BigDecimal parkingFees = new BigDecimal("0.00");
-    private BigDecimal navCharts = new BigDecimal("0.00");
-    private BigDecimal fltPlanningServices = new BigDecimal("0.00");
-    private BigDecimal otherSubscriptions = new BigDecimal("0.00");
-    private BigDecimal aircraftCleaning = new BigDecimal("0.00");
-    private BigDecimal aircraftImprovements = new BigDecimal("0.00");
-    private BigDecimal groundCrew = new BigDecimal("0.00");
-    private BigDecimal otherSoftwareServices = new BigDecimal("0.00");
-    private BigDecimal softwareMaintenance = new BigDecimal("0.00");
-    private BigDecimal hardwareMaintenance = new BigDecimal("0.00");
+    private BigDecimal aircraftInteriorImprovements = new BigDecimal("0.00");
+    private BigDecimal maintenanceLabor = new BigDecimal("0.00");
+    private BigDecimal partsAirframeEngineAvionics = new BigDecimal("0.00");
+    private BigDecimal engineOverhaulReserve = new BigDecimal("0.00");
+    private BigDecimal apuOverhaulReserve = new BigDecimal("0.00");
+    private BigDecimal transmissionOverhaulReserve = new BigDecimal("0.00");
+    private BigDecimal faaMandates = new BigDecimal("0.00");
 
     public String getTailNumber() {
         return tailNumber;
@@ -97,14 +96,6 @@ public class AircraftCosts {
         this.engineOverhaulReserve = engineOverhaulReserve;
     }
 
-    public BigDecimal getOtherOverhaulReserve() {
-        return otherOverhaulReserve;
-    }
-
-    public void setOtherOverhaulReserve(BigDecimal otherOverhaulReserve) {
-        this.otherOverhaulReserve = otherOverhaulReserve;
-    }
-
     public BigDecimal getDownPayment() {
         return downPayment;
     }
@@ -137,78 +128,6 @@ public class AircraftCosts {
         this.insuranceLiability = insuranceLiability;
     }
 
-    public BigDecimal getHangarFees() {
-        return hangarFees;
-    }
-
-    public void setHangarFees(BigDecimal hangarFees) {
-        this.hangarFees = hangarFees;
-    }
-
-    public BigDecimal getParkingFees() {
-        return parkingFees;
-    }
-
-    public void setParkingFees(BigDecimal parkingFees) {
-        this.parkingFees = parkingFees;
-    }
-
-   public BigDecimal getNavCharts() {
-        return navCharts;
-    }
-
-    public void setNavCharts(BigDecimal navCharts) {
-        this.navCharts = navCharts;
-    }
-
-    public BigDecimal getFltPlanningServices() {
-        return fltPlanningServices;
-    }
-
-    public void setFltPlanningServices(BigDecimal fltPlanningServices) {
-        this.fltPlanningServices = fltPlanningServices;
-    }
-
-    public BigDecimal getOtherSubscriptions() {
-        return otherSubscriptions;
-    }
-
-    public void setOtherSubscriptions(BigDecimal otherSubscriptions) {
-        this.otherSubscriptions = otherSubscriptions;
-    }
-
-    public BigDecimal getAircraftCleaning() {
-        return aircraftCleaning;
-    }
-
-    public void setAircraftCleaning(BigDecimal aircraftCleaning) {
-        this.aircraftCleaning = aircraftCleaning;
-    }
-
-    public BigDecimal getAircraftImprovements() {
-        return aircraftImprovements;
-    }
-
-    public void setAircraftImprovements(BigDecimal aircraftImprovements) {
-        this.aircraftImprovements = aircraftImprovements;
-    }
-
-    public BigDecimal getGroundCrew() {
-        return groundCrew;
-    }
-
-    public void setGroundCrew(BigDecimal groundCrew) {
-        this.groundCrew = groundCrew;
-    }
-
-    public BigDecimal getOtherSoftwareServices() {
-        return otherSoftwareServices;
-    }
-
-    public void setOtherSoftwareServices(BigDecimal otherSoftwareServices) {
-        this.otherSoftwareServices = otherSoftwareServices;
-    }
-
     public BigDecimal getSoftwareMaintenance() {
         return softwareMaintenance;
     }
@@ -223,5 +142,77 @@ public class AircraftCosts {
 
     public void setHardwareMaintenance(BigDecimal hardwareMaintenance) {
         this.hardwareMaintenance = hardwareMaintenance;
+    }
+
+    public String getCharterSupplierId() {
+        return charterSupplierId;
+    }
+
+    public void setCharterSupplierId(String charterSupplierId) {
+        this.charterSupplierId = charterSupplierId;
+    }
+
+    public int getExpectedLife() {
+        return expectedLife;
+    }
+
+    public void setExpectedLife(int expectedLife) {
+        this.expectedLife = expectedLife;
+    }
+
+    public BigDecimal getFaaMandatesAnnual() {
+        return faaMandatesAnnual;
+    }
+
+    public void setFaaMandatesAnnual(BigDecimal faaMandatesAnnual) {
+        this.faaMandatesAnnual = faaMandatesAnnual;
+    }
+
+    public BigDecimal getTotalValueOfAircraft() {
+        return totalValueOfAircraft;
+    }
+
+    public void setTotalValueOfAircraft(BigDecimal totalValueOfAircraft) {
+        this.totalValueOfAircraft = totalValueOfAircraft;
+    }
+
+    public BigDecimal getAircraftInteriorImprovements() {
+        return aircraftInteriorImprovements;
+    }
+
+    public void setAircraftInteriorImprovements(BigDecimal aircraftInteriorImprovements) {
+        this.aircraftInteriorImprovements = aircraftInteriorImprovements;
+    }
+
+    public BigDecimal getApuOverhaulReserve() {
+        return apuOverhaulReserve;
+    }
+
+    public void setApuOverhaulReserve(BigDecimal apuOverhaulReserve) {
+        this.apuOverhaulReserve = apuOverhaulReserve;
+    }
+
+    public BigDecimal getTransmissionOverhaulReserve() {
+        return transmissionOverhaulReserve;
+    }
+
+    public void setTransmissionOverhaulReserve(BigDecimal transmissionOverhaulReserve) {
+        this.transmissionOverhaulReserve = transmissionOverhaulReserve;
+    }
+
+    public BigDecimal getFaaMandates() {
+        return faaMandates;
+    }
+
+    public void setFaaMandates(BigDecimal faaMandates) {
+        this.faaMandates = faaMandates;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
