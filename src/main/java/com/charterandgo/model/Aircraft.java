@@ -1,6 +1,7 @@
 package com.charterandgo.model;
 
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.Serializable;
@@ -43,6 +44,20 @@ public class Aircraft implements Serializable {
 
     public JSONObject toJson() {
         JSONObject obj = new JSONObject();
+        obj.put("nnumber", nnumber);
+        obj.put("ageofaircraft", ageofaircraft);
+        obj.put("manufacturer", manufacturer);
+        obj.put("model", model);
+        obj.put("enginetype", enginetype);
+        obj.put("numberofengines", numberofengines);
+        obj.put("galley", galley);
+        obj.put("head", head);
+        obj.put("numberofpax", numberofpax);
+        JSONArray media = new JSONArray();
+        for (RichMedia item : richmedia) {
+            media.put(item.toJson());
+        }
+        obj.put("richmedia", media);
         return obj;
     }
 

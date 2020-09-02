@@ -101,4 +101,20 @@ public class CabinCosts {
     public void setCharterSupplierId(String charterSupplierId) {
         this.charterSupplierId = charterSupplierId;
     }
+
+    public BigDecimal getPilotUtilization() {
+        return pilotUtilization;
+    }
+
+    public void setPilotUtilization(BigDecimal pilotUtilization) {
+        this.pilotUtilization = pilotUtilization;
+    }
+
+    public BigDecimal getAircraftCleaning() {
+        return aircraftCleaning;
+    }
+
+    public void setAircraftCleaning(BigDecimal aircraftCleaning) {
+        this.aircraftCleaning = aircraftCleaning;
+    }
 }

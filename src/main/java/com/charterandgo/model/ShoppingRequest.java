@@ -33,7 +33,7 @@ public class ShoppingRequest implements Serializable {
         JSONObject obj = new JSONObject();
         obj.put("context", context.toJson());
         obj.put("commonParms", commonParms.toJson());
-        obj.put("request", request.toJson());
+        obj.put("responseMessage", request.toJson());
         return obj;
     }
 

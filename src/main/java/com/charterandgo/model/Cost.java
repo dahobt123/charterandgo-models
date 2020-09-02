@@ -8,22 +8,22 @@ import java.math.BigDecimal;
 public class Cost implements Serializable {
 
     private String costtype;
-    private BigDecimal priceamount;
-    private String pricecurrency;
+    private BigDecimal costamount;
+    private String costcurrency;
 
     public Cost() {
 
     }
 
     public String toString() {
-        return costtype + "-" + priceamount + "-" + pricecurrency;
+        return costtype + "-" + costamount + "-" + costcurrency;
     }
 
     public JSONObject toJson() {
         JSONObject obj = new JSONObject();
         obj.put("costtype", costtype);
-        obj.put("priceamount", priceamount);
-        obj.put("pricecurrency", pricecurrency);
+        obj.put("priceamount", costamount);
+        obj.put("pricecurrency", costcurrency);
         return obj;
     }
 
@@ -35,19 +35,19 @@ public class Cost implements Serializable {
         this.costtype = costtype;
     }
 
-    public BigDecimal getPriceamount() {
-        return priceamount;
+    public BigDecimal getCostamount() {
+        return costamount;
     }
 
-    public void setPriceamount(BigDecimal priceamount) {
-        this.priceamount = priceamount;
+    public void setCostamount(BigDecimal costamount) {
+        this.costamount = costamount;
     }
 
-    public String getPricecurrency() {
-        return pricecurrency;
+    public String getCostcurrency() {
+        return costcurrency;
     }
 
-    public void setPricecurrency(String pricecurrency) {
-        this.pricecurrency = pricecurrency;
+    public void setCostcurrency(String costcurrency) {
+        this.costcurrency = costcurrency;
     }
 }

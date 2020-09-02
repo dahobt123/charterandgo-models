@@ -18,6 +18,7 @@ public class Offer implements Serializable {
     public Offer() {
 
     }
+
     public String toString() {
         StringBuilder builder = new StringBuilder();
         builder.append(offerId + "-");
@@ -77,5 +78,13 @@ public class Offer implements Serializable {
 
     public void setPricing(OfferPrice pricing) {
         this.pricing = pricing;
+    }
+
+    public void setTaxes(List<Tax> taxList) {
+        this.taxes = taxList;
+    }
+
+    public List<Tax> getTaxes() {
+        return taxes;
     }
 }

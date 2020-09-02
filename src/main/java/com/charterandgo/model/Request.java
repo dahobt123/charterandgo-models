@@ -4,12 +4,14 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Request implements Serializable {
 
     private String flightattendant;
+    private BigDecimal totalspend;
     private List<Journey> journey = new ArrayList<>();
     private List<Offer> options = new ArrayList<>();
     private List<Aircraft> aircraft = new ArrayList<>();
@@ -21,6 +23,7 @@ public class Request implements Serializable {
     public JSONObject toJson() {
         JSONObject obj = new JSONObject();
         JSONArray array = new JSONArray();
+        obj.put("totalspend", totalspend);
         obj.put("flightattendant", flightattendant);
         obj.put("journey", array);
         for (Journey jrny : journey) {
@@ -47,8 +50,10 @@ public class Request implements Serializable {
     public String toString() {
         System.out.println("In DetailRequest.toString");
         StringBuilder builder = new StringBuilder();
+        builder.append(totalspend + "-");
+        builder.append(flightattendant + "-");
         for (Journey req : journey) {
-            builder.append(req.toString() + "\n");
+            builder.append(req.toString() + "-");
         }
         return builder.toString();
     }
@@ -84,5 +89,13 @@ public class Request implements Serializable {
 
     public void setAircraft(List<Aircraft> aircraft) {
         this.aircraft = aircraft;
+    }
+
+    public BigDecimal getTotalspend() {
+        return totalspend;
+    }
+
+    public void setTotalspend(BigDecimal totalspend) {
+        this.totalspend = totalspend;
     }
 }
