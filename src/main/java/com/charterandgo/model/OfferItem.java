@@ -1,5 +1,6 @@
 package com.charterandgo.model;
 
+import com.charterandgo.charterhelpers.DateHelper;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -63,6 +64,12 @@ public class OfferItem implements Serializable {
         obj.put("segmentstatus", segmentstatus);
         obj.put("mileage", mileage);
         obj.put("nnumber", nnumber);
+        if (departuretimestamp != null) {
+            obj.put("departuretimestamp", DateHelper.formatIsoTimestamp(departuretimestamp));
+        }
+        if (arrivaltimestamp != null) {
+            obj.put("arrivaltimestamp", DateHelper.formatIsoTimestamp(arrivaltimestamp));
+        }
         obj.put("chartersupplierid", chartersupplierid);
         obj.put("traveltimeminutes", traveltimeminutes);
         obj.put("suppliertype", suppliertype);

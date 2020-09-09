@@ -86,11 +86,11 @@ public class ShoppingRequest implements Serializable {
         this.context = context;
     }
 
-    public Request getDetailRequest() {
+    public Request getDetailrequest() {
         return request;
     }
 
-    public void setDetailRequest(Request request) {
+    public void setDetailrequest(Request request) {
         this.request = request;
     }
 
@@ -101,11 +101,11 @@ public class ShoppingRequest implements Serializable {
         return builder.toString();
     }
 
-    public CommonParms getCommonParams() {
+    public CommonParms getCommonParms() {
         return commonParms;
     }
 
-    public void setCommonParams(CommonParms commonParms) {
+    public void setCommonParms(CommonParms commonParms) {
         this.commonParms = commonParms;
     }
 

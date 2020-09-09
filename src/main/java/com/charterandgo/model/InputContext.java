@@ -7,6 +7,7 @@ import java.io.Serializable;
 public class InputContext implements Serializable {
 
     private String domainName;
+    private String client;
     private String language;
     private String transactionid;
     private String securityToken;
@@ -19,6 +20,9 @@ public class InputContext implements Serializable {
         JSONObject obj = new JSONObject();
         obj.put("domainName", domainName);
         obj.put("language", language);
+        if (client != null) {
+            obj.put("client", client);
+        }
         obj.put("transactionid", transactionid);
         obj.put("securityToken", securityToken);
         return obj;
@@ -59,5 +63,12 @@ public class InputContext implements Serializable {
 
     public void setSecurityToken(String securityToken) {
         this.securityToken = securityToken;
+    }
+    public String getClient() {
+        return client;
+    }
+
+    public void setClient(String client) {
+        this.client = client;
     }
 }
