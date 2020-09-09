@@ -11,7 +11,7 @@ import java.util.List;
 
 public class OfferItem implements Serializable {
 
-    private int itemId;
+    private int offeritemid;
     private String suppliertype;
     private String originairportcode;
     private String originfboid;
@@ -22,7 +22,7 @@ public class OfferItem implements Serializable {
     private BigDecimal mileage;
     private String segmentstatus;
     private String nnumber;
-    private String chartersupplierid;
+    private int chartersupplierid;
     private int traveltimeminutes;
     private String triptype;
     private String crewstatus;
@@ -37,21 +37,25 @@ public class OfferItem implements Serializable {
 
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        builder.append(itemId + "-");
-        builder.append(originairportcode + "-");
-        builder.append(destinationairportcode + "-");
-        builder.append(segmentstatus + "-");
-        builder.append(mileage + "-");
-        builder.append(nnumber + "-");
-        builder.append(chartersupplierid + "-");
+        builder.append(offeritemid + "/");
+        builder.append(originairportcode + "/");
+        builder.append(destinationairportcode + "/");
+        builder.append(segmentstatus + "/");
+        builder.append(mileage + "/");
+        builder.append(nnumber + "/");
+        if (chartersupplierid != 0) {
+            builder.append(chartersupplierid + "/");
+        }
         builder.append(traveltimeminutes + "-");
-        builder.append(price.toString());
+        if (price != null) {
+            builder.append(price.toString());
+        }
         return builder.toString();
     }
 
     public JSONObject toJson() {
         JSONObject obj = new JSONObject();
-        obj.put("itemId",itemId);
+        obj.put("offeritemid", offeritemid);
         obj.put("originairportcode", originairportcode);
         obj.put("originfboid", originfboid);
         obj.put("destinationairportcode", destinationairportcode);
@@ -82,12 +86,12 @@ public class OfferItem implements Serializable {
         return obj;
     }
 
-    public int getItemId() {
-        return itemId;
+    public int getOfferitemid() {
+        return offeritemid;
     }
 
-    public void setItemId(int itemId) {
-        this.itemId = itemId;
+    public void setOfferitemid(int offeritemid) {
+        this.offeritemid = offeritemid;
     }
 
     public String getOriginairportcode() {
@@ -130,11 +134,11 @@ public class OfferItem implements Serializable {
         this.nnumber = nnumber;
     }
 
-    public String getChartersupplierid() {
+    public int getChartersupplierid() {
         return chartersupplierid;
     }
 
-    public void setChartersupplierid(String chartersupplierid) {
+    public void setChartersupplierid(int chartersupplierid) {
         this.chartersupplierid = chartersupplierid;
     }
 

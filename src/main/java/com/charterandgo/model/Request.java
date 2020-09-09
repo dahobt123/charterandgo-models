@@ -12,6 +12,7 @@ public class Request implements Serializable {
 
     private String flightattendant;
     private BigDecimal totalspend;
+    private int numberofpax;
     private List<Journey> journey = new ArrayList<>();
     private List<Offer> options = new ArrayList<>();
     private List<Aircraft> aircraft = new ArrayList<>();
@@ -24,13 +25,13 @@ public class Request implements Serializable {
         JSONObject obj = new JSONObject();
         JSONArray array = new JSONArray();
         obj.put("totalspend", totalspend);
+        obj.put("numberofpax", numberofpax);
         obj.put("flightattendant", flightattendant);
         obj.put("journey", array);
         for (Journey jrny : journey) {
             array.put(jrny.toJson());
         }
         if (options.size() > 0) {
-            System.out.println("In options toJSon");
             JSONArray optArray = new JSONArray();
             obj.put("options", optArray);
             for (Offer option : options) {
@@ -48,12 +49,18 @@ public class Request implements Serializable {
     }
 
     public String toString() {
-        System.out.println("In DetailRequest.toString");
         StringBuilder builder = new StringBuilder();
-        builder.append(totalspend + "-");
-        builder.append(flightattendant + "-");
+        builder.append(totalspend + "/");
+        builder.append(flightattendant + "/");
+        builder.append(numberofpax + "/");
         for (Journey req : journey) {
-            builder.append(req.toString() + "-");
+            builder.append(req.toString() + "/");
+        }
+        for (Offer offer : options) {
+            builder.append(offer.toString());
+        }
+        for (Aircraft ac : aircraft) {
+            builder.append(ac.toString());
         }
         return builder.toString();
     }
@@ -91,11 +98,19 @@ public class Request implements Serializable {
         this.aircraft = aircraft;
     }
 
-    public BigDecimal getTotalspend() {
+    public BigDecimal gettotalspend() {
         return totalspend;
     }
 
-    public void setTotalspend(BigDecimal totalspend) {
+    public void settotalspend(BigDecimal totalspend) {
         this.totalspend = totalspend;
+    }
+
+    public int getnumberofpax() {
+        return numberofpax;
+    }
+
+    public void setnumberofpax(int numberofpax) {
+        this.numberofpax = numberofpax;
     }
 }

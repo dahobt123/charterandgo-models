@@ -1,5 +1,6 @@
 package com.charterandgo.model;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.Serializable;
@@ -31,9 +32,49 @@ public class ShoppingRequest implements Serializable {
 
     public JSONObject toJson() {
         JSONObject obj = new JSONObject();
+        if (chartersupplierid != null) {
+            obj.put("chartersupplierid", chartersupplierid);
+        }
+        if (galley != null) {
+            obj.put("galley", galley);
+        }
+        if (numberofpax != 0) {
+            obj.put("numberofpax", numberofpax);
+        }
+        if (head != null) {
+            obj.put("head", head);
+        }
+        if (headroominches != 0) {
+            obj.put("headroominches", headroominches);
+        }
+        if (flightattendant != null) {
+            obj.put("flightattendant", flightattendant);
+        }
+        if (ageofaircraft != null) {
+            obj.put("ageofaircraft", ageofaircraft);
+        }
+        if (pets != null) {
+            obj.put("pets", pets);
+        }
+        if (traveltype != null) {
+            obj.put("traveltype", traveltype);
+        }
+        if (currency != null) {
+            obj.put("currency", currency);
+        }
         obj.put("context", context.toJson());
         obj.put("commonParms", commonParms.toJson());
         obj.put("responseMessage", request.toJson());
+        JSONArray cargos1 = new JSONArray();
+        for (Cargo carg : cargos) {
+            cargos1.put(carg.toJson());
+        }
+        obj.put("cargo", cargos1);
+        JSONArray lugg = new JSONArray();
+        for (Luggage lug : luggage) {
+            lugg.put(lug.toJson());
+        }
+        obj.put("luggage", lugg);
         return obj;
     }
 
@@ -54,7 +95,6 @@ public class ShoppingRequest implements Serializable {
     }
 
     public String toString() {
-        System.out.println("In InputRequest.toString");
         StringBuilder builder = new StringBuilder();
         builder.append(context.toString() + "\n");
         builder.append(request.toString());

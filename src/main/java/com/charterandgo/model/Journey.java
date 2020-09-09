@@ -18,9 +18,9 @@ public class Journey implements Serializable {
     private String aircrafttype;
     private String manufacturer;
     private String model;
-    private String date;
-    private String time;
+    private String departuredate;
     private String departuretime;
+    private String arrivaldate;
     private String arrivaltime;
 
     public Journey() {
@@ -41,7 +41,7 @@ public class Journey implements Serializable {
         obj.put("aircrafttype", aircrafttype);
         obj.put("manufacturer", manufacturer);
         obj.put("model", model);
-        obj.put("date", date);
+        obj.put("departuredate", departuredate);
         obj.put("departuretime", getDeparturetime());
         obj.put("arrivaltime", getArrivaltime());
         return obj;
@@ -50,7 +50,7 @@ public class Journey implements Serializable {
     public String toString() {
         return originairportcode + "-" + origincity + "-" + originstate + "-" + origincountry + "-" +
                 destinationairportcode + "-" +  destinationcity + "-" + destinationstate + "-" + destinationcountry +
-                "-" + airporttype + "-"+ aircrafttype + "-" + manufacturer + "-" + model + "-" + date + "-" + departuretime + "-" +
+                "-" + airporttype + "-"+ aircrafttype + "-" + manufacturer + "-" + model + "-" + departuredate + "-" + departuretime + "-" +
                 arrivaltime + "\n";
     }
 
@@ -100,14 +100,6 @@ public class Journey implements Serializable {
 
     public void setDestinationstate(String destinationstate) {
         this.destinationstate = destinationstate;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
     }
 
     public String getAirporttype() {
@@ -174,11 +166,19 @@ public class Journey implements Serializable {
         this.arrivaltime = arrivaltime;
     }
 
-    public String getTime() {
-        return time;
+    public String getDeparturedate() {
+        return departuredate;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public void setDeparturedate(String departuredate) {
+        this.departuredate = departuredate;
+    }
+
+    public String getArrivaldate() {
+        return arrivaldate;
+    }
+
+    public void setArrivaldate(String arrivaldate) {
+        this.arrivaldate = arrivaldate;
     }
 }

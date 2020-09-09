@@ -21,7 +21,7 @@ public class PaxRequest {
     private String tailNumber;
     private String make;
     private String model;
-    private String charterId;
+    private int charterId;
     private RunwayInfo runwayInfo;
     private AirportInfo airportInfo;
     private AirportFacilitiesInfo airportFacilitiesInfo;
@@ -146,11 +146,11 @@ public class PaxRequest {
         this.model = model;
     }
 
-    public String getCharterId() {
+    public int getCharterId() {
         return charterId;
     }
 
-    public void setCharterId(String charterId) {
+    public void setCharterId(int charterId) {
         this.charterId = charterId;
     }
 

@@ -26,7 +26,6 @@ public class InputContext implements Serializable {
     }
 
     public String toString() {
-        System.out.println("In InputContext.toString");
         return domainName + "-" + language + "-" + transactionid + "-" + securityToken + "\n";
     }
 

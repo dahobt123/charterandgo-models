@@ -10,13 +10,14 @@ public class Tax implements Serializable {
     private String taxtype;
     private BigDecimal taxamount;
     private String taxcurrency;
+    private boolean isFee;
 
     public Tax() {
 
     }
 
     public String toString() {
-        return taxtype + "-" + taxamount + "-" + taxcurrency;
+        return taxtype + "/" + taxamount + "/" + taxcurrency + "/" + isFee;
     }
 
     public JSONObject toJson() {
@@ -49,5 +50,13 @@ public class Tax implements Serializable {
 
     public void setTaxcurrency(String taxcurrency) {
         this.taxcurrency = taxcurrency;
+    }
+
+    public boolean isFee() {
+        return isFee;
+    }
+
+    public void setFee(boolean fee) {
+        isFee = fee;
     }
 }

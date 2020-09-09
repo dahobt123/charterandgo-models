@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Offer implements Serializable {
 
-    private int offerId;
+    private int offerid;
     private List<OfferItem> offeritems = new ArrayList<>();
     private OfferPrice pricing;
     private RunwayItem runway;
@@ -21,17 +21,19 @@ public class Offer implements Serializable {
 
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        builder.append(offerId + "-");
+        builder.append(offerid + "-");
         for (OfferItem item : offeritems) {
             builder.append(item.toString() + "/");
         }
-        builder.append(runway.toString());
+        if (runway != null) {
+            builder.append(runway.toString());
+        }
         return builder.toString();
     }
 
     public JSONObject toJson() {
         JSONObject obj = new JSONObject();
-        obj.put("offerId", offerId);
+        obj.put("offerid", offerid);
         JSONArray array = new JSONArray();
         obj.put("offeritems", array);
         for (OfferItem item : offeritems) {
@@ -39,6 +41,9 @@ public class Offer implements Serializable {
         }
         if (pricing != null) {
             obj.put("pricing", pricing.toJson());
+        }
+        if (runway != null) {
+            obj.put("runway", runway.toJson());
         }
         JSONArray taxArray = new JSONArray();
         for (Tax tax : taxes) {
@@ -48,12 +53,12 @@ public class Offer implements Serializable {
         return obj;
     }
 
-    public int getOfferId() {
-        return offerId;
+    public int getOfferid() {
+        return offerid;
     }
 
-    public void setOfferId(int offerId) {
-        this.offerId = offerId;
+    public void setOfferid(int offerid) {
+        this.offerid = offerid;
     }
 
     public List<OfferItem> getOfferitems() {
