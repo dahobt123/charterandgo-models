@@ -7,120 +7,120 @@ import java.math.BigDecimal;
 
 public class RunwayItem implements Serializable {
 
-    private int runwayLength;
-    private int runwayWidth;
-    private String runwayObstacle;
-    private String runwaySurfaceTypeCondition;
-    private String runwaySurfaceTreatment;
-    private BigDecimal baseEndPhysicalElevation;
-    private String baseEndALS;
-    private BigDecimal runwayWeightBearingCapacitySW;
-    private BigDecimal runwayWeightBearingCapacityDW;
-    private BigDecimal runwayWeightBearingCapacityDT;
+    private int runwaylengthlb;
+    private int runwaywidthlb;
+    private String runwayobstaclelb;
+    private String runwaysurfacetypeconditionlb;
+    private String runwaysurfacetreatmentlb;
+    private BigDecimal baseendphysicalrlevationlb;
+    private String baseendalslb;
+    private BigDecimal runwayweightbearingcapacityswlb;
+    private BigDecimal runwayweightbearingcapacitydwlb;
+    private BigDecimal runwayweightbearingcapacitydtlb;
 
     public RunwayItem() {
 
     }
 
     public String toString() {
-        return Integer.toString(runwayLength) + "-" + Integer.toString(runwayWidth) + "-" +
-                runwayObstacle + "-" + runwaySurfaceTypeCondition + "-" + runwaySurfaceTreatment + "-" +
-                baseEndPhysicalElevation.toString() + "-" + baseEndALS + "-" + runwayWeightBearingCapacitySW.toString()
-                + "-" + runwayWeightBearingCapacityDW.toString() + "-" + runwayWeightBearingCapacityDT;
+        return Integer.toString(runwaylengthlb) + "-" + Integer.toString(runwaywidthlb) + "-" +
+                runwayobstaclelb + "-" + runwaysurfacetypeconditionlb + "-" + runwaysurfacetreatmentlb + "-" +
+                baseendphysicalrlevationlb + "-" + baseendalslb + "-" + runwayweightbearingcapacityswlb.toString()
+                + "-" + runwayweightbearingcapacitydwlb.toString() + "-" + runwayweightbearingcapacitydtlb;
     }
 
     public JSONObject toJson() {
         JSONObject obj = new JSONObject();
-        obj.put("runwayLength",runwayLength);
-        obj.put("runwayWidth",runwayWidth);
-        obj.put("runwayObstacle",runwayObstacle);
-        obj.put("runwaySurfaceTypeCondition",runwaySurfaceTypeCondition);
-        obj.put("runwaySurfaceTreatment",runwaySurfaceTreatment);
-        obj.put("baseEndPhysicalElevation",baseEndPhysicalElevation);
-        obj.put("baseEndALS",baseEndALS);
-        obj.put("runwayWeightBearingCapacitySW",runwayWeightBearingCapacitySW);
-        obj.put("runwayWeightBearingCapacityDW",runwayWeightBearingCapacityDW);
-        obj.put("runwayWeightBearingCapacityDT",runwayWeightBearingCapacityDT);
+        obj.put("runwaylengthlb", runwaylengthlb);
+        obj.put("runwaywidthlb", runwaywidthlb);
+        obj.put("runwayobstaclelb", runwayobstaclelb);
+        obj.put("runwaysurfacetypeconditionlb", runwaysurfacetypeconditionlb);
+        obj.put("runwaysurfacetreatmentlb", runwaysurfacetreatmentlb);
+        obj.put("baseendphysicalelevationlb", baseendphysicalrlevationlb);
+        obj.put("baseendalslb", baseendalslb);
+        obj.put("runwayweightbearingcapacityswlb", runwayweightbearingcapacityswlb);
+        obj.put("runwayweightbearingcapacitydwlb", runwayweightbearingcapacitydwlb);
+        obj.put("runwayweightbearingcapacitydtlb", runwayweightbearingcapacitydtlb);
         return obj;
     }
 
     public int getRunwayLength() {
-        return runwayLength;
+        return runwaylengthlb;
     }
 
     public void setRunwayLength(int runwayLength) {
-        this.runwayLength = runwayLength;
+        this.runwaylengthlb = runwayLength;
     }
 
-    public int getRunwayWidth() {
-        return runwayWidth;
+    public int getRunwaywidthlb() {
+        return runwaywidthlb;
     }
 
-    public void setRunwayWidth(int runwayWidth) {
-        this.runwayWidth = runwayWidth;
+    public void setRunwaywidthlb(int runwaywidthlb) {
+        this.runwaywidthlb = runwaywidthlb;
     }
 
-    public String getRunwayObstacle() {
-        return runwayObstacle;
+    public String getRunwayobstaclelb() {
+        return runwayobstaclelb;
     }
 
-    public void setRunwayObstacle(String runwayObstacle) {
-        this.runwayObstacle = runwayObstacle;
+    public void setRunwayobstaclelb(String runwayobstaclelb) {
+        this.runwayobstaclelb = runwayobstaclelb;
     }
 
-    public String getRunwaySurfaceTypeCondition() {
-        return runwaySurfaceTypeCondition;
+    public String getRunwaysurfacetypeconditionlb() {
+        return runwaysurfacetypeconditionlb;
     }
 
-    public void setRunwaySurfaceTypeCondition(String runwaySurfaceTypeCondition) {
-        this.runwaySurfaceTypeCondition = runwaySurfaceTypeCondition;
+    public void setRunwaysurfacetypeconditionlb(String runwaysurfacetypeconditionlb) {
+        this.runwaysurfacetypeconditionlb = runwaysurfacetypeconditionlb;
     }
 
-    public String getRunwaySurfaceTreatment() {
-        return runwaySurfaceTreatment;
+    public String getRunwaysurfacetreatmentlb() {
+        return runwaysurfacetreatmentlb;
     }
 
-    public void setRunwaySurfaceTreatment(String runwaySurfaceTreatment) {
-        this.runwaySurfaceTreatment = runwaySurfaceTreatment;
+    public void setRunwaysurfacetreatmentlb(String runwaysurfacetreatmentlb) {
+        this.runwaysurfacetreatmentlb = runwaysurfacetreatmentlb;
     }
 
-    public BigDecimal getBaseEndPhysicalElevation() {
-        return baseEndPhysicalElevation;
+    public BigDecimal getBaseendphysicalrlevationlb() {
+        return baseendphysicalrlevationlb;
     }
 
-    public void setBaseEndPhysicalElevation(BigDecimal baseEndPhysicalElevation) {
-        this.baseEndPhysicalElevation = baseEndPhysicalElevation;
+    public void setBaseendphysicalrlevationlb(BigDecimal baseendphysicalrlevationlb) {
+        this.baseendphysicalrlevationlb = baseendphysicalrlevationlb;
     }
 
-    public String getBaseEndALS() {
-        return baseEndALS;
+    public String getBaseendalslb() {
+        return baseendalslb;
     }
 
-    public void setBaseEndALS(String baseEndALS) {
-        this.baseEndALS = baseEndALS;
+    public void setBaseendalslb(String baseendalslb) {
+        this.baseendalslb = baseendalslb;
     }
 
-    public BigDecimal getRunwayWeightBearingCapacitySW() {
-        return runwayWeightBearingCapacitySW;
+    public BigDecimal getRunwayweightbearingcapacityswlb() {
+        return runwayweightbearingcapacityswlb;
     }
 
-    public void setRunwayWeightBearingCapacitySW(BigDecimal runwayWeightBearingCapacitySW) {
-        this.runwayWeightBearingCapacitySW = runwayWeightBearingCapacitySW;
+    public void setRunwayweightbearingcapacityswlb(BigDecimal runwayweightbearingcapacityswlb) {
+        this.runwayweightbearingcapacityswlb = runwayweightbearingcapacityswlb;
     }
 
-    public BigDecimal getRunwayWeightBearingCapacityDW() {
-        return runwayWeightBearingCapacityDW;
+    public BigDecimal getRunwayweightbearingcapacitydwlb() {
+        return runwayweightbearingcapacitydwlb;
     }
 
-    public void setRunwayWeightBearingCapacityDW(BigDecimal runwayWeightBearingCapacityDW) {
-        this.runwayWeightBearingCapacityDW = runwayWeightBearingCapacityDW;
+    public void setRunwayweightbearingcapacitydwlb(BigDecimal runwayweightbearingcapacitydwlb) {
+        this.runwayweightbearingcapacitydwlb = runwayweightbearingcapacitydwlb;
     }
 
-    public BigDecimal getRunwayWeightBearingCapacityDT() {
-        return runwayWeightBearingCapacityDT;
+    public BigDecimal getRunwayweightbearingcapacitydtlb() {
+        return runwayweightbearingcapacitydtlb;
     }
 
-    public void setRunwayWeightBearingCapacityDT(BigDecimal runwayWeightBearingCapacityDT) {
-        this.runwayWeightBearingCapacityDT = runwayWeightBearingCapacityDT;
+    public void setRunwayweightbearingcapacitydtlb(BigDecimal runwayweightbearingcapacitydtlb) {
+        this.runwayweightbearingcapacitydtlb = runwayweightbearingcapacitydtlb;
     }
 }
