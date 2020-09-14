@@ -25,8 +25,8 @@ public class RunwayItem implements Serializable {
     public String toString() {
         return Integer.toString(runwaylengthlb) + "-" + Integer.toString(runwaywidthlb) + "-" +
                 runwayobstaclelb + "-" + runwaysurfacetypeconditionlb + "-" + runwaysurfacetreatmentlb + "-" +
-                baseendphysicalrlevationlb + "-" + baseendalslb + "-" + runwayweightbearingcapacityswlb.toString()
-                + "-" + runwayweightbearingcapacitydwlb.toString() + "-" + runwayweightbearingcapacitydtlb;
+                baseendphysicalrlevationlb + "-" + baseendalslb + "-" + runwayweightbearingcapacityswlb
+                + "-" + runwayweightbearingcapacitydwlb + "-" + runwayweightbearingcapacitydtlb;
     }
 
     public JSONObject toJson() {
