@@ -1,6 +1,5 @@
 package com.charterandgo.model;
 
-import com.charterandgo.model.RunwayInfo;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -16,6 +15,7 @@ public class AirportInfo {
     private BigDecimal airportLongitude;
     private String state;
     private String city;
+    private int cityRating;
     private List<RunwayInfo> runways = new ArrayList<>();
     private List<AirportFacilitiesInfo> fbos = new ArrayList<>();
 
@@ -113,5 +113,13 @@ public class AirportInfo {
     }
     public void addFbo(AirportFacilitiesInfo info) {
         this.fbos.add(info);
+    }
+
+    public int getCityRating() {
+        return cityRating;
+    }
+
+    public void setCityRating(int cityRating) {
+        this.cityRating = cityRating;
     }
 }

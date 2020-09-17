@@ -1,5 +1,6 @@
 package com.charterandgo.model;
 
+
 import java.util.*;
 
 public class Inventory {
@@ -9,7 +10,7 @@ public class Inventory {
     private String homeBase;
     private String make;
     private String model;
-    private List<Capacities> capacities = new ArrayList<>();
+//    private List<Capacities> capacities = new ArrayList<>();
     private int turnaroudTime;
     private List<Segment> segments = new ArrayList<>();
     private boolean isAirShare;
@@ -65,13 +66,13 @@ public class Inventory {
         this.model = model;
     }
 
-    public List<Capacities> getCapacities() {
-        return capacities;
-    }
-
-    public void setCapacities(List<Capacities> capacities) {
-        this.capacities = capacities;
-    }
+//    public List<Capacities> getCapacities() {
+//        return capacities;
+//    }
+//
+//    public void setCapacities(List<Capacities> capacities) {
+//        this.capacities = capacities;
+//    }
 
     public int getTurnaroudTime() {
         return turnaroudTime;

@@ -10,8 +10,10 @@ public class PaxRequest {
     private String end;
     private String departCity;
     private String departState;
+    private String departIcaoCode;
     private String arriveCity;
     private String arriveState;
+    private int arriveCityRating;
     private String type;
     private Date departureTimestamp;
     private Date arrivalTimestamp;
@@ -176,6 +178,22 @@ public class PaxRequest {
 
     public void setAirportFacilitiesInfo(AirportFacilitiesInfo airportFacilitiesInfo) {
         this.airportFacilitiesInfo = airportFacilitiesInfo;
+    }
+
+    public String getDepartIcaoCode() {
+        return departIcaoCode;
+    }
+
+    public void setDepartIcaoCode(String departIcaoCode) {
+        this.departIcaoCode = departIcaoCode;
+    }
+
+    public int getArriveCityRating() {
+        return arriveCityRating;
+    }
+
+    public void setArriveCityRating(int arriveCityRating) {
+        this.arriveCityRating = arriveCityRating;
     }
 
 //    public RunwayInfo getRunwayInfo() {

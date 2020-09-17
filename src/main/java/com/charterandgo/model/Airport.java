@@ -16,6 +16,7 @@ public class Airport {
     private String county;
     private String city;
     private String countryCode;
+    private String icaoCode;
     private Date lastUpdated;
 
     public Airport() {
@@ -116,5 +117,13 @@ public class Airport {
 
     public void setLastUpdated(Date lastUpdated) {
         this.lastUpdated = lastUpdated;
+    }
+
+    public String getIcaoCode() {
+        return icaoCode;
+    }
+
+    public void setIcaoCode(String icaoCode) {
+        this.icaoCode = icaoCode;
     }
 }

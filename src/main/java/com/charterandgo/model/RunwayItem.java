@@ -7,6 +7,8 @@ import java.math.BigDecimal;
 
 public class RunwayItem implements Serializable {
 
+    private String runwayId;
+    private String runwayType;
     private int runwaylengthlb;
     private int runwaywidthlb;
     private String runwayobstaclelb;
@@ -122,5 +124,21 @@ public class RunwayItem implements Serializable {
 
     public void setRunwayweightbearingcapacitydtlb(BigDecimal runwayweightbearingcapacitydtlb) {
         this.runwayweightbearingcapacitydtlb = runwayweightbearingcapacitydtlb;
+    }
+
+    public String getRunwayId() {
+        return runwayId;
+    }
+
+    public void setRunwayId(String runwayId) {
+        this.runwayId = runwayId;
+    }
+
+    public String getRunwayType() {
+        return runwayType;
+    }
+
+    public void setRunwayType(String runwayType) {
+        this.runwayType = runwayType;
     }
 }

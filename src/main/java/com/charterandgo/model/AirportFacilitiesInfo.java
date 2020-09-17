@@ -30,6 +30,7 @@ public class AirportFacilitiesInfo {
     private int multiEngineGA;
     private int jetEngineGA;
     private int helicoptersGA;
+    private String icaoIdentifier;
 
     public AirportFacilitiesInfo() {
 
@@ -60,6 +61,7 @@ public class AirportFacilitiesInfo {
         obj.put("multiEngineGA", multiEngineGA);
         obj.put("jetEngineGA", jetEngineGA);
         obj.put("helicoptersGA", helicoptersGA);
+        obj.put("icaoIdentifier", icaoIdentifier);
         return obj;
     }
 
@@ -249,5 +251,13 @@ public class AirportFacilitiesInfo {
 
     public void setHelicoptersGA(int helicoptersGA) {
         this.helicoptersGA = helicoptersGA;
+    }
+
+    public String getIcaoIdentifier() {
+        return icaoIdentifier;
+    }
+
+    public void setIcaoIdentifier(String icaoIdentifier) {
+        this.icaoIdentifier = icaoIdentifier;
     }
 }

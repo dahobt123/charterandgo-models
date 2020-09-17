@@ -16,10 +16,12 @@ public class OfferItem implements Serializable {
     private String suppliertype;
     private String originairportcode;
     private String originfboid;
+    private String originicaocode;
     private String destinationairportcode;
     private String destinationfboid;
     private Date departuretimestamp;
     private Date arrivaltimestamp;
+    private int destinationcityrating;
     private BigDecimal mileage;
     private String segmentstatus;
     private String nnumber;
@@ -59,9 +61,11 @@ public class OfferItem implements Serializable {
         obj.put("offeritemid", offeritemid);
         obj.put("originairportcode", originairportcode);
         obj.put("originfboid", originfboid);
+        obj.put("originicaocode", originicaocode);
         obj.put("destinationairportcode", destinationairportcode);
         obj.put("destinationfboid", destinationfboid);
         obj.put("segmentstatus", segmentstatus);
+        obj.put("destinationcityrating", destinationcityrating);
         obj.put("mileage", mileage);
         obj.put("nnumber", nnumber);
         if (departuretimestamp != null) {
@@ -235,5 +239,21 @@ public class OfferItem implements Serializable {
 
     public void setPrice(Price price) {
         this.price = price;
+    }
+
+    public String getOriginicaocode() {
+        return originicaocode;
+    }
+
+    public void setOriginicaocode(String originicaocode) {
+        this.originicaocode = originicaocode;
+    }
+
+    public int getDestinationcityrating() {
+        return destinationcityrating;
+    }
+
+    public void setDestinationcityrating(int destinationcityrating) {
+        this.destinationcityrating = destinationcityrating;
     }
 }
