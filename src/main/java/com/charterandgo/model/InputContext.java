@@ -11,6 +11,13 @@ public class InputContext implements Serializable {
     private String language;
     private String transactionid;
     private String securityToken;
+    private String responsetype;
+    private String domain;
+    private String errormessage;
+    private int count;
+    private int returnCode;
+
+
 
     public InputContext() {
 
@@ -18,8 +25,12 @@ public class InputContext implements Serializable {
 
     public JSONObject toJson() {
         JSONObject obj = new JSONObject();
+        obj.put("count", count);
         obj.put("domainName", domainName);
+        obj.put("returncode",returnCode);
+        obj.put("responsetype",responsetype);
         obj.put("language", language);
+        obj.put("errormessage", errormessage);
         if (client != null) {
             obj.put("client", client);
         }
@@ -70,5 +81,45 @@ public class InputContext implements Serializable {
 
     public void setClient(String client) {
         this.client = client;
+    }
+
+    public String getResponsetype() {
+        return responsetype;
+    }
+
+    public void setResponsetype(String responsetype) {
+        this.responsetype = responsetype;
+    }
+
+    public String getDomain() {
+        return domain;
+    }
+
+    public void setDomain(String domain) {
+        this.domain = domain;
+    }
+
+    public String getErrormessage() {
+        return errormessage;
+    }
+
+    public void setErrormessage(String errormessage) {
+        this.errormessage = errormessage;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public int getReturnCode() {
+        return returnCode;
+    }
+
+    public void setReturnCode(int returnCode) {
+        this.returnCode = returnCode;
     }
 }
