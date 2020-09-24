@@ -7,7 +7,7 @@ import java.io.Serializable;
 public class Crew implements Serializable {
 
     private int pilotID;
-    private int profileID;
+    private int crewprofileid;
     private String firstName;
     private String lastName;
     private double maxHours;
@@ -15,6 +15,9 @@ public class Crew implements Serializable {
     private boolean isPilot;
     private int charterId;
     private String crewType;
+    private String crewStatus;
+    private String manufacturer;
+    private String model;
 
 
     public Crew() {
@@ -24,9 +27,9 @@ public class Crew implements Serializable {
         this.crewType = crewType;
     }
 
-    public Crew(int pilotID, int profileID, String firstName, String lastName, double maxHours, double accruingHours, boolean isPilot, int charterId, String crewType) {
+    public Crew(int pilotID, int crewprofileid, String firstName, String lastName, double maxHours, double accruingHours, boolean isPilot, int charterId, String crewType, String crewStatus) {
         this.pilotID = pilotID;
-        this.profileID = profileID;
+        this.crewprofileid = crewprofileid;
         this.firstName = firstName;
         this.lastName = lastName;
         this.maxHours = maxHours;
@@ -34,24 +37,54 @@ public class Crew implements Serializable {
         this.isPilot = isPilot;
         this.charterId = charterId;
         this.crewType = crewType;
+        this.crewStatus = crewStatus;
     }
 
-    public Crew(String crewType, int profileId, int charterId) {
+    public Crew(int pilotID, String firstName, String lastName, double maxHours, double accruingHours, boolean isPilot, int charterId, String crewType, String crewStatus) {
+        this.pilotID = pilotID;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.maxHours = maxHours;
+        this.accruingHours = accruingHours;
+        this.isPilot = isPilot;
+        this.charterId = charterId;
         this.crewType = crewType;
-        this.profileID = profileId;
+        this.crewStatus = crewStatus;
+    }
+
+    public Crew( String firstName, String lastName, double maxHours, double accruingHours, boolean isPilot, int charterId, String crewType, String crewStatus) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.maxHours = maxHours;
+        this.accruingHours = accruingHours;
+        this.isPilot = isPilot;
+        this.charterId = charterId;
+        this.crewType = crewType;
+        this.crewStatus = crewStatus;
+    }
+
+    public Crew(String crewType, int crewprofileid, int charterId) {
+        this.crewType = crewType;
+        this.crewprofileid = crewprofileid;
         this.charterId  = charterId;
     }
 
-    public Crew(int pilotID, String crewType) {
-        this.pilotID = pilotID;
+    public Crew(int crewprofileid, String crewType) {
+        this.crewprofileid = crewprofileid;
         this.crewType = crewType;
+    }
+
+    public Crew(int charterId,String manufacturer,String model){
+        this.charterId = charterId;
+        this.manufacturer = manufacturer;
+        this.model = model;
     }
 
     @Override
     public String toString() {
         return "Crew{" +
                 "pilotID=" + pilotID +
-                ", profileID=" + profileID +
+                ", crewprofileid=" + crewprofileid +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", maxHours=" + maxHours +
@@ -65,7 +98,7 @@ public class Crew implements Serializable {
     public JSONObject toJson() {
         JSONObject obj = new JSONObject();
         obj.put("crewtype", crewType);
-        obj.put("crewprofileid", profileID);
+        obj.put("crewprofileid", crewprofileid);
         return obj;
     }
 
@@ -77,12 +110,12 @@ public class Crew implements Serializable {
         this.pilotID = pilotID;
     }
 
-    public int getProfileID() {
-        return profileID;
+    public int getcrewprofileid() {
+        return crewprofileid;
     }
 
-    public void setProfileID(int profileID) {
-        this.profileID = profileID;
+    public void setcrewprofileid(int crewprofileid) {
+        this.crewprofileid = crewprofileid;
     }
 
     public String getFirstName() {
@@ -139,5 +172,38 @@ public class Crew implements Serializable {
 
     public void setCrewType(String crewType) {
         this.crewType = crewType;
+    }
+
+    public String getCrewStatus() {
+
+        return crewStatus;
+    }
+
+    public void setCrewStatus(String crewStatus) {
+        this.crewStatus = crewStatus;
+    }
+
+    public int getCrewprofileid() {
+        return crewprofileid;
+    }
+
+    public void setCrewprofileid(int crewprofileid) {
+        this.crewprofileid = crewprofileid;
+    }
+
+    public String getManufacturer() {
+        return manufacturer;
+    }
+
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer = manufacturer;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
     }
 }

@@ -25,6 +25,8 @@ public class OfferItem implements Serializable {
     private BigDecimal mileage;
     private String segmentstatus;
     private String nnumber;
+    private String manufacturer;
+    private String model;
     private int chartersupplierid;
     private int traveltimeminutes;
     private String triptype;
@@ -37,7 +39,7 @@ public class OfferItem implements Serializable {
     public OfferItem() {
 
     }
-
+@Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
         builder.append(offeritemid + "/");
@@ -143,6 +145,22 @@ public class OfferItem implements Serializable {
 
     public void setNnumber(String nnumber) {
         this.nnumber = nnumber;
+    }
+
+    public String getManufacturer() {
+        return manufacturer;
+    }
+
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer = manufacturer;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
     }
 
     public int getChartersupplierid() {

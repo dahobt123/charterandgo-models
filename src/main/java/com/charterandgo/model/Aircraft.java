@@ -24,7 +24,7 @@ public class Aircraft implements Serializable {
     public Aircraft() {
 
     }
-
+@Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
         builder.append(getNnumber() + "-");
@@ -140,4 +140,6 @@ public class Aircraft implements Serializable {
     public void setRichmedia(List<RichMedia> richmedia) {
         this.richmedia = richmedia;
     }
+
+
 }
