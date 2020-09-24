@@ -23,14 +23,14 @@ public class Request implements Serializable {
 
     public JSONObject toJson() {
         JSONObject obj = new JSONObject();
-        JSONArray array = new JSONArray();
-        obj.put("totalspend", totalspend);
-        obj.put("numberofpax", numberofpax);
-        obj.put("flightattendant", flightattendant);
-        obj.put("journey", array);
-        for (Journey jrny : journey) {
-            array.put(jrny.toJson());
-        }
+//        JSONArray array = new JSONArray();
+//        obj.put("totalspend", totalspend);
+//        obj.put("numberofpax", numberofpax);
+//        obj.put("flightattendant", flightattendant);
+//        obj.put("journey", array);
+//        for (Journey jrny : journey) {
+//            array.put(jrny.toJson());
+//        }
         if (options.size() > 0) {
             JSONArray optArray = new JSONArray();
             obj.put("options", optArray);
@@ -38,13 +38,13 @@ public class Request implements Serializable {
                 optArray.put(option.toJson());
             }
         }
-        if (aircraft.size() > 0) {
-            JSONArray airArray = new JSONArray();
-            for (Aircraft aircraft : aircraft) {
-                airArray.put(aircraft.toJson());
-            }
-            obj.put("aircraft", airArray);
-        }
+//        if (aircraft.size() > 0) {
+//            JSONArray airArray = new JSONArray();
+//            for (Aircraft aircraft : aircraft) {
+//                airArray.put(aircraft.toJson());
+//            }
+//            obj.put("aircraft", airArray);
+//        }
         return obj;
     }
 

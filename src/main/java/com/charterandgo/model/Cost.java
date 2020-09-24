@@ -22,8 +22,8 @@ public class Cost implements Serializable {
     public JSONObject toJson() {
         JSONObject obj = new JSONObject();
         obj.put("costtype", costtype);
-        obj.put("priceamount", costamount);
-        obj.put("pricecurrency", costcurrency);
+        obj.put("costamount", costamount);
+        obj.put("costcurrency", costcurrency);
         return obj;
     }
 

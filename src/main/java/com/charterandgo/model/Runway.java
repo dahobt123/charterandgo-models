@@ -1,5 +1,7 @@
 package com.charterandgo.model;
 
+import org.json.JSONObject;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -139,6 +141,147 @@ public class Runway {
     private String reciprocalEndLandingDistanceAvailableLAHSOCoordSrc;
     private String reciprocalEndLandingDistanceAvailableLAHSOCoordSrcDate;
     private Date lastUpdated;
+
+    public Runway() {
+
+    }
+
+    public JSONObject toJson() {
+        JSONObject obj = new JSONObject();
+        obj.put("runwayId", runwayId);
+        obj.put("runwayLength", runwayLength);
+        obj.put("runwayWidth",runwayWidth );
+        obj.put("runwaySurfaceCond", runwaySurfaceCond);
+        obj.put("runwaySurfaceTreatment", runwaySurfaceTreatment);
+        obj.put("pavementClass", pavementClass);
+        obj.put("edgeLightsIntensity", edgeLightsIntensity);
+        obj.put("baseEndId", baseEndId);
+        obj.put("baseEndTrueAlignment", baseEndTrueAlignment);
+        obj.put("baseEndILSType", baseEndILSType);
+        obj.put("baseEndRightTrafficPattern", baseEndRightTrafficPattern);
+        obj.put("baseEndMarkingsType", baseEndMarkingsType);
+        obj.put("baseEndMarkingsCondition", baseEndMarkingsCondition);
+        obj.put("baseEndPhysicalLat", baseEndPhysicalLat);
+        obj.put("baseEndPhysicalLatS", baseEndPhysicalLatS);
+        obj.put("baseEndPhysicalLong", baseEndPhysicalLong);
+        obj.put("baseEndPhysicalLongS", baseEndPhysicalLongS);
+        obj.put("baseEndPhysicalElevation", baseEndPhysicalElevation);
+        obj.put("baseEndCrossingHeight", baseEndCrossingHeight);
+        obj.put("baseEndGlidePathAngle", baseEndGlidePathAngle);
+        obj.put("baseEndDisplacedLat", baseEndDisplacedLat);
+        obj.put("baseEndDisplacedLatS", baseEndDisplacedLatS);
+        obj.put("baseEndDisplacedLong", baseEndDisplacedLong);
+        obj.put("baseEndDisplacedLongS", baseEndDisplacedLongS);
+        obj.put("baseEndDisplacedElevation", baseEndDisplacedElevation);
+        obj.put("baseEndDisplacedLength", baseEndDisplacedLength);
+        obj.put("baseEndTDZElevation", baseEndTDZElevation);
+        obj.put("baseEndVASI",baseEndVASI );
+        obj.put("baseEndRVR", baseEndRVR);
+        obj.put("baseEndRVV", baseEndRVV);
+        obj.put("baseEndALS", baseEndALS);
+        obj.put("baseEndREIL", baseEndREIL);
+        obj.put("baseEndCenterlineLights", baseEndCenterlineLights);
+        obj.put("baseEndTouchdownLights", baseEndTouchdownLights);
+        obj.put("baseEndObjectDesc", baseEndObjectDesc);
+        obj.put("baseEndObjectMarkLight", baseEndObjectMarkLight);
+        obj.put("baseEndPart77Category", baseEndPart77Category);
+        obj.put("baseEndObjectClearSlope", baseEndObjectClearSlope);
+        obj.put("baseEndObjectHeight", baseEndObjectHeight);
+        obj.put("baseEndObjectDistance", baseEndObjectDistance);
+        obj.put("baseEndObjectOffset", baseEndObjectOffset);
+        obj.put("reciprocalEndID", reciprocalEndID);
+        obj.put("reciprocalEndTrueAlignment", reciprocalEndTrueAlignment);
+        obj.put("recipricolEndILSType", recipricolEndILSType);
+        obj.put("reciprocalEndRightTrafficPattern", reciprocalEndRightTrafficPattern);
+        obj.put("reciprocalEndMarkingsType", reciprocalEndMarkingsType);
+        obj.put("reciprocalEndMarkingsCondition", reciprocalEndMarkingsCondition);
+        obj.put("reciprocalEndPhysicalLat", reciprocalEndPhysicalLat);
+        obj.put("reciprocalEndPhysicalLatS", reciprocalEndPhysicalLatS);
+        obj.put("reciprocalEndPhysicalLong", reciprocalEndPhysicalLong);
+        obj.put("reciprocalEndPhysicalLongS", reciprocalEndPhysicalLongS);
+        obj.put("reciprocalEndPhysicalElevation",reciprocalEndPhysicalElevation );
+        obj.put("reciprocalEndCrossingHeight", reciprocalEndCrossingHeight);
+        obj.put("reciprocalEndGlidePathAngle", reciprocalEndGlidePathAngle);
+        obj.put("reciprocalEndDisplacedLat", reciprocalEndDisplacedLat);
+        obj.put("reciprocalEndDisplacedLatS", reciprocalEndDisplacedLatS);
+        obj.put("reciprocalEndDisplacedLong", reciprocalEndDisplacedLong);
+        obj.put("reciprocalEndDisplacedLongS", reciprocalEndDisplacedLongS);
+        obj.put("reciprocalEndDisplacedElevation", reciprocalEndDisplacedElevation);
+        obj.put("reciprocalEndDisplacedLength",reciprocalEndDisplacedLength);
+        obj.put("reciprocalEndTDZElevation", reciprocalEndTDZElevation);
+        obj.put("reciprocalEndVASI", reciprocalEndVASI);
+        obj.put("reciprocalEndRVR", reciprocalEndRVR);
+        obj.put("reciprocalEndRVV", reciprocalEndRVV);
+        obj.put("reciprocalEndALS", reciprocalEndALS);
+        obj.put("reciprocalEndREIL", reciprocalEndREIL);
+        obj.put("reciprocalEndCenterlineLights", reciprocalEndCenterlineLights);
+        obj.put("reciprocalEndTouchdownLights", reciprocalEndTouchdownLights);
+        obj.put("reciprocalEndObjectDescription", reciprocalEndObjectDescription);
+        obj.put("reciprocalEndObjectMarkLight", reciprocalEndObjectMarkLight);
+        obj.put("reciprocalEndPart77Category", reciprocalEndPart77Category);
+        obj.put("reciprocalEndObjectClearSlope", reciprocalEndObjectClearSlope);
+        obj.put("reciprocalEndObjectHeight", reciprocalEndObjectHeight);
+        obj.put("reciprocalEndObjectDistance", reciprocalEndObjectDistance);
+        obj.put("reciprocalEndObjectOffset", reciprocalEndObjectOffset);
+        obj.put("runwayLengthSource", runwayLengthSource);
+        obj.put("runwayLengthSourceDate", runwayLengthSourceDate);
+        obj.put("runwayWeightBearingCapacitySW", runwayWeightBearingCapacitySW);
+        obj.put("runwayWeightBearingCapacityDW", runwayWeightBearingCapacityDW);
+        obj.put("runwayWeightBearingCapacityDT", runwayWeightBearingCapacityDT);
+        obj.put("runwayWeightBearingCapacityDDT", runwayWeightBearingCapacityDDT);
+        obj.put("baseEndGradient", baseEndGradient);
+        obj.put("baseEndGradientDirection", baseEndGradientDirection);
+        obj.put("baseEndPositionSource", baseEndPositionSource);
+        obj.put("baseEndPositionSourceDate",baseEndPositionSourceDate );
+        obj.put("baseEndElevationSource", baseEndElevationSource);
+        obj.put("baseEndElevationSourceDate", baseEndElevationSourceDate);
+        obj.put("baseEndDisplacedThresholdPositionSource", baseEndDisplacedThresholdPositionSource);
+        obj.put("baseEndDisplacedThresholdPositionSourceDate", baseEndDisplacedThresholdPositionSourceDate);
+        obj.put("baseEndDisplacedThresholdElevationSource", baseEndDisplacedThresholdElevationSource);
+        obj.put("baseEndDisplacedThresholdElevationSourceDate", baseEndDisplacedThresholdElevationSourceDate);
+        obj.put("baseEndTouchdownZoneElevationSource", baseEndTouchdownZoneElevationSource);
+        obj.put("baseEndTouchdownZoneElevationSourceDate", baseEndTouchdownZoneElevationSourceDate);
+        obj.put("baseEndTakeOffRunAvailableTORA", baseEndTakeOffRunAvailableTORA);
+        obj.put("baseEndTakeOffDistanceAvailableTODA", baseEndTakeOffDistanceAvailableTODA);
+        obj.put("baseEndAcltStopDistanceAvailableASDA", baseEndAcltStopDistanceAvailableASDA);
+        obj.put("baseEndLandingDistanceAvailableLDA", baseEndLandingDistanceAvailableLDA);
+        obj.put("baseEndLandingDistanceAvailableLAHSO", baseEndLandingDistanceAvailableLAHSO);
+        obj.put("baseEndLandingDistanceAvailableLAHSOIntRwyID", baseEndLandingDistanceAvailableLAHSOIntRwyID);
+        obj.put("baseEndLandingDistanceAvailableLAHSOIntEntityDesc", baseEndLandingDistanceAvailableLAHSOIntEntityDesc);
+        obj.put("baseEndLandingDistanceAvailableLAHSOHldPtLatitude", baseEndLandingDistanceAvailableLAHSOHldPtLatitude);
+        obj.put("baseEndLandingDistanceAvailableLAHSOHldPtLatitudeS", baseEndLandingDistanceAvailableLAHSOHldPtLatitudeS);
+        obj.put("baseEndLandingDistanceAvailableLAHSOHldPtLongitude", baseEndLandingDistanceAvailableLAHSOHldPtLongitude);
+        obj.put("baseEndLandingDistanceAvailableLAHSOHldPtLongitudeS",baseEndLandingDistanceAvailableLAHSOHldPtLongitudeS);
+        obj.put("baseEndLandingDistanceAvailableLAHSOCoordSrc", baseEndLandingDistanceAvailableLAHSOCoordSrc);
+        obj.put("baseEndLandingDistanceAvailableLAHSOCoordSrcDate", baseEndLandingDistanceAvailableLAHSOCoordSrcDate);
+        obj.put("reciprocalEndGradient", reciprocalEndGradient);
+        obj.put("reciprocalEndGradientDirection", reciprocalEndGradientDirection);
+        obj.put("reciprocalEndPositionSource", reciprocalEndPositionSource);
+        obj.put("reciprocalEndPositionSourceDate", reciprocalEndPositionSourceDate);
+        obj.put("reciprocalEndElevationSource", reciprocalEndElevationSource);
+        obj.put("reciprocalEndElevationSourceDate", reciprocalEndElevationSourceDate);
+        obj.put("reciprocalEndDisplacedThresholdPositionSource", reciprocalEndDisplacedThresholdPositionSource);
+        obj.put("reciprocalEndDisplacedThresholdPositionSourceDate", reciprocalEndDisplacedThresholdPositionSourceDate);
+        obj.put("reciprocalEndDisplacedThresholdElevationSource", reciprocalEndDisplacedThresholdElevationSource);
+        obj.put("reciprocalEndDisplacedThresholdElevationSourceDate", reciprocalEndDisplacedThresholdElevationSourceDate);
+        obj.put("reciprocalEndTouchdownZoneElevationSource", reciprocalEndTouchdownZoneElevationSource);
+        obj.put("reciprocalEndTouchdownZoneElevationSourceDate", reciprocalEndTouchdownZoneElevationSourceDate);
+        obj.put("reciprocalEndTakeOffRunAvailableTORA", reciprocalEndTakeOffRunAvailableTORA);
+        obj.put("reciprocalEndTakeOffDistanceAvailableTODA",reciprocalEndTakeOffDistanceAvailableTODA);
+        obj.put("reciprocalEndAcltStopDistanceAvailableASDA", reciprocalEndAcltStopDistanceAvailableASDA);
+        obj.put("reciprocalEndLandingDistanceAvailableLDA", reciprocalEndLandingDistanceAvailableLDA);
+        obj.put("reciprocalEndLandingDistanceAvailableLAHSO", reciprocalEndLandingDistanceAvailableLAHSO);
+        obj.put("reciprocalEndLandingDistanceAvailableLAHSOIntRwyID", reciprocalEndLandingDistanceAvailableLAHSOIntRwyID);
+        obj.put("reciprocalEndLandingDistanceAvailableLAHSOIntEntityDesc", reciprocalEndLandingDistanceAvailableLAHSOIntEntityDesc);
+        obj.put("reciprocalEndLandingDistanceAvailableLAHSOHldPtLatitude", reciprocalEndLandingDistanceAvailableLAHSOHldPtLatitude);
+        obj.put("reciprocalEndLandingDistanceAvailableLAHSOHldPtLatitudeS", reciprocalEndLandingDistanceAvailableLAHSOHldPtLatitudeS);
+        obj.put("reciprocalEndLandingDistanceAvailableLAHSOHldPtLongitude", reciprocalEndLandingDistanceAvailableLAHSOHldPtLongitude);
+        obj.put("reciprocalEndLandingDistanceAvailableLAHSOHldPtLongitudeS", reciprocalEndLandingDistanceAvailableLAHSOHldPtLongitudeS);
+        obj.put("reciprocalEndLandingDistanceAvailableLAHSOCoordSrc", reciprocalEndLandingDistanceAvailableLAHSOCoordSrc);
+        obj.put("reciprocalEndLandingDistanceAvailableLAHSOCoordSrcDate", reciprocalEndLandingDistanceAvailableLAHSOCoordSrcDate);
+        obj.put("lastUpdated", lastUpdated);
+        return obj;
+    }
 
 
     public String getSiteNumber() {

@@ -10,9 +10,9 @@ public class RunwayInfo {
     private String runwayType;
     private int runwayLength;
     private int runwayWidth;
-    private String runwayObstacle;
     private String runwaySurfaceTypeCondition;
     private String runwaySurfaceTreatment;
+    private String runwayObstacle;
     private BigDecimal baseEndPhysicalElevation;
     private String baseEndALS;
     private BigDecimal runwayWeightBearingCapacitySW;
