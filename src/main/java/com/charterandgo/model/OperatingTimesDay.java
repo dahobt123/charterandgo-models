@@ -1,6 +1,9 @@
 package com.charterandgo.model;
 
 
+import com.charterandgo.charterhelpers.DateHelper;
+import org.json.JSONObject;
+
 import java.util.Date;
 
 public class OperatingTimesDay implements Cloneable{
@@ -20,6 +23,18 @@ public class OperatingTimesDay implements Cloneable{
         } catch (CloneNotSupportedException c) {
             return null;
         }
+    }
+
+    public JSONObject toJson() {
+        JSONObject obj = new JSONObject();
+        obj.put("unattended", unattended);
+        obj.put("onCall", onCall);
+        obj.put("iReg", iReg);
+        obj.put("openHolidays", openHolidays);
+        obj.put("openFederalHolidays", openFederalHolidays);
+        obj.put("start", DateHelper.formatDate(start, "HH:mm"));
+        obj.put("end", DateHelper.formatDate(end, "HH:mm"));
+        return obj;
     }
 
     public Date getStart() {
