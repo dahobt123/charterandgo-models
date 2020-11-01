@@ -8,8 +8,10 @@ com\charterandgo\model\Request.class
 com\charterandgo\model\CommonParms.class
 com\charterandgo\model\ErrorMessage.class
 com\charterandgo\model\PilotEntry.class
+com\charterandgo\model\CrewSegments.class
 com\charterandgo\model\Journey.class
 com\charterandgo\model\SellRequest.class
+com\charterandgo\model\CrewCertifications.class
 com\charterandgo\model\Luggage.class
 com\charterandgo\model\Price.class
 com\charterandgo\model\AircraftCosts.class
@@ -24,6 +26,7 @@ com\charterandgo\model\RichMedia.class
 com\charterandgo\model\Airport.class
 com\charterandgo\model\AirportRemarks.class
 com\charterandgo\model\Capacities.class
+com\charterandgo\model\CrewResponse.class
 com\charterandgo\model\StateInfo.class
 com\charterandgo\inventory\model\AvailabilityItem.class
 com\charterandgo\model\AirportFacilitiesInfo.class
