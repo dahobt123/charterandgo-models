@@ -18,7 +18,7 @@ public class Aircraft implements Serializable {
     private String galley;
     private String head;
     private int numberofpax;
-    private double headroom;
+    private double headroom;        //Added for costing and PDAS
     private List<RichMedia> richmedia = new ArrayList<>();
 
 
