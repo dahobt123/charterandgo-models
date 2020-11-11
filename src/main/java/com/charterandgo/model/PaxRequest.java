@@ -29,6 +29,7 @@ public class PaxRequest {
     private RunwayInfo runwayInfo;
     private AirportInfo airportInfo;
     private AirportFacilitiesInfo airportFacilitiesInfo;
+    private String errorCode;
 
     public String getStart() {
         return start;
@@ -212,6 +213,14 @@ public class PaxRequest {
 
     public void setArriveCountry(String arriveCountry) {
         this.arriveCountry = arriveCountry;
+    }
+
+    public String getErrorCode() {
+        return errorCode;
+    }
+
+    public void setErrorCode(String errorCode) {
+        this.errorCode = errorCode;
     }
 
 //    public RunwayInfo getRunwayInfo() {
