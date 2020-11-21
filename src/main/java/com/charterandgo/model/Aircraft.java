@@ -18,6 +18,7 @@ public class Aircraft implements Serializable {
     private String galley;
     private String head;
     private int numberofpax;
+    private double headroom;        //Added for costing and PDAS
     private List<RichMedia> richmedia = new ArrayList<>();
 
 
@@ -52,6 +53,7 @@ public class Aircraft implements Serializable {
         obj.put("numberofengines", numberofengines);
         obj.put("galley", galley);
         obj.put("head", head);
+        obj.put("headroom", headroom);
         obj.put("numberofpax", numberofpax);
         JSONArray media = new JSONArray();
         for (RichMedia item : richmedia) {
@@ -142,4 +144,11 @@ public class Aircraft implements Serializable {
     }
 
 
+    public double getHeadroom() {
+        return headroom;
+    }
+
+    public void setHeadroom(double headroom) {
+        this.headroom = headroom;
+    }
 }
