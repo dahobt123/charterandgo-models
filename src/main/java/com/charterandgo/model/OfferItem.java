@@ -34,6 +34,7 @@ public class OfferItem implements Serializable {
     private List<Crew> crews = new ArrayList<>();
     private List<Cost> costs = new ArrayList<>();
     private Price price;
+    private double duration;
 
 
     public OfferItem() {
@@ -273,5 +274,13 @@ public class OfferItem implements Serializable {
 
     public void setDestinationcityrating(int destinationcityrating) {
         this.destinationcityrating = destinationcityrating;
+    }
+
+    public double getDuration() {
+        return duration;
+    }
+
+    public void setDuration(double duration) {
+        this.duration = duration;
     }
 }

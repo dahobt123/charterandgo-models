@@ -5,6 +5,8 @@ import org.json.JSONObject;
 
 import java.io.Serializable;
 import java.util.List;
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.Logger;
 
 public class Crew implements Serializable {
 
@@ -29,15 +31,17 @@ public class Crew implements Serializable {
     private String crewStatus;
     private String manufacturer;
     private String model;
+    private String certCrewType;
     private List<CrewCertifications> crewCerts;
     private List<RichMedia> richMedia;
     private List<CrewSegments> segments;
-    public Crew() {
+    private String tailNumber;
+    public static Logger logger = Logger.getLogger(Crew.class);
 
+    public Crew() {
+        BasicConfigurator.configure();
     }
-    public Crew(String crewRole){
-        this.crewRole = crewRole;
-    }
+
 
 //    public Crew(int pilotID, int crewProfileId, String firstName, String lastName, double maxHours, double dailyHours, boolean isPilot, int charterId, String crewRole, String crewStatus) {
 //        this.pilotID = pilotID;
@@ -84,6 +88,7 @@ public class Crew implements Serializable {
     public Crew(int crewProfileId, String crewRole) {
         this.crewProfileId = crewProfileId;
         this.crewRole = crewRole;
+        BasicConfigurator.configure();
     }
 
     public Crew(int crewProfileId, int pilotID, String firstName, String lastName, String homeBase) {
@@ -92,6 +97,7 @@ public class Crew implements Serializable {
         this.firstName = firstName;
         this.lastName = lastName;
         this.homeBase = homeBase;
+        BasicConfigurator.configure();
     }
     //    public Crew(int charterId,String manufacturer,String model){
 //        this.charterId = charterId;
@@ -126,28 +132,31 @@ public class Crew implements Serializable {
     public JSONObject httpToJson(){
         JSONObject obj = new JSONObject();
         obj.put("crewProfileId", crewProfileId);
+        obj.put("crewRole", crewRole);
         obj.put("firstName", firstName);
         obj.put("lastName", lastName);
         obj.put("dailyHours", actualDailyHours);
         obj.put("weeklyHours", actualWeeklyHours);
         obj.put("monthlyHours", actualMonthlyHours);
         obj.put("yearlyHours", actualYearlyHours);
-        JSONArray mediaArray = new JSONArray();
-        for (RichMedia media: richMedia){
-            mediaArray.put(media.toJson());
-        }
-        obj.put("richmedia", mediaArray);
-
-        JSONArray certArray = new JSONArray();
-        for(CrewCertifications certs: crewCerts){
-            certArray.put(certs);
-        }
-        obj.put("crewCerts", certArray);
         JSONArray segmentArray = new JSONArray();
-        for(CrewSegments segments: segments){
-            segmentArray.put(segments.toJson());
-        }
-        obj.put("segments", segmentArray);
+        for(CrewSegments segment : segments )
+            segmentArray.put(segment.toJson());
+        obj.put("segments", segments);
+
+//        JSONArray mediaArray = new JSONArray();
+//        for (RichMedia media: richMedia){
+//            mediaArray.put(media.toJson());
+//        }
+//        obj.put("richmedia", mediaArray);
+
+
+//        JSONArray segmentArray = new JSONArray();
+//        for(CrewSegments segments: segments){
+//            segmentArray.put(segments.toJson());
+//        }
+//        obj.put("segments", segmentArray);
+
 
         return obj;
     }
@@ -342,5 +351,21 @@ public class Crew implements Serializable {
 
     public void setActualDailyHours(double actualDailyHours) {
         this.actualDailyHours = actualDailyHours;
+    }
+
+    public String getCertCrewType() {
+        return certCrewType;
+    }
+
+    public void setCertCrewType(String certCrewType) {
+        this.certCrewType = certCrewType;
+    }
+
+    public String getTailNumber() {
+        return tailNumber;
+    }
+
+    public void setTailNumber(String tailNumber) {
+        this.tailNumber = tailNumber;
     }
 }
