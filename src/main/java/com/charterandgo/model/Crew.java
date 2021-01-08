@@ -18,14 +18,16 @@ public class Crew implements Serializable {
     private String lastName;
     private int charterProfileId;
     private String experience;
-    private double expectedDailyHours;
-    private double expectedWeeklyHours;
-    private double expectedMonthlyHours;
-    private double expectedYearlyHours;
-    private double actualDailyHours;
-    private double actualWeeklyHours;
-    private double actualMonthlyHours;
-    private double actualYearlyHours;
+    private int expectedDailyHours;
+    private int expectedWeeklyHours;
+    private int expectedMonthlyHours;
+    private int expectedYearlyHours;
+    private int actualDailyHours;
+    private int actualWeeklyHours;
+    private int actualMonthlyHours;
+    private int actualYearlyHours;
+    private int startMonthHours;
+    private int endMonthHours;
     private String homeBase;
     private String crewRole;
     private String crewStatus;
@@ -43,47 +45,7 @@ public class Crew implements Serializable {
     }
 
 
-//    public Crew(int pilotID, int crewProfileId, String firstName, String lastName, double maxHours, double dailyHours, boolean isPilot, int charterId, String crewRole, String crewStatus) {
-//        this.pilotID = pilotID;
-//        this.crewProfileId = crewProfileId;
-//        this.firstName = firstName;
-//        this.lastName = lastName;
-//        this.maxHours = maxHours;
-//        this.dailyHours = dailyHours;
-//        this.isPilot = isPilot;
-//        this.charterId = charterId;
-//        this.crewRole = crewRole;
-//        this.crewStatus = crewStatus;
-//    }
-//
-//    public Crew(int pilotID, String firstName, String lastName, double maxHours, double dailyHours, boolean isPilot, int charterId, String crewRole, String crewStatus) {
-//        this.pilotID = pilotID;
-//        this.firstName = firstName;
-//        this.lastName = lastName;
-//        this.maxHours = maxHours;
-//        this.dailyHours = dailyHours;
-//        this.isPilot = isPilot;
-//        this.charterId = charterId;
-//        this.crewRole = crewRole;
-//        this.crewStatus = crewStatus;
-//    }
-//
-//    public Crew( String firstName, String lastName, double maxHours, double dailyHours, boolean isPilot, int charterId, String crewRole, String crewStatus) {
-//        this.firstName = firstName;
-//        this.lastName = lastName;
-//        this.maxHours = maxHours;
-//        this.dailyHours = dailyHours;
-//        this.isPilot = isPilot;
-//        this.charterId = charterId;
-//        this.crewRole = crewRole;
-//        this.crewStatus = crewStatus;
-//    }
-//
-//    public Crew(String crewRole, int crewProfileId, int charterId) {
-//        this.crewRole = crewRole;
-//        this.crewProfileId = crewProfileId;
-//        this.charterId  = charterId;
-//    }
+
 
     public Crew(int crewProfileId, String crewRole) {
         this.crewProfileId = crewProfileId;
@@ -99,26 +61,7 @@ public class Crew implements Serializable {
         this.homeBase = homeBase;
         BasicConfigurator.configure();
     }
-    //    public Crew(int charterId,String manufacturer,String model){
-//        this.charterId = charterId;
-//        this.manufacturer = manufacturer;
-//        this.model = model;
-//    }
-//
-//    // this is for HTTP yaml
-//    public Crew(int crewProfileId, String firstName, String lastName, double dailyHours, double weeklyHours, double monthlyHours, double yearlyHours, List<RichMedia> richMedia, List<CrewCertifications> crewCerts, List<CrewSegments> segments){
-//        this.crewProfileId = crewProfileId;
-//        this.firstName = firstName;
-//        this.lastName = lastName;
-//        this.dailyHours = dailyHours;
-//        this.weeklyHours = weeklyHours;
-//        this.monthlyHours = monthlyHours;
-//        this.yearlyHours = yearlyHours;
-//        this.richmedia = richMedia;
-//        this.crewCerts = crewCerts;
-//        this.segments = segments;
-//
-//    }
+
 
 
 
@@ -229,7 +172,7 @@ public class Crew implements Serializable {
         return expectedDailyHours;
     }
 
-    public void setExpectedDailyHours(double expectedDailyHours) {
+    public void setExpectedDailyHours(int expectedDailyHours) {
         this.expectedDailyHours = expectedDailyHours;
     }
 
@@ -237,7 +180,7 @@ public class Crew implements Serializable {
         return expectedWeeklyHours;
     }
 
-    public void setExpectedWeeklyHours(double expectedWeeklyHours) {
+    public void setExpectedWeeklyHours(int expectedWeeklyHours) {
         this.expectedWeeklyHours = expectedWeeklyHours;
     }
 
@@ -245,7 +188,7 @@ public class Crew implements Serializable {
         return expectedMonthlyHours;
     }
 
-    public void setExpectedMonthlyHours(double expectedMonthlyHours) {
+    public void setExpectedMonthlyHours(int expectedMonthlyHours) {
         this.expectedMonthlyHours = expectedMonthlyHours;
     }
 
@@ -253,7 +196,7 @@ public class Crew implements Serializable {
         return expectedYearlyHours;
     }
 
-    public void setExpectedYearlyHours(double expectedYearlyHours) {
+    public void setExpectedYearlyHours(int expectedYearlyHours) {
         this.expectedYearlyHours = expectedYearlyHours;
     }
 
@@ -261,7 +204,7 @@ public class Crew implements Serializable {
         return actualWeeklyHours;
     }
 
-    public void setActualWeeklyHours(double actualWeeklyHours) {
+    public void setActualWeeklyHours(int actualWeeklyHours) {
         this.actualWeeklyHours = actualWeeklyHours;
     }
 
@@ -269,7 +212,7 @@ public class Crew implements Serializable {
         return actualMonthlyHours;
     }
 
-    public void setActualMonthlyHours(double actualMonthlyHours) {
+    public void setActualMonthlyHours(int actualMonthlyHours) {
         this.actualMonthlyHours = actualMonthlyHours;
     }
 
@@ -277,7 +220,7 @@ public class Crew implements Serializable {
         return actualYearlyHours;
     }
 
-    public void setActualYearlyHours(double actualYearlyHours) {
+    public void setActualYearlyHours(int actualYearlyHours) {
         this.actualYearlyHours = actualYearlyHours;
     }
 
@@ -349,7 +292,7 @@ public class Crew implements Serializable {
         return actualDailyHours;
     }
 
-    public void setActualDailyHours(double actualDailyHours) {
+    public void setActualDailyHours(int actualDailyHours) {
         this.actualDailyHours = actualDailyHours;
     }
 
@@ -367,5 +310,21 @@ public class Crew implements Serializable {
 
     public void setTailNumber(String tailNumber) {
         this.tailNumber = tailNumber;
+    }
+
+    public int getStartMonthHours() {
+        return startMonthHours;
+    }
+
+    public void setStartMonthHours(int startMonthHours) {
+        this.startMonthHours = startMonthHours;
+    }
+
+    public int getEndMonthHours() {
+        return endMonthHours;
+    }
+
+    public void setEndMonthHours(int endMonthHours) {
+        this.endMonthHours = endMonthHours;
     }
 }

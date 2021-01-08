@@ -1,6 +1,6 @@
-com/charterandgo/model/AirportTimesExceptions.class
-com/charterandgo/model/HoursOfOperation.class
-com/charterandgo/model/CrewResponse.class
-com/charterandgo/model/HoursForDay.class
-com/charterandgo/model/CrewCertifications.class
-com/charterandgo/model/CrewSegments.class
+com\charterandgo\model\HoursOfOperation.class
+com\charterandgo\model\CrewSegments.class
+com\charterandgo\model\CrewCertifications.class
+com\charterandgo\model\HoursForDay.class
+com\charterandgo\model\CrewResponse.class
+com\charterandgo\model\AirportTimesExceptions.class

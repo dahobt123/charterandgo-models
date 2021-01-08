@@ -3,16 +3,17 @@ package com.charterandgo.model;
 import org.json.JSONObject;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class CrewSegments {
     private int crewProfileId;
-    private LocalDateTime DATE;
+    private LocalDateTime lastUpdate;
     private LocalDateTime estimatedStartTime;
     private LocalDateTime estimatedEndTime;
-    private double estimatedDuration;
+    private int estimatedDuration;
     private LocalDateTime actualStartTime;
     private LocalDateTime actualEndTime;
-    private double actualDuration;
+    private int actualDuration;
     private String destination;
     private String departure;
     private String segmentType;  // plane status (empty leg, repostition)
@@ -22,8 +23,12 @@ public class CrewSegments {
     private int charterSupplierId;
     private String manufacturer;
     private String model;
+    private boolean overRideFlag;
+    private int flightPartType;
+    private boolean international;
+    private int lastUpdatedBy;
 
-    public CrewSegments(int crewProfileId, LocalDateTime actualStartTime, LocalDateTime actualEndTime, String destination, String departure, String segmentType, String tailNumber, int orderID, String crewRole, int charterSupplierId, double actualDuration) {
+    public CrewSegments(int crewProfileId, LocalDateTime actualStartTime, LocalDateTime actualEndTime, String destination, String departure, String segmentType, String tailNumber, int orderID, String crewRole, int charterSupplierId, int actualDuration) {
         this.crewProfileId = crewProfileId;
         this.actualStartTime = actualStartTime;
         this.actualEndTime = actualEndTime;
@@ -37,7 +42,8 @@ public class CrewSegments {
         this.actualDuration = actualDuration;
     }
 
-    public CrewSegments(int crewProfileId){}
+    public CrewSegments(int crewProfileId) {
+    }
 
     public CrewSegments() {
 
@@ -49,14 +55,6 @@ public class CrewSegments {
 
     public void setCrewProfileId(int crewProfileId) {
         this.crewProfileId = crewProfileId;
-    }
-
-    public LocalDateTime getDATE() {
-        return DATE;
-    }
-
-    public void setDATE(LocalDateTime DATE) {
-        this.DATE = DATE;
     }
 
     public LocalDateTime getEstimatedStartTime() {
@@ -75,11 +73,11 @@ public class CrewSegments {
         this.estimatedEndTime = estimatedEndTime;
     }
 
-    public double getEstimatedDuration() {
+    public int getEstimatedDuration() {
         return estimatedDuration;
     }
 
-    public void setEstimatedDuration(double estimatedDuration) {
+    public void setEstimatedDuration(int estimatedDuration) {
         this.estimatedDuration = estimatedDuration;
     }
 
@@ -155,11 +153,11 @@ public class CrewSegments {
         this.charterSupplierId = charterSupplierId;
     }
 
-    public double getActualDuration() {
+    public int getActualDuration() {
         return actualDuration;
     }
 
-    public void setActualDuration(double actualDuration) {
+    public void setActualDuration(int actualDuration) {
         this.actualDuration = actualDuration;
     }
 
@@ -179,13 +177,54 @@ public class CrewSegments {
         this.model = model;
     }
 
-    public JSONObject toJson(){
+    public boolean isOverRideFlag() {
+        return overRideFlag;
+    }
+
+    public void setOverRideFlag(boolean overRideFlag) {
+        this.overRideFlag = overRideFlag;
+    }
+
+    public int getFlightPartType() {
+        return flightPartType;
+    }
+
+    public void setFlightPartType(int flightPartType) {
+        this.flightPartType = flightPartType;
+    }
+
+    public boolean isInternational() {
+        return international;
+    }
+
+    public void setInternational(boolean international) {
+        this.international = international;
+    }
+
+    public LocalDateTime getLastUpdate() {
+        return lastUpdate;
+    }
+
+    public void setLastUpdate(LocalDateTime lastUpdate) {
+        this.lastUpdate = lastUpdate;
+    }
+
+    public int getLastUpdatedBy() {
+        return lastUpdatedBy;
+    }
+
+    public void setLastUpdatedBy(int lastUpdatedBy) {
+        this.lastUpdatedBy = lastUpdatedBy;
+    }
+
+    public JSONObject toJson() {
         JSONObject obj = new JSONObject();
         obj.put("crewProfileId", crewProfileId);
         obj.put("orderID", orderID);
         obj.put("nnumber", tailNumber);
         obj.put("manufacturer", manufacturer);
         obj.put("model", model);
+        obj.put("tailNumber", tailNumber);
         obj.put("departure", departure);
         obj.put("destination", destination);
         obj.put("crewRole", crewRole);
@@ -200,7 +239,7 @@ public class CrewSegments {
     public String toString() {
         return "CrewSegments{" +
                 "crewProfileId=" + crewProfileId +
-                ", DATE=" + DATE +
+                ", lastUpdated=" + lastUpdate +
                 ", estimatedStartTime=" + estimatedStartTime +
                 ", estimatedEndTime=" + estimatedEndTime +
                 ", estimatedDuration=" + estimatedDuration +
