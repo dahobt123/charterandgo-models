@@ -22,6 +22,9 @@ public class PaxRequest {
     private String status;
     private BigDecimal mileage;
     private int duration;
+    private int totalTime;
+    private int originTaxiTime;
+    private int destinationTaxiTime;
     private String tailNumber;
     private String make;
     private String model;
@@ -221,6 +224,30 @@ public class PaxRequest {
 
     public void setErrorCode(String errorCode) {
         this.errorCode = errorCode;
+    }
+
+    public int getOriginTaxiTime() {
+        return originTaxiTime;
+    }
+
+    public void setOriginTaxiTime(int originTaxiTime) {
+        this.originTaxiTime = originTaxiTime;
+    }
+
+    public int getDestinationTaxiTime() {
+        return destinationTaxiTime;
+    }
+
+    public void setDestinationTaxiTime(int destinationTaxiTime) {
+        this.destinationTaxiTime = destinationTaxiTime;
+    }
+
+    public int getTotalTime() {
+        return totalTime;
+    }
+
+    public void setTotalTime(int totalTime) {
+        this.totalTime = totalTime;
     }
 
 //    public RunwayInfo getRunwayInfo() {

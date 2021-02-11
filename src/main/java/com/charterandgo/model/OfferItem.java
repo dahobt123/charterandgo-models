@@ -15,9 +15,13 @@ public class OfferItem implements Serializable {
     private int offeritemid;
     private String suppliertype;
     private String originairportcode;
+    private String origincountry;
+    private String originstate;
     private String originfboid;
     private String originicaocode;
     private String destinationairportcode;
+    private String destinationcountry;
+    private String destinationstate;
     private String destinationfboid;
     private Date departuretimestamp;
     private Date arrivaltimestamp;
@@ -63,9 +67,13 @@ public class OfferItem implements Serializable {
         JSONObject obj = new JSONObject();
         obj.put("offeritemid", offeritemid);
         obj.put("originairportcode", originairportcode);
+        obj.put("originCountry", origincountry);
+        obj.put("originState", originstate);
         obj.put("originfboid", originfboid);
         obj.put("originicaocode", originicaocode);
         obj.put("destinationairportcode", destinationairportcode);
+        obj.put("destinationCountry", destinationcountry);
+        obj.put("destinationState", destinationstate);
         obj.put("destinationfboid", destinationfboid);
         obj.put("segmentstatus", segmentstatus);
         obj.put("destinationcityrating", destinationcityrating);
@@ -274,6 +282,38 @@ public class OfferItem implements Serializable {
 
     public void setDestinationcityrating(int destinationcityrating) {
         this.destinationcityrating = destinationcityrating;
+    }
+
+    public String getOrigincountry() {
+        return origincountry;
+    }
+
+    public void setOrigincountry(String origincountry) {
+        this.origincountry = origincountry;
+    }
+
+    public String getDestinationcountry() {
+        return destinationcountry;
+    }
+
+    public void setDestinationcountry(String destinationcountry) {
+        this.destinationcountry = destinationcountry;
+    }
+
+    public String getOriginstate() {
+        return originstate;
+    }
+
+    public void setOriginstate(String originstate) {
+        this.originstate = originstate;
+    }
+
+    public String getDestinationstate() {
+        return destinationstate;
+    }
+
+    public void setDestinationstate(String destinationstate) {
+        this.destinationstate = destinationstate;
     }
 
     public int getDuration() {

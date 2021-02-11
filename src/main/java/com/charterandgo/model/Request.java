@@ -15,7 +15,7 @@ public class Request implements Serializable {
     private int numberofpax;
     private List<Journey> journey = new ArrayList<>();
     private List<Offer> options = new ArrayList<>();
-    private List<Aircraft> aircraft = new ArrayList<>();
+
 
     public Request() {
 
@@ -38,13 +38,7 @@ public class Request implements Serializable {
                 optArray.put(option.toJson());
             }
         }
-//        if (aircraft.size() > 0) {
-//            JSONArray airArray = new JSONArray();
-//            for (Aircraft aircraft : aircraft) {
-//                airArray.put(aircraft.toJson());
-//            }
-//            obj.put("aircraft", airArray);
-//        }
+
         return obj;
     }
 
@@ -58,9 +52,6 @@ public class Request implements Serializable {
         }
         for (Offer offer : options) {
             builder.append(offer.toString());
-        }
-        for (Aircraft ac : aircraft) {
-            builder.append(ac.toString());
         }
         return builder.toString();
     }
@@ -90,14 +81,6 @@ public class Request implements Serializable {
         this.flightattendant = flightattendant;
     }
 
-    public List<Aircraft> getAircraft() {
-        return this.aircraft;
-    }
-
-    public void setAircraft(List<Aircraft> aircraft) {
-        this.aircraft = aircraft;
-    }
-
     public BigDecimal gettotalspend() {
         return totalspend;
     }
@@ -113,4 +96,6 @@ public class Request implements Serializable {
     public void setnumberofpax(int numberofpax) {
         this.numberofpax = numberofpax;
     }
+
+
 }

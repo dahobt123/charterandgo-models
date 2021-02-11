@@ -2,6 +2,8 @@ package com.charterandgo.model;
 
 import org.json.JSONObject;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,6 +33,8 @@ public class AirportFacilitiesInfo {
     private int jetEngineGA;
     private int helicoptersGA;
     private String icaoIdentifier;
+    private double latitude;
+    private double longitude;
 
     public AirportFacilitiesInfo() {
 
@@ -62,6 +66,8 @@ public class AirportFacilitiesInfo {
         obj.put("jetEngineGA", jetEngineGA);
         obj.put("helicoptersGA", helicoptersGA);
         obj.put("icaoIdentifier", icaoIdentifier);
+        obj.put("latitude",latitude);
+        obj.put("longitude", longitude);
         return obj;
     }
 
@@ -259,5 +265,21 @@ public class AirportFacilitiesInfo {
 
     public void setIcaoIdentifier(String icaoIdentifier) {
         this.icaoIdentifier = icaoIdentifier;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
     }
 }
