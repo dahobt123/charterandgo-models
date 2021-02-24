@@ -31,7 +31,7 @@ public class OrderItem {
     private String originIcaoCode;
     private String destinationIcaoCode;
     private int destinationCityRating;
-    private int mileage;
+    private double mileage;
     private String tripType;
     private int boardLocationId;
     private int arrivalLocationId;
@@ -277,11 +277,11 @@ public class OrderItem {
         this.destinationCityRating = destinationCityRating;
     }
 
-    public int getMileage() {
+    public double getMileage() {
         return mileage;
     }
 
-    public void setMileage(int mileage) {
+    public void setMileage(double mileage) {
         this.mileage = mileage;
     }
 

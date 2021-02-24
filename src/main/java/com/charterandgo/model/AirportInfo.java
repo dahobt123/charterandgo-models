@@ -15,7 +15,14 @@ public class AirportInfo {
     private BigDecimal airportLongitude;
     private String state;
     private String city;
+    private String country;
+    private String icaoCode;
     private int cityRating;
+    private String ownerName;
+    private String ownerPhone;
+    private String airportName;
+    private int departTaxiTime;
+    private int arriveTaxiTime;
     private List<RunwayInfo> runways = new ArrayList<>();
     private List<AirportFacilitiesInfo> fbos = new ArrayList<>();
 
@@ -30,7 +37,11 @@ public class AirportInfo {
         obj.put("airportLatitude",airportLatitude);
         obj.put("airportLongitude",airportLongitude);
         obj.put("state",state);
+        obj.put("country",country);
         obj.put("city",city);
+        obj.put("icaoCode",icaoCode);
+        obj.put("departTaxiTime",departTaxiTime);
+        obj.put("arriveTaxiTime",arriveTaxiTime);
         JSONArray runwayArray = new JSONArray();
         for (RunwayInfo info : runways) {
             runwayArray.put(info.toJson());
@@ -121,5 +132,61 @@ public class AirportInfo {
 
     public void setCityRating(int cityRating) {
         this.cityRating = cityRating;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getIcaoCode() {
+        return icaoCode;
+    }
+
+    public void setIcaoCode(String icaoCode) {
+        this.icaoCode = icaoCode;
+    }
+
+    public String getOwnerName() {
+        return ownerName;
+    }
+
+    public void setOwnerName(String ownerName) {
+        this.ownerName = ownerName;
+    }
+
+    public String getOwnerPhone() {
+        return ownerPhone;
+    }
+
+    public void setOwnerPhone(String ownerPhone) {
+        this.ownerPhone = ownerPhone;
+    }
+
+    public String getAirportName() {
+        return airportName;
+    }
+
+    public void setAirportName(String airportName) {
+        this.airportName = airportName;
+    }
+
+    public int getDepartTaxiTime() {
+        return departTaxiTime;
+    }
+
+    public void setDepartTaxiTime(int departTaxiTime) {
+        this.departTaxiTime = departTaxiTime;
+    }
+
+    public int getArriveTaxiTime() {
+        return arriveTaxiTime;
+    }
+
+    public void setArriveTaxiTime(int arriveTaxiTime) {
+        this.arriveTaxiTime = arriveTaxiTime;
     }
 }

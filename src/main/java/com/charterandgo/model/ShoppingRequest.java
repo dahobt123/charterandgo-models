@@ -9,15 +9,15 @@ import java.util.List;
 
 public class ShoppingRequest implements Serializable {
 
-    private String chartersupplierid;
-    private int numberofpax;
+    private String supplierId;
+    private int numberOfPax;
     private String galley;
     private String head;
-    private int headroominches;
-    private String flightattendant;
-    private String ageofaircraft;
+    private int headRoomInches;
+    private String flightAttendant;
+    private String manufacturedAfter;
     private String pets;
-    private String traveltype;
+    private String travelType;
     private String currency;
     private CommonParms commonParms;
     private InputContext context = new InputContext();
@@ -34,32 +34,32 @@ public class ShoppingRequest implements Serializable {
 
     public JSONObject toJson() {
         JSONObject obj = new JSONObject();
-        if (chartersupplierid != null) {
-            obj.put("chartersupplierid", chartersupplierid);
+        if (supplierId != null) {
+            obj.put("chartersupplierid", supplierId);
         }
         if (galley != null) {
             obj.put("galley", galley);
         }
-        if (numberofpax != 0) {
-            obj.put("numberofpax", numberofpax);
+        if (numberOfPax != 0) {
+            obj.put("numberofpax", numberOfPax);
         }
         if (head != null) {
             obj.put("head", head);
         }
-        if (headroominches != 0) {
-            obj.put("headroominches", headroominches);
+        if (headRoomInches != 0) {
+            obj.put("headroominches", headRoomInches);
         }
-        if (flightattendant != null) {
-            obj.put("flightattendant", flightattendant);
+        if (flightAttendant != null) {
+            obj.put("flightattendant", flightAttendant);
         }
-        if (ageofaircraft != null) {
-            obj.put("ageofaircraft", ageofaircraft);
+        if (manufacturedAfter != null) {
+            obj.put("ageofaircraft", manufacturedAfter);
         }
         if (pets != null) {
             obj.put("pets", pets);
         }
-        if (traveltype != null) {
-            obj.put("traveltype", traveltype);
+        if (travelType != null) {
+            obj.put("traveltype", travelType);
         }
         if (currency != null) {
             obj.put("currency", currency);
@@ -125,20 +125,20 @@ public class ShoppingRequest implements Serializable {
         this.commonParms = commonParms;
     }
 
-    public String getChartersupplierid() {
-        return chartersupplierid;
+    public String getSupplierId() {
+        return supplierId;
     }
 
-    public void setChartersupplierid(String chartersupplierid) {
-        this.chartersupplierid = chartersupplierid;
+    public void setSupplierId(String supplierId) {
+        this.supplierId = supplierId;
     }
 
-    public int getNumberofpax() {
-        return numberofpax;
+    public int getNumberOfPax() {
+        return numberOfPax;
     }
 
-    public void setNumberofpax(int numberofpax) {
-        this.numberofpax = numberofpax;
+    public void setNumberOfPax(int numberOfPax) {
+        this.numberOfPax = numberOfPax;
     }
 
     public String getGalley() {
@@ -157,28 +157,28 @@ public class ShoppingRequest implements Serializable {
         this.head = head;
     }
 
-    public int getHeadroominches() {
-        return headroominches;
+    public int getHeadRoomInches() {
+        return headRoomInches;
     }
 
-    public void setHeadroominches(int headroominches) {
-        this.headroominches = headroominches;
+    public void setHeadRoomInches(int headRoomInches) {
+        this.headRoomInches = headRoomInches;
     }
 
-    public String getFlightattendant() {
-        return flightattendant;
+    public String getFlightAttendant() {
+        return flightAttendant;
     }
 
-    public void setFlightattendant(String flightattendant) {
-        this.flightattendant = flightattendant;
+    public void setFlightAttendant(String flightAttendant) {
+        this.flightAttendant = flightAttendant;
     }
 
-    public String getAgeofaircraft() {
-        return ageofaircraft;
+    public String getManufacturedAfter() {
+        return manufacturedAfter;
     }
 
-    public void setAgeofaircraft(String ageofaircraft) {
-        this.ageofaircraft = ageofaircraft;
+    public void setManufacturedAfter(String manufacturedAfter) {
+        this.manufacturedAfter = manufacturedAfter;
     }
 
     public String getPets() {
@@ -189,12 +189,12 @@ public class ShoppingRequest implements Serializable {
         this.pets = pets;
     }
 
-    public String getTraveltype() {
-        return traveltype;
+    public String getTravelType() {
+        return travelType;
     }
 
-    public void setTraveltype(String traveltype) {
-        this.traveltype = traveltype;
+    public void setTravelType(String travelType) {
+        this.travelType = travelType;
     }
 
     public List<Cargo> getCargos() {

@@ -18,6 +18,8 @@ public class CostRequest {
 
     public JSONObject toJson() {
         JSONObject obj = new JSONObject();
+        obj.put("context", context.toJson());
+
         return obj;
     }
 

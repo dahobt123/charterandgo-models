@@ -7,9 +7,10 @@ import java.math.BigDecimal;
 
 public class Tax implements Serializable {
 
-    private String taxtype;
-    private BigDecimal taxamount;
-    private String taxcurrency;
+    private String taxType;
+    private String subType;
+    private BigDecimal taxAmount;
+    private String taxCurrency;
     private boolean isFee;
 
     public Tax() {
@@ -17,39 +18,39 @@ public class Tax implements Serializable {
     }
 
     public String toString() {
-        return taxtype + "/" + taxamount + "/" + taxcurrency + "/" + isFee;
+        return taxType + "/" + taxAmount + "/" + taxCurrency + "/" + isFee;
     }
 
     public JSONObject toJson() {
         JSONObject obj = new JSONObject();
-        obj.put("taxtype", taxtype);
-        obj.put("taxamount", taxamount);
-        obj.put("taxcurrency", taxcurrency);
+        obj.put("taxtype", taxType);
+        obj.put("taxamount", taxAmount);
+        obj.put("taxcurrency", taxCurrency);
         return obj;
     }
 
-    public String getTaxtype() {
-        return taxtype;
+    public String getTaxType() {
+        return taxType;
     }
 
-    public void setTaxtype(String taxtype) {
-        this.taxtype = taxtype;
+    public void setTaxType(String taxType) {
+        this.taxType = taxType;
     }
 
-    public BigDecimal getTaxamount() {
-        return taxamount;
+    public BigDecimal getTaxAmount() {
+        return taxAmount;
     }
 
-    public void setTaxamount(BigDecimal taxamount) {
-        this.taxamount = taxamount;
+    public void setTaxAmount(BigDecimal taxAmount) {
+        this.taxAmount = taxAmount;
     }
 
-    public String getTaxcurrency() {
-        return taxcurrency;
+    public String getTaxCurrency() {
+        return taxCurrency;
     }
 
-    public void setTaxcurrency(String taxcurrency) {
-        this.taxcurrency = taxcurrency;
+    public void setTaxCurrency(String taxCurrency) {
+        this.taxCurrency = taxCurrency;
     }
 
     public boolean isFee() {
@@ -58,5 +59,13 @@ public class Tax implements Serializable {
 
     public void setFee(boolean fee) {
         isFee = fee;
+    }
+
+    public String getSubType() {
+        return subType;
+    }
+
+    public void setSubType(String subType) {
+        this.subType = subType;
     }
 }

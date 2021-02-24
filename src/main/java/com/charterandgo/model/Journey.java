@@ -6,22 +6,22 @@ import java.io.Serializable;
 
 public class Journey implements Serializable {
 
-    private String originairportcode;
-    private String origincity;
-    private String originstate;
-    private String origincountry;
-    private String destinationairportcode;
-    private String destinationcity;
-    private String destinationstate;
-    private String destinationcountry;
-    private String airporttype;
-    private String aircrafttype;
+    private String originAirportCode;
+    private String originCity;
+    private String originState;
+    private String originCountry;
+    private String destinationAirportCode;
+    private String destinationCity;
+    private String destinationState;
+    private String destinationCountry;
+    private String airportType;
+    private String aircraftType;
     private String manufacturer;
     private String model;
-    private String departuredate;
-    private String departuretime;
-    private String arrivaldate;
-    private String arrivaltime;
+    private String departureDate;
+    private String departureTime;
+    private String arrivalDate;
+    private String arrivalTime;
 
     public Journey() {
 
@@ -29,109 +29,110 @@ public class Journey implements Serializable {
 
     public JSONObject toJson() {
         JSONObject obj = new JSONObject();
-        obj.put("originairportcode", originairportcode);
-        obj.put("origincity", origincity);
-        obj.put("originstate", originstate);
-        obj.put("origincountry", origincountry);
-        obj.put("destinationairportcode", destinationairportcode);
-        obj.put("destinationcity", destinationcity);
-        obj.put("destinationstate", destinationstate);
-        obj.put("destinationcountry", destinationcountry);
-        obj.put("airporttype", airporttype);
-        obj.put("aircrafttype", aircrafttype);
+        obj.put("originAirportCode", originAirportCode);
+        obj.put("originCity", originCity);
+        obj.put("originState", originState);
+        obj.put("originCountry", originCountry);
+        obj.put("destinationAirportCode", destinationAirportCode);
+        obj.put("destinationAirportCode", destinationAirportCode);
+        obj.put("destinationState", destinationState);
+        obj.put("destinationCountry", destinationCountry);
+        obj.put("airportType", airportType);
+        obj.put("aircraftType", aircraftType);
         obj.put("manufacturer", manufacturer);
         obj.put("model", model);
-        obj.put("departuredate", departuredate);
-        obj.put("departuretime", getDeparturetime());
-        obj.put("arrivaltime", getArrivaltime());
+        obj.put("departureDate", departureDate);
+        obj.put("departureTime", getDepartureTime());
+        obj.put("arrivalTime", getArrivalTime());
+        obj.put("arrivalDate", arrivalDate);
         return obj;
     }
 
     public String toString() {
-        return originairportcode + "-" + origincity + "-" + originstate + "-" + origincountry + "-" +
-                destinationairportcode + "-" +  destinationcity + "-" + destinationstate + "-" + destinationcountry +
-                "-" + airporttype + "-"+ aircrafttype + "-" + manufacturer + "-" + model + "-" + departuredate + "-" + departuretime + "-" +
-                arrivaltime + "\n";
+        return originAirportCode + "-" + originCity + "-" + originState + "-" + originCountry + "-" +
+                destinationAirportCode + "-" + destinationCity + "-" + destinationState + "-" + destinationCountry +
+                "-" + airportType + "-"+ aircraftType + "-" + manufacturer + "-" + model + "-" + departureDate + "-" + departureTime + "-" +
+                arrivalTime + "\n";
     }
 
-    public String getOriginairportcode() {
-        return originairportcode;
+    public String getOriginAirportCode() {
+        return originAirportCode;
     }
 
-    public void setOriginairportcode(String originairportcode) {
-        this.originairportcode = originairportcode;
+    public void setOriginAirportCode(String originAirportCode) {
+        this.originAirportCode = originAirportCode;
     }
 
-    public String getOrigincity() {
-        return origincity;
+    public String getOriginCity() {
+        return originCity;
     }
 
-    public void setOrigincity(String origincity) {
-        this.origincity = origincity;
+    public void setOriginCity(String originCity) {
+        this.originCity = originCity;
     }
 
-    public String getOriginstate() {
-        return originstate;
+    public String getOriginState() {
+        return originState;
     }
 
-    public void setOriginstate(String originstate) {
-        this.originstate = originstate;
+    public void setOriginState(String originState) {
+        this.originState = originState;
     }
 
-    public String getDestinationairportcode() {
-        return destinationairportcode;
+    public String getDestinationAirportCode() {
+        return destinationAirportCode;
     }
 
-    public void setDestinationairportcode(String destinationairportcode) {
-        this.destinationairportcode = destinationairportcode;
+    public void setDestinationAirportCode(String destinationAirportCode) {
+        this.destinationAirportCode = destinationAirportCode;
     }
 
-    public String getDestinationcity() {
-        return destinationcity;
+    public String getDestinationCity() {
+        return destinationCity;
     }
 
-    public void setDestinationcity(String destinationcity) {
-        this.destinationcity = destinationcity;
+    public void setDestinationCity(String destinationCity) {
+        this.destinationCity = destinationCity;
     }
 
-    public String getDestinationstate() {
-        return destinationstate;
+    public String getDestinationState() {
+        return destinationState;
     }
 
-    public void setDestinationstate(String destinationstate) {
-        this.destinationstate = destinationstate;
+    public void setDestinationState(String destinationState) {
+        this.destinationState = destinationState;
     }
 
-    public String getAirporttype() {
-        return airporttype;
+    public String getAirportType() {
+        return airportType;
     }
 
-    public void setAirporttype(String airporttype) {
-        this.airporttype = airporttype;
+    public void setAirportType(String airportType) {
+        this.airportType = airportType;
     }
 
-    public String getOrigincountry() {
-        return origincountry;
+    public String getOriginCountry() {
+        return originCountry;
     }
 
-    public void setOrigincountry(String origincountry) {
-        this.origincountry = origincountry;
+    public void setOriginCountry(String originCountry) {
+        this.originCountry = originCountry;
     }
 
-    public String getDestinationcountry() {
-        return destinationcountry;
+    public String getDestinationCountry() {
+        return destinationCountry;
     }
 
-    public void setDestinationcountry(String destinationcountry) {
-        this.destinationcountry = destinationcountry;
+    public void setDestinationCountry(String destinationCountry) {
+        this.destinationCountry = destinationCountry;
     }
 
-    public String getAircrafttype() {
-        return aircrafttype;
+    public String getAircraftType() {
+        return aircraftType;
     }
 
-    public void setAircrafttype(String aircrafttype) {
-        this.aircrafttype = aircrafttype;
+    public void setAircraftType(String aircraftType) {
+        this.aircraftType = aircraftType;
     }
 
     public String getManufacturer() {
@@ -150,35 +151,35 @@ public class Journey implements Serializable {
         this.model = model;
     }
 
-    public String getDeparturetime() {
-        return departuretime;
+    public String getDepartureTime() {
+        return departureTime;
     }
 
-    public void setDeparturetime(String departuretime) {
-        this.departuretime = departuretime;
+    public void setDepartureTime(String departureTime) {
+        this.departureTime = departureTime;
     }
 
-    public String getArrivaltime() {
-        return arrivaltime;
+    public String getArrivalTime() {
+        return arrivalTime;
     }
 
-    public void setArrivaltime(String arrivaltime) {
-        this.arrivaltime = arrivaltime;
+    public void setArrivalTime(String arrivalTime) {
+        this.arrivalTime = arrivalTime;
     }
 
-    public String getDeparturedate() {
-        return departuredate;
+    public String getDepartureDate() {
+        return departureDate;
     }
 
-    public void setDeparturedate(String departuredate) {
-        this.departuredate = departuredate;
+    public void setDepartureDate(String departureDate) {
+        this.departureDate = departureDate;
     }
 
-    public String getArrivaldate() {
-        return arrivaldate;
+    public String getArrivalDate() {
+        return arrivalDate;
     }
 
-    public void setArrivaldate(String arrivaldate) {
-        this.arrivaldate = arrivaldate;
+    public void setArrivalDate(String arrivalDate) {
+        this.arrivalDate = arrivalDate;
     }
 }

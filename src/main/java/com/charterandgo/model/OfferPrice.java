@@ -9,8 +9,8 @@ import java.util.List;
 
 public class OfferPrice  implements Serializable {
 
-    private String priceguaranteetimelimit;
-    private String paymentdatetime;
+    private String priceGuaranteeTimeLimit;
+    private String paymentDateTime;
     private List<Price> prices = new ArrayList<>();
 
     public OfferPrice() {
@@ -19,8 +19,8 @@ public class OfferPrice  implements Serializable {
 
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        builder.append(priceguaranteetimelimit + " - ");
-        builder.append(paymentdatetime + " - ");
+        builder.append(priceGuaranteeTimeLimit + " - ");
+        builder.append(paymentDateTime + " - ");
         for (Price price : prices) {
             builder.append(price.toString() + " - ");
         }
@@ -29,8 +29,8 @@ public class OfferPrice  implements Serializable {
 
     public JSONObject toJson() {
         JSONObject obj = new JSONObject();
-        obj.put("priceguaranteetimelimit",priceguaranteetimelimit );
-        obj.put("paymentdatetime", paymentdatetime);
+        obj.put("priceguaranteetimelimit", priceGuaranteeTimeLimit);
+        obj.put("paymentdatetime", paymentDateTime);
         JSONArray array = new JSONArray();
         for (Price price : prices) {
             array.put(price.toJson());
@@ -39,20 +39,20 @@ public class OfferPrice  implements Serializable {
         return obj;
     }
 
-    public String getPriceguaranteetimelimit() {
-        return priceguaranteetimelimit;
+    public String getPriceGuaranteeTimeLimit() {
+        return priceGuaranteeTimeLimit;
     }
 
-    public void setPriceguaranteetimelimit(String priceguaranteetimelimit) {
-        this.priceguaranteetimelimit = priceguaranteetimelimit;
+    public void setPriceGuaranteeTimeLimit(String priceGuaranteeTimeLimit) {
+        this.priceGuaranteeTimeLimit = priceGuaranteeTimeLimit;
     }
 
-    public String getPaymentdatetime() {
-        return paymentdatetime;
+    public String getPaymentDateTime() {
+        return paymentDateTime;
     }
 
-    public void setPaymentdatetime(String paymentdatetime) {
-        this.paymentdatetime = paymentdatetime;
+    public void setPaymentDateTime(String paymentDateTime) {
+        this.paymentDateTime = paymentDateTime;
     }
 
     public List<Price> getPrices() {

@@ -10,15 +10,23 @@ import java.util.List;
 
 public class Aircraft implements Serializable {
     private String nnumber;
-    private String ageofaircraft;
-    private String manufacturer;
-    private String model;
-    private String enginetype;
-    private int numberofengines;
     private String galley;
     private String head;
+    private int headroominches;        //Added for costing and PDAS
+    private String enginetype;
+    private String manufacturer;
+    private String model;
     private int numberofpax;
-    private double headroom;        //Added for costing and PDAS
+    private String aircrafttype;
+    private int shortfuelgallonshour;
+    private int mediumfuelgallonshour;
+    private int longfuelgallonshour;
+    private int manufacturerfuelgallonshour;
+    private double mtow;
+    private double wingSpan;
+    private String icaoCode;
+//    private String ageofaircraft;
+//    private int numberofengines;
     private List<RichMedia> richmedia = new ArrayList<>();
 
 
@@ -29,11 +37,9 @@ public class Aircraft implements Serializable {
     public String toString() {
         StringBuilder builder = new StringBuilder();
         builder.append(getNnumber() + "-");
-        builder.append(getAgeofaircraft() + "-");
         builder.append(getManufacturer() + "-");
         builder.append(getModel() + "-");
         builder.append(getEnginetype() + "-");
-        builder.append(Integer.toString(getNumberofengines()) + "-");
         builder.append(getGalley() + "-");
         builder.append(getHead() + "-");
         builder.append(Integer.toString(getNumberofpax()) + "-");
@@ -46,14 +52,14 @@ public class Aircraft implements Serializable {
     public JSONObject toJson() {
         JSONObject obj = new JSONObject();
         obj.put("nnumber", nnumber);
-        obj.put("ageofaircraft", ageofaircraft);
+//        obj.put("ageofaircraft", ageofaircraft);
         obj.put("manufacturer", manufacturer);
         obj.put("model", model);
         obj.put("enginetype", enginetype);
-        obj.put("numberofengines", numberofengines);
+//        obj.put("numberofengines", numberofengines);
         obj.put("galley", galley);
         obj.put("head", head);
-        obj.put("headroom", headroom);
+        obj.put("headroom", headroominches);
         obj.put("numberofpax", numberofpax);
         JSONArray media = new JSONArray();
         for (RichMedia item : richmedia) {
@@ -71,13 +77,13 @@ public class Aircraft implements Serializable {
         this.nnumber = nnumber;
     }
 
-    public String getAgeofaircraft() {
-        return ageofaircraft;
-    }
+//    public String getAgeofaircraft() {
+//        return ageofaircraft;
+//    }
 
-    public void setAgeofaircraft(String ageofaircraft) {
-        this.ageofaircraft = ageofaircraft;
-    }
+//    public void setAgeofaircraft(String ageofaircraft) {
+//        this.ageofaircraft = ageofaircraft;
+//    }
 
     public String getManufacturer() {
         return manufacturer;
@@ -103,13 +109,13 @@ public class Aircraft implements Serializable {
         this.enginetype = enginetype;
     }
 
-    public int getNumberofengines() {
-        return numberofengines;
-    }
+//    public int getNumberofengines() {
+//        return numberofengines;
+//    }
 
-    public void setNumberofengines(int numberofengines) {
-        this.numberofengines = numberofengines;
-    }
+//    public void setNumberofengines(int numberofengines) {
+//        this.numberofengines = numberofengines;
+//    }
 
     public String getGalley() {
         return galley;
@@ -144,11 +150,75 @@ public class Aircraft implements Serializable {
     }
 
 
-    public double getHeadroom() {
-        return headroom;
+    public int getHeadroominches() {
+        return headroominches;
     }
 
-    public void setHeadroom(double headroom) {
-        this.headroom = headroom;
+    public void setHeadroominches(int headroominches) {
+        this.headroominches = headroominches;
+    }
+
+    public String getAircrafttype() {
+        return aircrafttype;
+    }
+
+    public void setAircrafttype(String aircrafttype) {
+        this.aircrafttype = aircrafttype;
+    }
+
+    public int getShortfuelgallonshour() {
+        return shortfuelgallonshour;
+    }
+
+    public void setShortfuelgallonshour(int shortfuelgallonshour) {
+        this.shortfuelgallonshour = shortfuelgallonshour;
+    }
+
+    public int getMediumfuelgallonshour() {
+        return mediumfuelgallonshour;
+    }
+
+    public void setMediumfuelgallonshour(int mediumfuelgallonshour) {
+        this.mediumfuelgallonshour = mediumfuelgallonshour;
+    }
+
+    public int getLongfuelgallonshour() {
+        return longfuelgallonshour;
+    }
+
+    public void setLongfuelgallonshour(int longfuelgallonshour) {
+        this.longfuelgallonshour = longfuelgallonshour;
+    }
+
+    public int getManufacturerfuelgallonshour() {
+        return manufacturerfuelgallonshour;
+    }
+
+    public void setManufacturerfuelgallonshour(int manufacturerfuelgallonshour) {
+        this.manufacturerfuelgallonshour = manufacturerfuelgallonshour;
+    }
+
+    public double getMtow() {
+        return mtow;
+    }
+
+    public void setMtow(double mtow) {
+        this.mtow = mtow;
+    }
+
+    public double getWingSpan() {
+        return wingSpan;
+    }
+
+    public void setWingSpan(double wingSpan) {
+        this.wingSpan = wingSpan;
+    }
+
+    public String getIcaoCode() {
+        return icaoCode;
+    }
+
+    public void setIcaoCode(String icaoCode) {
+        this.icaoCode = icaoCode;
     }
 }

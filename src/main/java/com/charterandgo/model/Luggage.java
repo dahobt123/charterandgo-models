@@ -5,47 +5,47 @@ import org.json.JSONObject;
 import java.io.Serializable;
 
 public class Luggage implements Serializable {
-    private int luggageid;
-    private String luggagetype;
-    private int numberofpieces;
+    private int luggageId;
+    private String luggageType;
+    private int numberOfPieces;
 
     public Luggage() {
 
     }
 
     public String toString() {
-        return Integer.toString(luggageid) + "-" + luggagetype + "-" + Integer.toString(numberofpieces);
+        return Integer.toString(luggageId) + "-" + luggageType + "-" + Integer.toString(numberOfPieces);
     }
 
     public JSONObject toJson() {
         JSONObject obj = new JSONObject();
-        obj.put("", luggageid);
-        obj.put("", luggagetype);
-        obj.put("", numberofpieces);
+        obj.put("", luggageId);
+        obj.put("", luggageType);
+        obj.put("", numberOfPieces);
         return obj;
     }
 
-    public int getLuggageid() {
-        return luggageid;
+    public int getLuggageId() {
+        return luggageId;
     }
 
-    public void setLuggageid(int luggageid) {
-        this.luggageid = luggageid;
+    public void setLuggageId(int luggageId) {
+        this.luggageId = luggageId;
     }
 
-    public String getLuggagetype() {
-        return luggagetype;
+    public String getLuggageType() {
+        return luggageType;
     }
 
-    public void setLuggagetype(String luggagetype) {
-        this.luggagetype = luggagetype;
+    public void setLuggageType(String luggageType) {
+        this.luggageType = luggageType;
     }
 
-    public int getNumberofpieces() {
-        return numberofpieces;
+    public int getNumberOfPieces() {
+        return numberOfPieces;
     }
 
-    public void setNumberofpieces(int numberofpieces) {
-        this.numberofpieces = numberofpieces;
+    public void setNumberOfPieces(int numberOfPieces) {
+        this.numberOfPieces = numberOfPieces;
     }
 }

@@ -12,6 +12,7 @@ public class PaxRequest {
     private String departState;
     private String departIcaoCode;
     private String departCountry;
+    private int departCityRating;
     private String arriveCity;
     private String arriveState;
     private String arriveCountry;
@@ -20,17 +21,26 @@ public class PaxRequest {
     private Date departureTimestamp;
     private Date arrivalTimestamp;
     private String status;
+    private String priorStatus;
+    private String suppliertype;
+    private String tripType;
     private BigDecimal mileage;
     private int duration;
     private int totalTime;
-    private int originTaxiTime;
-    private int destinationTaxiTime;
+    private int originDepartTaxiTime;
+    private int originArriveTaxiTime;
+    private int destinationDepartTaxiTime;
+    private int destinationArriveTaxiTime;
+    private int turnAroundTime;
+    private int operationTypeFAA;
     private String tailNumber;
     private String make;
     private String model;
     private int charterId;
+    private long cagaircraftid;
     private RunwayInfo runwayInfo;
     private AirportInfo airportInfo;
+    private Aircraft aircraft;
     private AirportFacilitiesInfo airportFacilitiesInfo;
     private String errorCode;
 
@@ -226,20 +236,20 @@ public class PaxRequest {
         this.errorCode = errorCode;
     }
 
-    public int getOriginTaxiTime() {
-        return originTaxiTime;
+    public int getOriginDepartTaxiTime() {
+        return originDepartTaxiTime;
     }
 
-    public void setOriginTaxiTime(int originTaxiTime) {
-        this.originTaxiTime = originTaxiTime;
+    public void setOriginDepartTaxiTime(int originDepartTaxiTime) {
+        this.originDepartTaxiTime = originDepartTaxiTime;
     }
 
-    public int getDestinationTaxiTime() {
-        return destinationTaxiTime;
+    public int getDestinationDepartTaxiTime() {
+        return destinationDepartTaxiTime;
     }
 
-    public void setDestinationTaxiTime(int destinationTaxiTime) {
-        this.destinationTaxiTime = destinationTaxiTime;
+    public void setDestinationDepartTaxiTime(int destinationDepartTaxiTime) {
+        this.destinationDepartTaxiTime = destinationDepartTaxiTime;
     }
 
     public int getTotalTime() {
@@ -248,6 +258,86 @@ public class PaxRequest {
 
     public void setTotalTime(int totalTime) {
         this.totalTime = totalTime;
+    }
+
+    public Aircraft getAircraft() {
+        return aircraft;
+    }
+
+    public void setAircraft(Aircraft aircraft) {
+        this.aircraft = aircraft;
+    }
+
+    public long getCagaircraftid() {
+        return cagaircraftid;
+    }
+
+    public void setCagaircraftid(long cagaircraftid) {
+        this.cagaircraftid = cagaircraftid;
+    }
+
+    public int getTurnAroundTime() {
+        return turnAroundTime;
+    }
+
+    public void setTurnAroundTime(int turnAroundTime) {
+        this.turnAroundTime = turnAroundTime;
+    }
+
+    public int getOperationTypeFAA() {
+        return operationTypeFAA;
+    }
+
+    public void setOperationTypeFAA(int operationTypeFAA) {
+        this.operationTypeFAA = operationTypeFAA;
+    }
+
+    public String getSuppliertype() {
+        return suppliertype;
+    }
+
+    public void setSuppliertype(String suppliertype) {
+        this.suppliertype = suppliertype;
+    }
+
+    public String getTripType() {
+        return tripType;
+    }
+
+    public void setTripType(String tripType) {
+        this.tripType = tripType;
+    }
+
+    public String getPriorStatus() {
+        return priorStatus;
+    }
+
+    public void setPriorStatus(String priorStatus) {
+        this.priorStatus = priorStatus;
+    }
+
+    public int getOriginArriveTaxiTime() {
+        return originArriveTaxiTime;
+    }
+
+    public void setOriginArriveTaxiTime(int originArriveTaxiTime) {
+        this.originArriveTaxiTime = originArriveTaxiTime;
+    }
+
+    public int getDestinationArriveTaxiTime() {
+        return destinationArriveTaxiTime;
+    }
+
+    public void setDestinationArriveTaxiTime(int destinationArriveTaxiTime) {
+        this.destinationArriveTaxiTime = destinationArriveTaxiTime;
+    }
+
+    public int getDepartCityRating() {
+        return departCityRating;
+    }
+
+    public void setDepartCityRating(int departCityRating) {
+        this.departCityRating = departCityRating;
     }
 
 //    public RunwayInfo getRunwayInfo() {

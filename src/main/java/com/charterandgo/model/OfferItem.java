@@ -14,30 +14,35 @@ public class OfferItem implements Serializable {
 
     private int offeritemid;
     private String suppliertype;
+    private int supplierId;
+    private String nnumber;
+    private long cagaircraftid;
+    private BigDecimal mileage;
+    private int originTaxiTime;
+    private int destinationTaxiTime;
+    private int turnAroundTime;
+    private int operationTypeFAA;
+    private int traveltimeminutes;
     private String originairportcode;
+    private String destinationairportcode;
+    private Date departuretimestamp;
+    private Date arrivaltimestamp;
+    private String segmentstatus;
+    private String triptype;
+    private int destinationcityrating;
+    private String originicaocode;
     private String origincountry;
+    private List<Crew> crews = new ArrayList<>();
+    private List<Cost> costs = new ArrayList<>();
+    private List<Price> itemprices = new ArrayList<>();
     private String originstate;
     private String originfboid;
-    private String originicaocode;
-    private String destinationairportcode;
     private String destinationcountry;
     private String destinationstate;
     private String destinationfboid;
-    private Date departuretimestamp;
-    private Date arrivaltimestamp;
-    private int destinationcityrating;
-    private BigDecimal mileage;
-    private String segmentstatus;
-    private String nnumber;
     private String manufacturer;
     private String model;
-    private int chartersupplierid;
-    private int traveltimeminutes;
-    private String triptype;
     private String crewstatus;
-    private List<Crew> crews = new ArrayList<>();
-    private List<Cost> costs = new ArrayList<>();
-    private Price price;
     private int duration;
 
 
@@ -53,12 +58,12 @@ public class OfferItem implements Serializable {
         builder.append(segmentstatus + "/");
         builder.append(mileage + "/");
         builder.append(nnumber + "/");
-        if (chartersupplierid != 0) {
-            builder.append(chartersupplierid + "/");
+        if (supplierId != 0) {
+            builder.append(supplierId + "/");
         }
         builder.append(traveltimeminutes + "-");
-        if (price != null) {
-            builder.append(price.toString());
+        if (!itemprices.isEmpty()) {
+            builder.append(itemprices.toString());
         }
         return builder.toString();
     }
@@ -85,7 +90,7 @@ public class OfferItem implements Serializable {
         if (arrivaltimestamp != null) {
             obj.put("arrivaltimestamp", DateHelper.formatIsoTimestamp(arrivaltimestamp));
         }
-        obj.put("chartersupplierid", chartersupplierid);
+        obj.put("chartersupplierid", supplierId);
         obj.put("traveltimeminutes", traveltimeminutes);
         obj.put("suppliertype", suppliertype);
         obj.put("triptype", triptype);
@@ -102,8 +107,12 @@ public class OfferItem implements Serializable {
             }
             obj.put("costs", costArray);
         }
-        if (price != null) {
-            obj.put("price", price.toJson());
+        if (!itemprices.isEmpty()) {
+            JSONArray prices = new JSONArray();
+            obj.put("itemprices",prices);
+            for (Price price : itemprices) {
+                prices.put(price.toJson());
+            }
         }
         return obj;
     }
@@ -172,12 +181,12 @@ public class OfferItem implements Serializable {
         this.model = model;
     }
 
-    public int getChartersupplierid() {
-        return chartersupplierid;
+    public int getSupplierId() {
+        return supplierId;
     }
 
-    public void setChartersupplierid(int chartersupplierid) {
-        this.chartersupplierid = chartersupplierid;
+    public void setSupplierId(int supplierId) {
+        this.supplierId = supplierId;
     }
 
     public int getTraveltimeminutes() {
@@ -260,12 +269,12 @@ public class OfferItem implements Serializable {
         this.costs = costs;
     }
 
-    public Price getPrice() {
-        return price;
+    public List<Price> getitemprices() {
+        return itemprices;
     }
 
-    public void setPrice(Price price) {
-        this.price = price;
+    public void setitemprices(List<Price> prices) {
+        this.itemprices = prices;
     }
 
     public String getOriginicaocode() {
@@ -322,5 +331,45 @@ public class OfferItem implements Serializable {
 
     public void setDuration(int duration) {
         this.duration = duration;
+    }
+
+    public long getCagaircraftid() {
+        return cagaircraftid;
+    }
+
+    public void setCagaircraftid(long cagaircraftid) {
+        this.cagaircraftid = cagaircraftid;
+    }
+
+    public int getOriginTaxiTime() {
+        return originTaxiTime;
+    }
+
+    public void setOriginTaxiTime(int originTaxiTime) {
+        this.originTaxiTime = originTaxiTime;
+    }
+
+    public int getDestinationTaxiTime() {
+        return destinationTaxiTime;
+    }
+
+    public void setDestinationTaxiTime(int destinationTaxiTime) {
+        this.destinationTaxiTime = destinationTaxiTime;
+    }
+
+    public int getTurnAroundTime() {
+        return turnAroundTime;
+    }
+
+    public void setTurnAroundTime(int turnAroundTime) {
+        this.turnAroundTime = turnAroundTime;
+    }
+
+    public int getOperationTypeFAA() {
+        return operationTypeFAA;
+    }
+
+    public void setOperationTypeFAA(int operationTypeFAA) {
+        this.operationTypeFAA = operationTypeFAA;
     }
 }

@@ -9,7 +9,7 @@ import java.util.List;
 public class CostOrder {
 
     private int orderId;
-    private List<OrderItem> options = new ArrayList<>();
+    private List<OrderItem> orderItems = new ArrayList<>();
 
     public CostOrder() {
 
@@ -19,7 +19,7 @@ public class CostOrder {
         JSONObject obj = new JSONObject();
         obj.put("orderId", orderId);
         JSONArray array = new JSONArray();
-        for (OrderItem item : options) {
+        for (OrderItem item : orderItems) {
             array.put(item.toJson());
         }
         obj.put("orderItems", array);
@@ -35,10 +35,10 @@ public class CostOrder {
     }
 
     public List<OrderItem> getOptions() {
-        return options;
+        return orderItems;
     }
 
     public void setOptions(List<OrderItem> options) {
-        this.options = options;
+        this.orderItems = options;
     }
 }

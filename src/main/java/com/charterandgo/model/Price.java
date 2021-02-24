@@ -6,47 +6,57 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 
 public class Price  implements Serializable {
-    private String costtype;
-    private BigDecimal priceamount;
-    private String pricecurrency;
+    private String priceType;
+    private BigDecimal priceAmountCalculated;
+    private BigDecimal priceAmountOverRidden;
+    private String priceCurrency;
 
     public Price() {
 
     }
 
     public String toString() {
-        return costtype + "-" + priceamount.toString() + "-" + pricecurrency;
+        return priceType + "-" + priceAmountCalculated.toString() + "-" + priceCurrency;
     }
 
     public JSONObject toJson() {
         JSONObject obj = new JSONObject();
-        obj.put("costtype", costtype);
-        obj.put("priceamount", priceamount);
-        obj.put("pricecurrency", pricecurrency);
+        obj.put("priceType", priceType);
+        obj.put("priceAmountCalculated", priceAmountCalculated);
+        obj.put("priceAmountOverRidden", priceAmountOverRidden);
+        obj.put("priceCurrency", priceCurrency);
         return obj;
     }
 
-    public String getCosttype() {
-        return costtype;
+    public String getPriceType() {
+        return priceType;
     }
 
-    public void setCosttype(String costtype) {
-        this.costtype = costtype;
+    public void setPriceType(String priceType) {
+        this.priceType = priceType;
     }
 
-    public BigDecimal getPriceamount() {
-        return priceamount;
+    public BigDecimal getPriceAmountCalculated() {
+        return priceAmountCalculated;
     }
 
-    public void setPriceamount(BigDecimal priceamount) {
-        this.priceamount = priceamount;
+    public void setPriceAmountCalculated(BigDecimal priceAmountCalculated) {
+        this.priceAmountCalculated = priceAmountCalculated;
     }
 
-    public String getPricecurrency() {
-        return pricecurrency;
+    public String getPriceCurrency() {
+        return priceCurrency;
     }
 
-    public void setPricecurrency(String pricecurrency) {
-        this.pricecurrency = pricecurrency;
+    public void setPriceCurrency(String priceCurrency) {
+        this.priceCurrency = priceCurrency;
+    }
+
+    public BigDecimal getPriceAmountOverRidden() {
+        return priceAmountOverRidden;
+    }
+
+    public void setPriceAmountOverRidden(BigDecimal priceAmountOverRidden) {
+        this.priceAmountOverRidden = priceAmountOverRidden;
     }
 }

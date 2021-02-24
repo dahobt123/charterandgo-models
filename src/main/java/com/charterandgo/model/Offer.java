@@ -9,8 +9,10 @@ import java.util.List;
 
 public class Offer implements Serializable {
 
-    private int offerid;
-    private List<OfferItem> offeritems = new ArrayList<>();
+    private int offerId;
+    private String warningTyoe;
+    private String warningText;
+    private List<OfferItem> offerItems = new ArrayList<>();
     private OfferPrice pricing;
     private RunwayItem runway;
     private List<Tax> taxes = new ArrayList<>();
@@ -21,8 +23,8 @@ public class Offer implements Serializable {
 
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        builder.append(offerid + "-");
-        for (OfferItem item : offeritems) {
+        builder.append(offerId + "-");
+        for (OfferItem item : offerItems) {
             builder.append(item.toString() + "/");
         }
         if (runway != null) {
@@ -33,10 +35,10 @@ public class Offer implements Serializable {
 
     public JSONObject toJson() {
         JSONObject obj = new JSONObject();
-        obj.put("offerid", offerid);
+        obj.put("offerId", offerId);
         JSONArray array = new JSONArray();
-        obj.put("offeritems", array);
-        for (OfferItem item : offeritems) {
+        obj.put("offerItems", array);
+        for (OfferItem item : offerItems) {
             array.put(item.toJson());
         }
         if (pricing != null) {
@@ -53,20 +55,20 @@ public class Offer implements Serializable {
         return obj;
     }
 
-    public int getOfferid() {
-        return offerid;
+    public int getOfferId() {
+        return offerId;
     }
 
-    public void setOfferid(int offerid) {
-        this.offerid = offerid;
+    public void setOfferId(int offerId) {
+        this.offerId = offerId;
     }
 
-    public List<OfferItem> getOfferitems() {
-        return offeritems;
+    public List<OfferItem> getOfferItems() {
+        return offerItems;
     }
 
-    public void setOfferitems(List<OfferItem> offeritems) {
-        this.offeritems = offeritems;
+    public void setOfferItems(List<OfferItem> offerItems) {
+        this.offerItems = offerItems;
     }
 
     public RunwayItem getRunway() {
@@ -91,5 +93,21 @@ public class Offer implements Serializable {
 
     public List<Tax> getTaxes() {
         return taxes;
+    }
+
+    public String getWarningTyoe() {
+        return warningTyoe;
+    }
+
+    public void setWarningTyoe(String warningTyoe) {
+        this.warningTyoe = warningTyoe;
+    }
+
+    public String getWarningText() {
+        return warningText;
+    }
+
+    public void setWarningText(String warningText) {
+        this.warningText = warningText;
     }
 }
