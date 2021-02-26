@@ -43,6 +43,7 @@ public class PaxRequest {
     private Aircraft aircraft;
     private AirportFacilitiesInfo airportFacilitiesInfo;
     private String errorCode;
+    private int charterSegmentType;
 
     public String getStart() {
         return start;
@@ -338,6 +339,14 @@ public class PaxRequest {
 
     public void setDepartCityRating(int departCityRating) {
         this.departCityRating = departCityRating;
+    }
+
+    public int getCharterSegmentType() {
+        return charterSegmentType;
+    }
+
+    public void setCharterSegmentType(int charterSegmentType) {
+        this.charterSegmentType = charterSegmentType;
     }
 
 //    public RunwayInfo getRunwayInfo() {
