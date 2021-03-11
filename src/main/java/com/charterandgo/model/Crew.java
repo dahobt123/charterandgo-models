@@ -1,15 +1,17 @@
 package com.charterandgo.model;
 
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.List;
-import org.apache.log4j.BasicConfigurator;
-import org.apache.log4j.Logger;
 
 public class Crew implements Serializable {
-
+    private String test;
     private int crewProfileId;
     private int pilotID;
     private double maxHoursAWeek;
@@ -38,6 +40,12 @@ public class Crew implements Serializable {
     private List<RichMedia> richMedia;
     private List<CrewSegments> segments;
     private String tailNumber;
+    private LocalDateTime lastUpdated;
+    private int lastUpdatedBy;
+    private ZoneId zoneId;
+    private Identification passport = new Identification();
+    private Identification visas = new Identification();
+
     public static Logger logger = Logger.getLogger(Crew.class);
 
     public Crew() {
@@ -75,7 +83,9 @@ public class Crew implements Serializable {
     public JSONObject httpToJson(){
         JSONObject obj = new JSONObject();
         obj.put("crewProfileId", crewProfileId);
-        obj.put("crewRole", crewRole);
+        obj.put("pilotID", pilotID);
+        obj.put("homeBase", homeBase);
+        obj.put("crewType", crewRole);
         obj.put("firstName", firstName);
         obj.put("lastName", lastName);
         obj.put("dailyHours", actualDailyHours);
@@ -86,24 +96,37 @@ public class Crew implements Serializable {
         for(CrewSegments segment : segments )
             segmentArray.put(segment.toJson());
         obj.put("segments", segments);
-
-//        JSONArray mediaArray = new JSONArray();
-//        for (RichMedia media: richMedia){
-//            mediaArray.put(media.toJson());
-//        }
-//        obj.put("richmedia", mediaArray);
-
-
-//        JSONArray segmentArray = new JSONArray();
-//        for(CrewSegments segments: segments){
-//            segmentArray.put(segments.toJson());
-//        }
-//        obj.put("segments", segmentArray);
-
-
         return obj;
     }
 
+    public JSONObject toJsonCrewRead(){
+        JSONObject obj = new JSONObject();
+        obj.put("crewProfileId", crewProfileId);
+        obj.put("pilotID", pilotID);
+        obj.put("homeBase", homeBase);
+        obj.put("crewType", crewRole);
+        obj.put("firstName", firstName);
+        obj.put("lastName", lastName);
+        obj.put("dailyHours", actualDailyHours);
+        obj.put("weeklyHours", actualWeeklyHours);
+        obj.put("monthlyHours", actualMonthlyHours);
+        obj.put("yearlyHours", actualYearlyHours);
+        obj.put("timeZone", zoneId);
+        obj.put("lastUpdated", lastUpdated);
+        obj.put("lastUpdatedBy", lastUpdatedBy);
+        return obj;
+    }
+
+    public JSONObject toShoppingRequestJson(){
+        JSONObject obj = new JSONObject();
+        obj.put("crewProfileId", crewProfileId);
+        obj.put("crewType", crewRole);
+        obj.put("firstName", firstName);
+        obj.put("lastName", lastName);
+        obj.put("passport", passport.toJson());
+        obj.put("visas", visas.toJson());
+        return obj;
+    }
     public int getCrewProfileId() {
         return crewProfileId;
     }
@@ -326,5 +349,65 @@ public class Crew implements Serializable {
 
     public void setEndMonthHours(int endMonthHours) {
         this.endMonthHours = endMonthHours;
+    }
+
+    public LocalDateTime getLastUpdated() {
+        return lastUpdated;
+    }
+
+    public void setLastUpdated(LocalDateTime lastUpdated) {
+        this.lastUpdated = lastUpdated;
+    }
+
+    public int getLastUpdatedBy() {
+        return lastUpdatedBy;
+    }
+
+    public void setLastUpdatedBy(int lastUpdatedBy) {
+        this.lastUpdatedBy = lastUpdatedBy;
+    }
+
+    public ZoneId getZoneId() {
+        return zoneId;
+    }
+
+    public void setZoneId(ZoneId zoneId) {
+        this.zoneId = zoneId;
+    }
+
+    public static Logger getLogger() {
+        return logger;
+    }
+
+    public static void setLogger(Logger logger) {
+        Crew.logger = logger;
+    }
+
+    public class Identification{
+        int idNubmer;
+        String country;
+
+        public JSONObject toJson() {
+            JSONObject obj = new JSONObject();
+            obj.put("idNubmer", idNubmer);
+            obj.put("country", country);
+            return obj;
+        }
+
+        public int getIdNubmer() {
+            return idNubmer;
+        }
+
+        public void setIdNubmer(int idNubmer) {
+            this.idNubmer = idNubmer;
+        }
+
+        public String getCountry() {
+            return country;
+        }
+
+        public void setCountry(String country) {
+            this.country = country;
+        }
     }
 }

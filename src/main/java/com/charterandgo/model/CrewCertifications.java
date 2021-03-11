@@ -3,33 +3,36 @@ package com.charterandgo.model;
 
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public class CrewCertifications {
-
+public class CrewCertifications implements Serializable {
     private int crewProfileId;
+    private String firstName;
+    private String lastName;
     private String manufacture;
     private String model;
     private String certificationType;
     private String crewRole;
-    private String crewType;
+    private int charterProfileId;
     private int certificationId;
     private String certificationName;
-    private LocalDate certificationStartDate;
-    private LocalDate certificationExpirationDate;
+    private LocalDateTime certificationStartDate;
+    private LocalDateTime certificationExpirationDate;
     private String tailNumber;
     private double hoursFlownAsPIC;
     private double hoursFlownAsSIC;
     private LocalDateTime lastUpdated;
+    private int lastUpdatedBy;
     private String aircraftType;
-    private int UId;
+    private int UID;
 
     public CrewCertifications() {
     }
 
 
-    public CrewCertifications(int crewProfileId, String manufacture, String model, String certificationType, String crewRole, int certificationId, String certificationName, LocalDate certificationStartDate, LocalDate certificationExpirationDate, String tailNumber, double hoursFlownAsPIC, double hoursFlownAsSIC, LocalDateTime lastUpdated, String aircraftType, int uId) {
+    public CrewCertifications(int crewProfileId, String manufacture, String model, String certificationType, String crewRole, int certificationId, String certificationName, LocalDateTime certificationStartDate, LocalDateTime certificationExpirationDate, String tailNumber, double hoursFlownAsPIC, double hoursFlownAsSIC, LocalDateTime lastUpdated, String aircraftType, int uId) {
         this.crewProfileId = crewProfileId;
         this.manufacture = manufacture;
         this.model = model;
@@ -44,7 +47,6 @@ public class CrewCertifications {
         this.hoursFlownAsSIC = hoursFlownAsSIC;
         this.lastUpdated = lastUpdated;
         this.aircraftType = aircraftType;
-        UId = uId;
     }
 
     public int getCrewProfileId() {
@@ -57,6 +59,22 @@ public class CrewCertifications {
 
     public String getManufacture() {
         return manufacture;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public void setManufacture(String manufacture) {
@@ -103,19 +121,19 @@ public class CrewCertifications {
         this.certificationName = certificationName;
     }
 
-    public LocalDate getCertificationStartDate() {
+    public LocalDateTime getCertificationStartDate() {
         return certificationStartDate;
     }
 
-    public void setCertificationStartDate(LocalDate certificationStartDate) {
+    public void setCertificationStartDate(LocalDateTime certificationStartDate) {
         this.certificationStartDate = certificationStartDate;
     }
 
-    public LocalDate getCertificationExpirationDate() {
+    public LocalDateTime getCertificationExpirationDate() {
         return certificationExpirationDate;
     }
 
-    public void setCertificationExpirationDate(LocalDate certificationExpirationDate) {
+    public void setCertificationExpirationDate(LocalDateTime certificationExpirationDate) {
         this.certificationExpirationDate = certificationExpirationDate;
     }
 
@@ -151,6 +169,14 @@ public class CrewCertifications {
         this.lastUpdated = lastUpdated;
     }
 
+    public int getLastUpdatedBy() {
+        return lastUpdatedBy;
+    }
+
+    public void setLastUpdatedBy(int lastUpdatedBy) {
+        this.lastUpdatedBy = lastUpdatedBy;
+    }
+
     public String getAircraftType() {
         return aircraftType;
     }
@@ -159,20 +185,20 @@ public class CrewCertifications {
         this.aircraftType = aircraftType;
     }
 
-    public String getCrewType() {
-        return crewType;
+    public int getCharterProfileId() {
+        return charterProfileId;
     }
 
-    public void setCrewType(String crewType) {
-        this.crewType = crewType;
+    public void setCharterProfileId(int charterProfileId) {
+        this.charterProfileId = charterProfileId;
     }
 
-    public int getUId() {
-        return UId;
+    public int getUID() {
+        return UID;
     }
 
-    public void setUId(int UId) {
-        this.UId = UId;
+    public void setUID(int UID) {
+        this.UID = UID;
     }
 
     @Override
@@ -198,17 +224,25 @@ public class CrewCertifications {
     public JSONObject toJson() {
         JSONObject obj = new JSONObject();
         obj.put("crewProfileId", crewProfileId);
-        obj.put("certificationType", certificationType);
-        obj.put("cewRole", crewRole);
-        obj.put("certificationId", certificationId);
-        obj.put("certificationName", certificationName);
+        obj.put("firstName", firstName);
+        obj.put("lastName", lastName);
+        obj.put("charterProfileId", charterProfileId);
         obj.put("manufacture", manufacture);
         obj.put("model", model);
-        obj.put("TailNumber", tailNumber);
+        obj.put("certificationType", certificationType);
+        obj.put("crewRole", crewRole);
+        obj.put("certificationId", certificationId);
+        obj.put("certificationName", certificationName);
         obj.put("certificationStartDate", certificationStartDate);
+        obj.put("certificationExpirationDate", certificationExpirationDate);
+        obj.put("TailNumber", tailNumber);
         obj.put("hoursFlownAsPIC", hoursFlownAsPIC);
         obj.put("hoursFlownAsSIC", hoursFlownAsSIC);
         obj.put("lastUpdated", lastUpdated);
+        obj.put("lastUpdatedBy", lastUpdatedBy);
+        obj.put("aircraftType", aircraftType);
+        obj.put("UId", UID);
+
 
         return obj;
 
