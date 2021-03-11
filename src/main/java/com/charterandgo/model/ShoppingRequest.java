@@ -9,8 +9,6 @@ import java.util.List;
 
 public class ShoppingRequest implements Serializable {
 
-    private String supplierId;
-    private int numberOfPax;
     private String galley;
     private String head;
     private int headRoomInches;
@@ -22,7 +20,6 @@ public class ShoppingRequest implements Serializable {
     private CommonParms commonParms;
     private InputContext context = new InputContext();
     private Request request = new Request();
-    private List<Aircraft> aircraft = new ArrayList<>();
     private List<AirportShopData> airports = new ArrayList<>();
     private List<Cargo> cargos = new ArrayList<>();
     private List<Luggage> luggage = new ArrayList<>();
@@ -34,14 +31,8 @@ public class ShoppingRequest implements Serializable {
 
     public JSONObject toJson() {
         JSONObject obj = new JSONObject();
-        if (supplierId != null) {
-            obj.put("chartersupplierid", supplierId);
-        }
         if (galley != null) {
             obj.put("galley", galley);
-        }
-        if (numberOfPax != 0) {
-            obj.put("numberofpax", numberOfPax);
         }
         if (head != null) {
             obj.put("head", head);
@@ -70,13 +61,6 @@ public class ShoppingRequest implements Serializable {
         JSONArray cargos1 = new JSONArray();
         for (Cargo carg : cargos) {
             cargos1.put(carg.toJson());
-        }
-        if (aircraft.size() > 0) {
-            JSONArray aircraftArray = new JSONArray();
-            for (Aircraft info : aircraft) {
-                aircraftArray.put(info.toJson());
-            }
-            obj.put("aircraft", aircraftArray);
         }
         if (airports.size() > 0) {
             JSONArray airportArray = new JSONArray();
@@ -123,22 +107,6 @@ public class ShoppingRequest implements Serializable {
 
     public void setCommonParms(CommonParms commonParms) {
         this.commonParms = commonParms;
-    }
-
-    public String getSupplierId() {
-        return supplierId;
-    }
-
-    public void setSupplierId(String supplierId) {
-        this.supplierId = supplierId;
-    }
-
-    public int getNumberOfPax() {
-        return numberOfPax;
-    }
-
-    public void setNumberOfPax(int numberOfPax) {
-        this.numberOfPax = numberOfPax;
     }
 
     public String getGalley() {
@@ -229,11 +197,4 @@ public class ShoppingRequest implements Serializable {
         this.airports = airportInfo;
     }
 
-    public List<Aircraft> getAircraft() {
-        return aircraft;
-    }
-
-    public void setAircraft(List<Aircraft> aircraft) {
-        this.aircraft = aircraft;
-    }
 }

@@ -12,34 +12,36 @@ import java.util.List;
 
 public class OfferItem implements Serializable {
 
-    private int offeritemid;
-    private String suppliertype;
+    private int offerItemId;
+    private String supplierType;
     private int supplierId;
     private String nnumber;
-    private long cagaircraftid;
+    private long cagAircraftId;
     private BigDecimal mileage;
     private int originTaxiTime;
     private int destinationTaxiTime;
     private int turnAroundTime;
+    private int charterSegmentType;
     private int operationTypeFAA;
-    private int traveltimeminutes;
-    private String originairportcode;
-    private String destinationairportcode;
-    private Date departuretimestamp;
-    private Date arrivaltimestamp;
-    private String segmentstatus;
-    private String triptype;
-    private int destinationcityrating;
-    private String originicaocode;
-    private String origincountry;
+    private int travelTimeMinutes;
+    private String originAirportCode;
+    private String destinationAirportCode;
+    private Date departureTimestamp;
+    private Date arrivalTimestamp;
+    private String aircraftType;
+    private String segmentStatus;
+    private String tripType;
+    private int destinationCityRating;
+    private String originIcaoCode;
+    private String originCountry;
     private List<Crew> crews = new ArrayList<>();
     private List<Cost> costs = new ArrayList<>();
-    private List<Price> itemprices = new ArrayList<>();
-    private String originstate;
-    private String originfboid;
-    private String destinationcountry;
-    private String destinationstate;
-    private String destinationfboid;
+    private List<Price> itemPrices = new ArrayList<>();
+    private String originState;
+    private String originFboId;
+    private String destinationCountry;
+    private String destinationState;
+    private String destinationFboId;
     private String manufacturer;
     private String model;
     private String crewstatus;
@@ -52,48 +54,48 @@ public class OfferItem implements Serializable {
 @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        builder.append(offeritemid + "/");
-        builder.append(originairportcode + "/");
-        builder.append(destinationairportcode + "/");
-        builder.append(segmentstatus + "/");
+        builder.append(offerItemId + "/");
+        builder.append(originAirportCode + "/");
+        builder.append(destinationAirportCode + "/");
+        builder.append(segmentStatus + "/");
         builder.append(mileage + "/");
         builder.append(nnumber + "/");
         if (supplierId != 0) {
             builder.append(supplierId + "/");
         }
-        builder.append(traveltimeminutes + "-");
-        if (!itemprices.isEmpty()) {
-            builder.append(itemprices.toString());
+        builder.append(travelTimeMinutes + "-");
+        if (!itemPrices.isEmpty()) {
+            builder.append(itemPrices.toString());
         }
         return builder.toString();
     }
 
     public JSONObject toJson() {
         JSONObject obj = new JSONObject();
-        obj.put("offeritemid", offeritemid);
-        obj.put("originairportcode", originairportcode);
-        obj.put("originCountry", origincountry);
-        obj.put("originState", originstate);
-        obj.put("originfboid", originfboid);
-        obj.put("originicaocode", originicaocode);
-        obj.put("destinationairportcode", destinationairportcode);
-        obj.put("destinationCountry", destinationcountry);
-        obj.put("destinationState", destinationstate);
-        obj.put("destinationfboid", destinationfboid);
-        obj.put("segmentstatus", segmentstatus);
-        obj.put("destinationcityrating", destinationcityrating);
+        obj.put("offerItemId", offerItemId);
+        obj.put("originAirportCode", originAirportCode);
+        obj.put("originCountry", originCountry);
+        obj.put("originState", originState);
+        obj.put("originFboId", originFboId);
+        obj.put("originIcaoCode", originIcaoCode);
+        obj.put("destinationAirportCode", destinationAirportCode);
+        obj.put("destinationCountry", destinationCountry);
+        obj.put("destinationState", destinationState);
+        obj.put("destinationFboId", destinationFboId);
+        obj.put("segmentStatus", segmentStatus);
+        obj.put("destinationCityRating", destinationCityRating);
         obj.put("mileage", mileage);
         obj.put("nnumber", nnumber);
-        if (departuretimestamp != null) {
-            obj.put("departuretimestamp", DateHelper.formatIsoTimestamp(departuretimestamp));
+        if (departureTimestamp != null) {
+            obj.put("departureTimestamp", DateHelper.formatIsoTimestamp(departureTimestamp));
         }
-        if (arrivaltimestamp != null) {
-            obj.put("arrivaltimestamp", DateHelper.formatIsoTimestamp(arrivaltimestamp));
+        if (arrivalTimestamp != null) {
+            obj.put("arrivalTimeStamp", DateHelper.formatIsoTimestamp(arrivalTimestamp));
         }
-        obj.put("chartersupplierid", supplierId);
-        obj.put("traveltimeminutes", traveltimeminutes);
-        obj.put("suppliertype", suppliertype);
-        obj.put("triptype", triptype);
+        obj.put("supplierId", supplierId);
+        obj.put("travelTimeMinutes", travelTimeMinutes);
+        obj.put("supplierType", supplierType);
+        obj.put("tripType", tripType);
         obj.put("crewstatus", crewstatus);
         JSONArray array = new JSONArray();
         for (Crew crew : crews) {
@@ -107,38 +109,38 @@ public class OfferItem implements Serializable {
             }
             obj.put("costs", costArray);
         }
-        if (!itemprices.isEmpty()) {
+        if (!itemPrices.isEmpty()) {
             JSONArray prices = new JSONArray();
             obj.put("itemprices",prices);
-            for (Price price : itemprices) {
+            for (Price price : itemPrices) {
                 prices.put(price.toJson());
             }
         }
         return obj;
     }
 
-    public int getOfferitemid() {
-        return offeritemid;
+    public int getOfferItemId() {
+        return offerItemId;
     }
 
-    public void setOfferitemid(int offeritemid) {
-        this.offeritemid = offeritemid;
+    public void setOfferItemId(int offerItemId) {
+        this.offerItemId = offerItemId;
     }
 
-    public String getOriginairportcode() {
-        return originairportcode;
+    public String getOriginAirportCode() {
+        return originAirportCode;
     }
 
-    public void setOriginairportcode(String originairportcode) {
-        this.originairportcode = originairportcode;
+    public void setOriginAirportCode(String originAirportCode) {
+        this.originAirportCode = originAirportCode;
     }
 
-    public String getDestinationairportcode() {
-        return destinationairportcode;
+    public String getDestinationAirportCode() {
+        return destinationAirportCode;
     }
 
-    public void setDestinationairportcode(String destinationairportcode) {
-        this.destinationairportcode = destinationairportcode;
+    public void setDestinationAirportCode(String destinationAirportCode) {
+        this.destinationAirportCode = destinationAirportCode;
     }
 
     public BigDecimal getMileage() {
@@ -149,12 +151,12 @@ public class OfferItem implements Serializable {
         this.mileage = mileage;
     }
 
-    public String getSegmentstatus() {
-        return segmentstatus;
+    public String getSegmentStatus() {
+        return segmentStatus;
     }
 
-    public void setSegmentstatus(String segmentstatus) {
-        this.segmentstatus = segmentstatus;
+    public void setSegmentStatus(String segmentStatus) {
+        this.segmentStatus = segmentStatus;
     }
 
     public String getNnumber() {
@@ -189,60 +191,60 @@ public class OfferItem implements Serializable {
         this.supplierId = supplierId;
     }
 
-    public int getTraveltimeminutes() {
-        return traveltimeminutes;
+    public int getTravelTimeMinutes() {
+        return travelTimeMinutes;
     }
 
-    public void setTraveltimeminutes(int traveltimeminutes) {
-        this.traveltimeminutes = traveltimeminutes;
+    public void setTravelTimeMinutes(int travelTimeMinutes) {
+        this.travelTimeMinutes = travelTimeMinutes;
     }
 
-    public String getOriginfboid() {
-        return originfboid;
+    public String getOriginFboId() {
+        return originFboId;
     }
 
-    public void setOriginfboid(String originfboid) {
-        this.originfboid = originfboid;
+    public void setOriginFboId(String originFboId) {
+        this.originFboId = originFboId;
     }
 
-    public String getDestinationfboid() {
-        return destinationfboid;
+    public String getDestinationFboId() {
+        return destinationFboId;
     }
 
-    public void setDestinationfboid(String destinationfboid) {
-        this.destinationfboid = destinationfboid;
+    public void setDestinationFboId(String destinationFboId) {
+        this.destinationFboId = destinationFboId;
     }
 
-    public Date getDeparturetimestamp() {
-        return departuretimestamp;
+    public Date getDepartureTimestamp() {
+        return departureTimestamp;
     }
 
-    public void setDeparturetimestamp(Date departuretimestamp) {
-        this.departuretimestamp = departuretimestamp;
+    public void setDepartureTimestamp(Date departureTimestamp) {
+        this.departureTimestamp = departureTimestamp;
     }
 
-    public Date getArrivaltimestamp() {
-        return arrivaltimestamp;
+    public Date getArrivalTimestamp() {
+        return arrivalTimestamp;
     }
 
-    public void setArrivaltimestamp(Date arrivaltimestamp) {
-        this.arrivaltimestamp = arrivaltimestamp;
+    public void setArrivalTimestamp(Date arrivalTimestamp) {
+        this.arrivalTimestamp = arrivalTimestamp;
     }
 
-    public String getSuppliertype() {
-        return suppliertype;
+    public String getSupplierType() {
+        return supplierType;
     }
 
-    public void setSuppliertype(String suppliertype) {
-        this.suppliertype = suppliertype;
+    public void setSupplierType(String supplierType) {
+        this.supplierType = supplierType;
     }
 
-    public String getTriptype() {
-        return triptype;
+    public String getTripType() {
+        return tripType;
     }
 
-    public void setTriptype(String triptype) {
-        this.triptype = triptype;
+    public void setTripType(String tripType) {
+        this.tripType = tripType;
     }
 
     public String getCrewstatus() {
@@ -270,59 +272,59 @@ public class OfferItem implements Serializable {
     }
 
     public List<Price> getitemprices() {
-        return itemprices;
+        return itemPrices;
     }
 
     public void setitemprices(List<Price> prices) {
-        this.itemprices = prices;
+        this.itemPrices = prices;
     }
 
-    public String getOriginicaocode() {
-        return originicaocode;
+    public String getOriginIcaoCode() {
+        return originIcaoCode;
     }
 
-    public void setOriginicaocode(String originicaocode) {
-        this.originicaocode = originicaocode;
+    public void setOriginIcaoCode(String originIcaoCode) {
+        this.originIcaoCode = originIcaoCode;
     }
 
-    public int getDestinationcityrating() {
-        return destinationcityrating;
+    public int getDestinationCityRating() {
+        return destinationCityRating;
     }
 
-    public void setDestinationcityrating(int destinationcityrating) {
-        this.destinationcityrating = destinationcityrating;
+    public void setDestinationCityRating(int destinationCityRating) {
+        this.destinationCityRating = destinationCityRating;
     }
 
     public String getOrigincountry() {
-        return origincountry;
+        return originCountry;
     }
 
     public void setOrigincountry(String origincountry) {
-        this.origincountry = origincountry;
+        this.originCountry = origincountry;
     }
 
-    public String getDestinationcountry() {
-        return destinationcountry;
+    public String getDestinationCountry() {
+        return destinationCountry;
     }
 
-    public void setDestinationcountry(String destinationcountry) {
-        this.destinationcountry = destinationcountry;
+    public void setDestinationCountry(String destinationCountry) {
+        this.destinationCountry = destinationCountry;
     }
 
-    public String getOriginstate() {
-        return originstate;
+    public String getOriginState() {
+        return originState;
     }
 
-    public void setOriginstate(String originstate) {
-        this.originstate = originstate;
+    public void setOriginState(String originState) {
+        this.originState = originState;
     }
 
-    public String getDestinationstate() {
-        return destinationstate;
+    public String getDestinationState() {
+        return destinationState;
     }
 
-    public void setDestinationstate(String destinationstate) {
-        this.destinationstate = destinationstate;
+    public void setDestinationState(String destinationState) {
+        this.destinationState = destinationState;
     }
 
     public int getDuration() {
@@ -333,12 +335,12 @@ public class OfferItem implements Serializable {
         this.duration = duration;
     }
 
-    public long getCagaircraftid() {
-        return cagaircraftid;
+    public long getCagAircraftId() {
+        return cagAircraftId;
     }
 
-    public void setCagaircraftid(long cagaircraftid) {
-        this.cagaircraftid = cagaircraftid;
+    public void setCagAircraftId(long cagAircraftId) {
+        this.cagAircraftId = cagAircraftId;
     }
 
     public int getOriginTaxiTime() {
@@ -371,5 +373,21 @@ public class OfferItem implements Serializable {
 
     public void setOperationTypeFAA(int operationTypeFAA) {
         this.operationTypeFAA = operationTypeFAA;
+    }
+
+    public int getCharterSegmentType() {
+        return charterSegmentType;
+    }
+
+    public void setCharterSegmentType(int charterSegmentType) {
+        this.charterSegmentType = charterSegmentType;
+    }
+
+    public String getAircraftType() {
+        return aircraftType;
+    }
+
+    public void setAircraftType(String aircraftType) {
+        this.aircraftType = aircraftType;
     }
 }

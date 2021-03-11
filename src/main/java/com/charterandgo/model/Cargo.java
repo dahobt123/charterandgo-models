@@ -12,6 +12,7 @@ public class Cargo implements Serializable {
     private BigDecimal lengthInchesOrCM;
     private BigDecimal widthInchesOrCM;
     private BigDecimal heightInchesOrCM;
+
     public Cargo() {
 
     }

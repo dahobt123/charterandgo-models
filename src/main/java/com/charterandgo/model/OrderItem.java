@@ -24,13 +24,16 @@ public class OrderItem {
     private String segmentStatus;
     private int supplierId;
     private int travelTimeMinutes;
-    private int originTaxiTime;
-    private int destinationTaxiTime;
+    private int originDepartTaxiTime;
+    private int originArriveTaxiTime;
+    private int destinationDepartTaxiTime;
+    private int destinationArriveTaxiTime;
     private int turnAroundTime;
     private int segmentType;
     private String originIcaoCode;
     private String destinationIcaoCode;
     private int destinationCityRating;
+    private int originCityRating;
     private double mileage;
     private String tripType;
     private int boardLocationId;
@@ -61,13 +64,16 @@ public class OrderItem {
         obj.put("segmentStatus", segmentStatus);
         obj.put("supplierId", supplierId);
         obj.put("travelTimeMinutes", travelTimeMinutes);
-        obj.put("originTaxiTime", originTaxiTime);
-        obj.put("destinationTaxiTime", destinationTaxiTime);
+        obj.put("originDepartTaxiTime", originDepartTaxiTime);
+        obj.put("originArriveTaxiTime", originArriveTaxiTime);
+        obj.put("destinationDepartTaxiTime", destinationDepartTaxiTime);
+        obj.put("destinationArriveTaxiTime", destinationArriveTaxiTime);
         obj.put("turnAroundTime", turnAroundTime);
         obj.put("segmentType", segmentType);
         obj.put("originIcaoCode", originIcaoCode);
         obj.put("destinationIcaoCode", destinationIcaoCode);
         obj.put("destinationCityRating", destinationCityRating);
+        obj.put("originCityRating", originCityRating);
         obj.put("mileage", mileage);
         obj.put("tripType", tripType);
         obj.put("boardLocationId", boardLocationId);
@@ -221,20 +227,20 @@ public class OrderItem {
         this.travelTimeMinutes = travelTimeMinutes;
     }
 
-    public int getOriginTaxiTime() {
-        return originTaxiTime;
+    public int getOriginDepartTaxiTime() {
+        return originDepartTaxiTime;
     }
 
-    public void setOriginTaxiTime(int originTaxiTime) {
-        this.originTaxiTime = originTaxiTime;
+    public void setOriginDepartTaxiTime(int originDepartTaxiTime) {
+        this.originDepartTaxiTime = originDepartTaxiTime;
     }
 
-    public int getDestinationTaxiTime() {
-        return destinationTaxiTime;
+    public int getDestinationDepartTaxiTime() {
+        return destinationDepartTaxiTime;
     }
 
-    public void setDestinationTaxiTime(int destinationTaxiTime) {
-        this.destinationTaxiTime = destinationTaxiTime;
+    public void setDestinationDepartTaxiTime(int destinationDepartTaxiTime) {
+        this.destinationDepartTaxiTime = destinationDepartTaxiTime;
     }
 
     public int getTurnAroundTime() {
@@ -315,5 +321,29 @@ public class OrderItem {
 
     public void setLinkedOrder(long linkedOrder) {
         this.linkedOrder = linkedOrder;
+    }
+
+    public int getOriginArriveTaxiTime() {
+        return originArriveTaxiTime;
+    }
+
+    public void setOriginArriveTaxiTime(int originArriveTaxiTime) {
+        this.originArriveTaxiTime = originArriveTaxiTime;
+    }
+
+    public int getDestinationArriveTaxiTime() {
+        return destinationArriveTaxiTime;
+    }
+
+    public void setDestinationArriveTaxiTime(int destinationArriveTaxiTime) {
+        this.destinationArriveTaxiTime = destinationArriveTaxiTime;
+    }
+
+    public int getOriginCityRating() {
+        return originCityRating;
+    }
+
+    public void setOriginCityRating(int originCityRating) {
+        this.originCityRating = originCityRating;
     }
 }

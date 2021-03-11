@@ -7,23 +7,23 @@ import java.util.List;
 
 public class AirportShopDetails {
     private String owner;
-    private String powerplantrepair;
-    private double noncommerciallandingfees;
-    private int helicoptersga;
+    private String powerPlantRepair;
+    private double nonCommercialLandingFees;
+    private int helicopterSga;
     private String manager;
-    private int multienginega;
-    private int jetenginega;
+    private int multiEngineGa;
+    private int jetEngineGa;
     private String use;
-    private String bottledoxygentype;
-    private String facilityname;
-    private double costofcity;
-    private int singleenginega;
+    private String bottledOxygenType;
+    private String facilityName;
+    private double costOfCity;
+    private int singleEngineGa;
     private String ownership;
-    private String airframerepair;
-    private String locationid;
-    private String managerphone;
-    private String ownerphone;
-    private double highdensityfee;
+    private String airframeRepair;
+    private String locationId;
+    private String managerPhone;
+    private String ownerPhone;
+    private double highDensityFee;
     private List<String> fuelTypes = new ArrayList<>();
     private double latitude;
     private double longitude;
@@ -35,23 +35,23 @@ public class AirportShopDetails {
     public JSONObject toJson() {
         JSONObject obj = new JSONObject();
         obj.put("owner", owner);
-        obj.put("powerplantrepair", powerplantrepair);
-        obj.put("noncommerciallandingfees", noncommerciallandingfees);
-        obj.put("helicoptersga", helicoptersga);
+        obj.put("powerPlantRepair", powerPlantRepair);
+        obj.put("nonCommercialLandingFees", nonCommercialLandingFees);
+        obj.put("helicopterSga", helicopterSga);
         obj.put("manager", manager);
-        obj.put("multienginega", multienginega);
-        obj.put("jetenginega", jetenginega);
+        obj.put("multiEngineGa", multiEngineGa);
+        obj.put("jetEngineGa", jetEngineGa);
         obj.put("use", use);
-        obj.put("bottledoxygentype", bottledoxygentype);
-        obj.put("facilityname", facilityname);
-        obj.put("costofcity", costofcity);
-        obj.put("singleenginega", singleenginega);
+        obj.put("bottledOxygenType", bottledOxygenType);
+        obj.put("facilityName", facilityName);
+        obj.put("costOfCity", costOfCity);
+        obj.put("singleEngineGa", singleEngineGa);
         obj.put("ownership", ownership);
-        obj.put("airframerepair",airframerepair );
-        obj.put("locationid",locationid );
-        obj.put("managerphone",managerphone );
-        obj.put("ownerphone", ownerphone);
-        obj.put("highdensityfee", highdensityfee);
+        obj.put("airframeRepair", airframeRepair);
+        obj.put("locationId", locationId);
+        obj.put("managerPhone", managerPhone);
+        obj.put("ownerPhone", ownerPhone);
+        obj.put("highDensityFee", highDensityFee);
         obj.put("fuelTypes", fuelTypes);
         obj.put("latitude",latitude);
         obj.put("longitude", longitude);
@@ -66,28 +66,28 @@ public class AirportShopDetails {
         this.owner = owner;
     }
 
-    public String getPowerplantrepair() {
-        return powerplantrepair;
+    public String getPowerPlantRepair() {
+        return powerPlantRepair;
     }
 
-    public void setPowerplantrepair(String powerplantrepair) {
-        this.powerplantrepair = powerplantrepair;
+    public void setPowerPlantRepair(String powerPlantRepair) {
+        this.powerPlantRepair = powerPlantRepair;
     }
 
-    public double getNoncommerciallandingfees() {
-        return noncommerciallandingfees;
+    public double getNonCommercialLandingFees() {
+        return nonCommercialLandingFees;
     }
 
-    public void setNoncommerciallandingfees(double noncommerciallandingfees) {
-        this.noncommerciallandingfees = noncommerciallandingfees;
+    public void setNonCommercialLandingFees(double nonCommercialLandingFees) {
+        this.nonCommercialLandingFees = nonCommercialLandingFees;
     }
 
-    public int getHelicoptersga() {
-        return helicoptersga;
+    public int getHelicopterSga() {
+        return helicopterSga;
     }
 
-    public void setHelicoptersga(int helicoptersga) {
-        this.helicoptersga = helicoptersga;
+    public void setHelicopterSga(int helicopterSga) {
+        this.helicopterSga = helicopterSga;
     }
 
     public String getManager() {
@@ -98,20 +98,20 @@ public class AirportShopDetails {
         this.manager = manager;
     }
 
-    public int getMultienginega() {
-        return multienginega;
+    public int getMultiEngineGa() {
+        return multiEngineGa;
     }
 
-    public void setMultienginega(int multienginega) {
-        this.multienginega = multienginega;
+    public void setMultiEngineGa(int multiEngineGa) {
+        this.multiEngineGa = multiEngineGa;
     }
 
-    public int getJetenginega() {
-        return jetenginega;
+    public int getJetEngineGa() {
+        return jetEngineGa;
     }
 
-    public void setJetenginega(int jetenginega) {
-        this.jetenginega = jetenginega;
+    public void setJetEngineGa(int jetEngineGa) {
+        this.jetEngineGa = jetEngineGa;
     }
 
     public String getUse() {
@@ -122,28 +122,28 @@ public class AirportShopDetails {
         this.use = use;
     }
 
-    public String getBottledoxygentype() {
-        return bottledoxygentype;
+    public String getBottledOxygenType() {
+        return bottledOxygenType;
     }
 
-    public void setBottledoxygentype(String bottledoxygentype) {
-        this.bottledoxygentype = bottledoxygentype;
+    public void setBottledOxygenType(String bottledOxygenType) {
+        this.bottledOxygenType = bottledOxygenType;
     }
 
-    public String getFacilityname() {
-        return facilityname;
+    public String getFacilityName() {
+        return facilityName;
     }
 
-    public void setFacilityname(String facilityname) {
-        this.facilityname = facilityname;
+    public void setFacilityName(String facilityName) {
+        this.facilityName = facilityName;
     }
 
-    public double getCostofcity() {
-        return costofcity;
+    public double getCostOfCity() {
+        return costOfCity;
     }
 
-    public void setCostofcity(double costofcity) {
-        this.costofcity = costofcity;
+    public void setCostOfCity(double costOfCity) {
+        this.costOfCity = costOfCity;
     }
 
     public String getOwnership() {
@@ -154,44 +154,44 @@ public class AirportShopDetails {
         this.ownership = ownership;
     }
 
-    public String getAirframerepair() {
-        return airframerepair;
+    public String getAirframeRepair() {
+        return airframeRepair;
     }
 
-    public void setAirframerepair(String airframerepair) {
-        this.airframerepair = airframerepair;
+    public void setAirframeRepair(String airframeRepair) {
+        this.airframeRepair = airframeRepair;
     }
 
-    public String getLocationid() {
-        return locationid;
+    public String getLocationId() {
+        return locationId;
     }
 
-    public void setLocationid(String locationid) {
-        this.locationid = locationid;
+    public void setLocationId(String locationId) {
+        this.locationId = locationId;
     }
 
-    public String getManagerphone() {
-        return managerphone;
+    public String getManagerPhone() {
+        return managerPhone;
     }
 
-    public void setManagerphone(String managerphone) {
-        this.managerphone = managerphone;
+    public void setManagerPhone(String managerPhone) {
+        this.managerPhone = managerPhone;
     }
 
-    public String getOwnerphone() {
-        return ownerphone;
+    public String getOwnerPhone() {
+        return ownerPhone;
     }
 
-    public void setOwnerphone(String ownerphone) {
-        this.ownerphone = ownerphone;
+    public void setOwnerPhone(String ownerPhone) {
+        this.ownerPhone = ownerPhone;
     }
 
-    public double getHighdensityfee() {
-        return highdensityfee;
+    public double getHighDensityFee() {
+        return highDensityFee;
     }
 
-    public void setHighdensityfee(double highdensityfee) {
-        this.highdensityfee = highdensityfee;
+    public void setHighDensityFee(double highDensityFee) {
+        this.highDensityFee = highDensityFee;
     }
 
     public List<String> getFuelTypes() {
@@ -218,11 +218,11 @@ public class AirportShopDetails {
         this.longitude = longitude;
     }
 
-    public int getSingleenginega() {
-        return singleenginega;
+    public int getSingleEngineGa() {
+        return singleEngineGa;
     }
 
-    public void setSingleenginega(int singleenginega) {
-        this.singleenginega = singleenginega;
+    public void setSingleEngineGa(int singleEngineGa) {
+        this.singleEngineGa = singleEngineGa;
     }
 }
