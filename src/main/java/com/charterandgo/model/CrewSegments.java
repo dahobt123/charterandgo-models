@@ -322,50 +322,53 @@ public class CrewSegments implements Serializable {
 
     /**
      * return the min number of pilots needed for a duty duration
+     *
      * @param minNumOfPilots
      * @param flightDuration
      * @return min number of pilots
      */
-    public static int minNumberOfPilotsForDuty(int minNumOfPilots, int flightDuration, LocalDateTime start){
+    public static int minNumberOfPilotsForDuty(int minNumOfPilots, int flightDuration, LocalDateTime start) {
 
-        if(start!=null && start.getHour() < 8 && start.getHour() >= 5 && flightDuration <= 15*60)
+        if (start != null && start.getHour() < 8 && start.getHour() >= 5 && flightDuration <= 15 * 60)
             return Math.max(minNumOfPilots, 1);
-        else if(flightDuration <= 15 * 60)
+        else if (flightDuration <= 15 * 60)
             return Math.max(minNumOfPilots, 1);
-        else if( flightDuration <= 16*60)
+        else if (flightDuration <= 16 * 60)
             return Math.max(minNumOfPilots, 2);
-        else if( flightDuration <= 30*60)
+        else if (flightDuration <= 30 * 60)
             return Math.max(minNumOfPilots, 4);
         else return 0;
     }
 
     /**
      * return the min number of pilots needed for a flight duration
+     *
      * @param minNumOfPilots
      * @param flightDuration
      * @return min number of pilots
      */
-    public static int minNumberOfPilotsForFlight(int minNumOfPilots, int flightDuration, LocalDateTime start){
+    public static int minNumberOfPilotsForFlight(int minNumOfPilots, int flightDuration, LocalDateTime start) {
 
-        if(start!=null && start.getHour() < 8 && start.getHour() >= 5 && flightDuration <= 9*60)
+        if (start != null && start.getHour() < 8 && start.getHour() >= 5 && flightDuration <= 9 * 60)
             return Math.max(minNumOfPilots, 1);
-        else if(flightDuration <= 8 * 60)
+        else if (flightDuration <= 8 * 60)
             return Math.max(minNumOfPilots, 1);
-        else if( flightDuration <= 8*60)
+        else if (flightDuration <= 8 * 60)
             return Math.max(minNumOfPilots, 2);
-        else if( flightDuration <= 12*60)
+        else if (flightDuration <= 12 * 60)
             return Math.max(minNumOfPilots, 3);
-        else if( flightDuration <= 16*60)
+        else if (flightDuration <= 16 * 60)
             return Math.max(minNumOfPilots, 4);
         else return 0;
     }
 
     /**
      * returns the duration of a rest period given a single flight segment
+     *
      * @param newSegment
      * @return rest duration
      */
-    public static int getRestDuration(CrewSegments newSegment){
+    public static int getRestDuration(CrewSegments newSegment) {
         int restLength = 0;
         // setting rest periods
         if (newSegment.getActualDuration() < 8 * 60)
@@ -383,14 +386,36 @@ public class CrewSegments implements Serializable {
     }
 
     /**
+     * returns the duration of a rest period given a single flight segment
+     *
+     * @param minNumberOfPilots
+     * @return flightLength
+     */
+    public static int getFlightHours(int minNumberOfPilots) {
+
+        // setting rest periods
+
+        if (minNumberOfPilots == 1)
+            return   9 * 60;
+        else if (minNumberOfPilots == 2)
+            return 9 * 60;
+        else if (minNumberOfPilots == 3)
+            return 12* 60;
+        else if (minNumberOfPilots == 4)
+            return 20* 60;
+        return 0;
+    }
+
+    /**
      * returns the duration of a rest period given a group of flight segments
+     *
      * @param crewSegmentsList
      * @param newSegment
      * @param startDutyTime
      * @param endDutyTime
      * @return rest duration
      */
-    public static int getRestDuration(List<CrewSegments> crewSegmentsList, CrewSegments newSegment, LocalDateTime startDutyTime, LocalDateTime endDutyTime){
+    public static int getRestDuration(List<CrewSegments> crewSegmentsList, CrewSegments newSegment, LocalDateTime startDutyTime, LocalDateTime endDutyTime) {
 
         int restLength = 0;
         int flightDurations = crewSegmentsList.stream().filter(c -> c.getActualStartTime().isAfter(startDutyTime)
