@@ -12,6 +12,7 @@ public class Tax implements Serializable {
     private BigDecimal taxAmount;
     private String taxCurrency;
     private boolean isFee;
+    private boolean isAdvisoryOnly;
 
     public Tax() {
 
@@ -67,5 +68,13 @@ public class Tax implements Serializable {
 
     public void setSubType(String subType) {
         this.subType = subType;
+    }
+
+    public boolean isAdvisoryOnly() {
+        return isAdvisoryOnly;
+    }
+
+    public void setAdvisoryOnly(boolean advisoryOnly) {
+        isAdvisoryOnly = advisoryOnly;
     }
 }

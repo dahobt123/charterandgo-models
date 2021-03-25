@@ -53,4 +53,5 @@ com/charterandgo/model/ErrorMessage.class
 com/charterandgo/model/OfferItem.class
 com/charterandgo/model/CostRequest.class
 com/charterandgo/model/AirportShopDetails.class
+com/charterandgo/model/Crew$Identification.class
 com/charterandgo/model/Price.class
