@@ -12,8 +12,10 @@ public class Request implements Serializable {
 
     private String flightattendant;
     private BigDecimal totalspend;
-    private int numberofpax;
+    private int supplierId;
+    private int numberOfPax;
     private List<Journey> journey = new ArrayList<>();
+    private List<Aircraft> aircraft = new ArrayList<>();
     private List<Offer> options = new ArrayList<>();
 
 
@@ -31,6 +33,13 @@ public class Request implements Serializable {
 //        for (Journey jrny : journey) {
 //            array.put(jrny.toJson());
 //        }
+        if (aircraft.size() > 0) {
+            JSONArray aircraftArray = new JSONArray();
+            for (Aircraft info : aircraft) {
+                aircraftArray.put(info.toJson());
+            }
+            obj.put("aircraft", aircraftArray);
+        }
         if (options.size() > 0) {
             JSONArray optArray = new JSONArray();
             obj.put("options", optArray);
@@ -46,7 +55,7 @@ public class Request implements Serializable {
         StringBuilder builder = new StringBuilder();
         builder.append(totalspend + "/");
         builder.append(flightattendant + "/");
-        builder.append(numberofpax + "/");
+        builder.append(numberOfPax + "/");
         for (Journey req : journey) {
             builder.append(req.toString() + "/");
         }
@@ -89,13 +98,27 @@ public class Request implements Serializable {
         this.totalspend = totalspend;
     }
 
-    public int getnumberofpax() {
-        return numberofpax;
+    public int getSupplierId() {
+        return supplierId;
     }
 
-    public void setnumberofpax(int numberofpax) {
-        this.numberofpax = numberofpax;
+    public void setSupplierId(int supplierId) {
+        this.supplierId = supplierId;
     }
 
+    public int getNumberOfPax() {
+        return numberOfPax;
+    }
 
+    public void setNumberOfPax(int numberOfPax) {
+        this.numberOfPax = numberOfPax;
+    }
+
+    public List<Aircraft> getAircraft() {
+        return aircraft;
+    }
+
+    public void setAircraft(List<Aircraft> aircraft) {
+        this.aircraft = aircraft;
+    }
 }

@@ -1,5 +1,6 @@
 package com.charterandgo.model;
 
+
 import com.charterandgo.charterhelpers.StringUtility;
 import org.json.JSONArray;
 import org.json.JSONObject;

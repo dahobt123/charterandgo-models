@@ -17,7 +17,7 @@ public class Aircraft implements Serializable {
     private String manufacturer;
     private String model;
     private int numberofpax;
-    private String aircrafttype;
+    private String aircraftType;
     private int shortfuelgallonshour;
     private int mediumfuelgallonshour;
     private int longfuelgallonshour;
@@ -158,12 +158,12 @@ public class Aircraft implements Serializable {
         this.headroominches = headroominches;
     }
 
-    public String getAircrafttype() {
-        return aircrafttype;
+    public String getAircraftType() {
+        return aircraftType;
     }
 
-    public void setAircrafttype(String aircrafttype) {
-        this.aircrafttype = aircrafttype;
+    public void setAircraftType(String aircraftType) {
+        this.aircraftType = aircraftType;
     }
 
     public int getShortfuelgallonshour() {
