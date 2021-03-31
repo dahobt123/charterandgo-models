@@ -34,6 +34,7 @@ public class CrewSegments implements Serializable {
     private int orderItemId;
     private ZoneId zoneId;
     private String timeZone;
+    private String flightType;
 
     public CrewSegments(int crewProfileId, LocalDateTime actualStartTime, LocalDateTime actualEndTime, String destination, String departure, String segmentType, String tailNumber, int orderID, String crewRole, int charterSupplierId, int actualDuration) {
         this.crewProfileId = crewProfileId;
@@ -255,6 +256,14 @@ public class CrewSegments implements Serializable {
 
     public void setTimeZone(String timeZone) {
         this.timeZone = timeZone;
+    }
+
+    public String getFlightType() {
+        return flightType;
+    }
+
+    public void setFlightType(String flightType) {
+        this.flightType = flightType;
     }
 
     public JSONObject toJson() {

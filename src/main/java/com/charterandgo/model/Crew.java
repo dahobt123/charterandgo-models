@@ -8,6 +8,7 @@ import org.json.JSONObject;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Crew implements Serializable {
@@ -38,7 +39,7 @@ public class Crew implements Serializable {
     private String certCrewType;
     private List<CrewCertifications> crewCerts;
     private List<RichMedia> richMedia;
-    private List<CrewSegments> segments;
+    private List<CrewSegments> segments = new ArrayList<>();
     private String tailNumber;
     private LocalDateTime lastUpdated;
     private int lastUpdatedBy;
@@ -46,7 +47,6 @@ public class Crew implements Serializable {
     private Identification passport = new Identification();
     private Identification visas = new Identification();
 
-    public static Logger logger = Logger.getLogger(Crew.class);
 
     public Crew() {
         BasicConfigurator.configure();
@@ -55,10 +55,9 @@ public class Crew implements Serializable {
 
 
 
-    public Crew(int crewProfileId, String crewRole) {
+    public Crew(int crewProfileId, String certCrewType) {
         this.crewProfileId = crewProfileId;
-        this.crewRole = crewRole;
-        BasicConfigurator.configure();
+        this.certCrewType = certCrewType;
     }
 
     public Crew(int crewProfileId, int pilotID, String firstName, String lastName, String homeBase) {
@@ -71,11 +70,11 @@ public class Crew implements Serializable {
     }
 
 
-
-
     public JSONObject toJson() {
         JSONObject obj = new JSONObject();
-        obj.put("crewRole", crewRole);
+        obj.put("crewRole", certCrewType);
+        obj.put("firstName", firstName);
+        obj.put("lastName", lastName);
         obj.put("crewProfileId", crewProfileId);
         return obj;
     }
@@ -375,13 +374,7 @@ public class Crew implements Serializable {
         this.zoneId = zoneId;
     }
 
-    public static Logger getLogger() {
-        return logger;
-    }
 
-    public static void setLogger(Logger logger) {
-        Crew.logger = logger;
-    }
 
     public class Identification{
         int idNubmer;
