@@ -6,6 +6,8 @@ import org.json.JSONObject;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -26,8 +28,8 @@ public class OfferItem implements Serializable {
     private int travelTimeMinutes;
     private String originAirportCode;
     private String destinationAirportCode;
-    private Date departureTimestamp;
-    private Date arrivalTimestamp;
+    private ZonedDateTime departureTimeStamp;
+    private ZonedDateTime arrivalTimeStamp;
     private String aircraftType;
     private String segmentStatus;
     private String tripType;
@@ -86,11 +88,11 @@ public class OfferItem implements Serializable {
         obj.put("destinationCityRating", destinationCityRating);
         obj.put("mileage", mileage);
         obj.put("nnumber", nnumber);
-        if (departureTimestamp != null) {
-            obj.put("departureTimestamp", DateHelper.formatIsoTimestamp(departureTimestamp));
+        if (departureTimeStamp != null) {
+            obj.put("departureTimestamp", departureTimeStamp.format(DateTimeFormatter.ISO_OFFSET_DATE_TIME));
         }
-        if (arrivalTimestamp != null) {
-            obj.put("arrivalTimeStamp", DateHelper.formatIsoTimestamp(arrivalTimestamp));
+        if (arrivalTimeStamp != null) {
+            obj.put("arrivalTimeStamp", arrivalTimeStamp.format(DateTimeFormatter.ISO_OFFSET_DATE_TIME));
         }
         obj.put("supplierId", supplierId);
         obj.put("travelTimeMinutes", travelTimeMinutes);
@@ -215,20 +217,20 @@ public class OfferItem implements Serializable {
         this.destinationFboId = destinationFboId;
     }
 
-    public Date getDepartureTimestamp() {
-        return departureTimestamp;
+    public ZonedDateTime getDepartureTimeStamp() {
+        return departureTimeStamp;
     }
 
-    public void setDepartureTimestamp(Date departureTimestamp) {
-        this.departureTimestamp = departureTimestamp;
+    public void setDepartureTimeStamp(ZonedDateTime departureTimeStamp) {
+        this.departureTimeStamp = departureTimeStamp;
     }
 
-    public Date getArrivalTimestamp() {
-        return arrivalTimestamp;
+    public ZonedDateTime getArrivalTimeStamp() {
+        return arrivalTimeStamp;
     }
 
-    public void setArrivalTimestamp(Date arrivalTimestamp) {
-        this.arrivalTimestamp = arrivalTimestamp;
+    public void setArrivalTimeStamp(ZonedDateTime arrivalTimeStamp) {
+        this.arrivalTimeStamp = arrivalTimeStamp;
     }
 
     public String getSupplierType() {

@@ -2,14 +2,17 @@ package com.charterandgo.model;
 
 import org.json.JSONObject;
 
+import java.time.ZonedDateTime;
 import java.util.Date;
 
 public class OrderItem {
 
     private int orderItemId;
     private String supplierType;
-    private Date departureTimeStamp;
+    private ZonedDateTime departureTimeStamp;
     private String destinationAirportCode;
+    private String originAirportName;
+    private String destinationAirportName;
     private String originAirportCode;
     private String originCountry;
     private String destinationCountry;
@@ -20,15 +23,22 @@ public class OrderItem {
     private String destinationState;
     private String nnumber;
     private long cagAircraftId;
-    private Date arrivalTimeStamp;
+    private ZonedDateTime arrivalTimeStamp;
     private String segmentStatus;
+    private String oldSegmentStatus;
     private int supplierId;
     private int travelTimeMinutes;
+    private int ovrTravelTimeMinutes;
     private int originDepartTaxiTime;
+    private int ovrOriginDepartTaxiTime;
     private int originArriveTaxiTime;
+    private int ovrOriginArriveTaxiTime;
     private int destinationDepartTaxiTime;
+    private int ovrDestinationDepartTaxiTime;
     private int destinationArriveTaxiTime;
+    private int ovrDestinationArriveTaxiTime;
     private int turnAroundTime;
+    private int ovrTurnAroundTime;
     private int segmentType;
     private String originIcaoCode;
     private String destinationIcaoCode;
@@ -62,13 +72,16 @@ public class OrderItem {
         obj.put("cagAircraftId", cagAircraftId);
         obj.put("arrivalTimeStamp",arrivalTimeStamp);
         obj.put("segmentStatus", segmentStatus);
+        obj.put("oldSegmentStatus", oldSegmentStatus);
         obj.put("supplierId", supplierId);
         obj.put("travelTimeMinutes", travelTimeMinutes);
+        obj.put("ovrTravelTimeMinutes", ovrTravelTimeMinutes);
         obj.put("originDepartTaxiTime", originDepartTaxiTime);
         obj.put("originArriveTaxiTime", originArriveTaxiTime);
         obj.put("destinationDepartTaxiTime", destinationDepartTaxiTime);
         obj.put("destinationArriveTaxiTime", destinationArriveTaxiTime);
         obj.put("turnAroundTime", turnAroundTime);
+        obj.put("ovrTurnAroundTime", ovrTurnAroundTime);
         obj.put("segmentType", segmentType);
         obj.put("originIcaoCode", originIcaoCode);
         obj.put("destinationIcaoCode", destinationIcaoCode);
@@ -79,6 +92,13 @@ public class OrderItem {
         obj.put("boardLocationId", boardLocationId);
         obj.put("arrivalLocationId", arrivalLocationId);
         obj.put("linkedOrder", linkedOrder);
+        obj.put("originAirportName", originAirportName);
+        obj.put("destinationAirportName", destinationAirportName);
+        obj.put("ovrOriginDepartTaxiTime", ovrOriginDepartTaxiTime);
+        obj.put("ovrDestinationArriveTaxiTime", ovrDestinationArriveTaxiTime);
+        obj.put("ovrDestinationDepartTaxiTime", ovrDestinationDepartTaxiTime);
+        obj.put("ovrOriginArriveTaxiTime", ovrOriginArriveTaxiTime);
+        obj.put("ovrOriginDepartTaxiTime", ovrOriginDepartTaxiTime);
         return obj;
     }
 
@@ -99,11 +119,11 @@ public class OrderItem {
         this.supplierType = supplierType;
     }
 
-    public Date getDepartureTimeStamp() {
+    public ZonedDateTime getDepartureTimeStamp() {
         return departureTimeStamp;
     }
 
-    public void setDepartureTimeStamp(Date departureTimeStamp) {
+    public void setDepartureTimeStamp(ZonedDateTime departureTimeStamp) {
         this.departureTimeStamp = departureTimeStamp;
     }
 
@@ -195,11 +215,11 @@ public class OrderItem {
         this.cagAircraftId = cagAircraftId;
     }
 
-    public Date getArrivalTimeStamp() {
+    public ZonedDateTime getArrivalTimeStamp() {
         return arrivalTimeStamp;
     }
 
-    public void setArrivalTimeStamp(Date arrivalTimeStamp) {
+    public void setArrivalTimeStamp(ZonedDateTime arrivalTimeStamp) {
         this.arrivalTimeStamp = arrivalTimeStamp;
     }
 
@@ -345,5 +365,78 @@ public class OrderItem {
 
     public void setOriginCityRating(int originCityRating) {
         this.originCityRating = originCityRating;
+    }
+
+    public String getOldSegmentStatus() {
+        return oldSegmentStatus;
+    }
+
+    public void setOldSegmentStatus(String oldSegmentStatus) {
+        this.oldSegmentStatus = oldSegmentStatus;
+    }
+
+    public String getOriginAirportName() {
+        return originAirportName;
+    }
+
+    public void setOriginAirportName(String originAirportName) {
+        this.originAirportName = originAirportName;
+    }
+
+    public String getDestinationAirportName() {
+        return destinationAirportName;
+    }
+
+    public void setDestinationAirportName(String destinationAirportName) {
+        this.destinationAirportName = destinationAirportName;
+    }
+
+    public int getOvrOriginDepartTaxiTime() {
+        return ovrOriginDepartTaxiTime;
+    }
+
+    public void setOvrOriginDepartTaxiTime(int ovrOriginDepartTaxiTime) {
+        this.ovrOriginDepartTaxiTime = ovrOriginDepartTaxiTime;
+    }
+
+    public int getOvrOriginArriveTaxiTime() {
+        return ovrOriginArriveTaxiTime;
+    }
+
+    public void setOvrOriginArriveTaxiTime(int ovrOriginArriveTaxiTime) {
+        this.ovrOriginArriveTaxiTime = ovrOriginArriveTaxiTime;
+    }
+
+    public int getOvrDestinationDepartTaxiTime() {
+        return ovrDestinationDepartTaxiTime;
+    }
+
+    public void setOvrDestinationDepartTaxiTime(int ovrDestinationDepartTaxiTime) {
+        this.ovrDestinationDepartTaxiTime = ovrDestinationDepartTaxiTime;
+    }
+
+    public int getOvrDestinationArriveTaxiTime() {
+        return ovrDestinationArriveTaxiTime;
+    }
+
+    public void setOvrDestinationArriveTaxiTime(int ovrDestinationArriveTaxiTime) {
+        this.ovrDestinationArriveTaxiTime = ovrDestinationArriveTaxiTime;
+    }
+
+    public int getOvrTurnAroundTime() {
+        return ovrTurnAroundTime;
+    }
+
+    public void setOvrTurnAroundTime(int ovrTurnAroundTime) {
+        this.ovrTurnAroundTime = ovrTurnAroundTime;
+    }
+
+
+    public int getOvrTravelTimeMinutes() {
+        return ovrTravelTimeMinutes;
+    }
+
+    public void setOvrTravelTimeMinutes(int ovrTravelTimeMinutes) {
+        this.ovrTravelTimeMinutes = ovrTravelTimeMinutes;
     }
 }

@@ -189,4 +189,5 @@ public class AirportInfo {
     public void setArriveTaxiTime(int arriveTaxiTime) {
         this.arriveTaxiTime = arriveTaxiTime;
     }
+
 }

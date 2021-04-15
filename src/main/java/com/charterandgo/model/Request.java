@@ -14,6 +14,7 @@ public class Request implements Serializable {
     private BigDecimal totalspend;
     private int supplierId;
     private int numberOfPax;
+    private int numberOfPets;
     private List<Journey> journey = new ArrayList<>();
     private List<Aircraft> aircraft = new ArrayList<>();
     private List<Offer> options = new ArrayList<>();
@@ -120,5 +121,13 @@ public class Request implements Serializable {
 
     public void setAircraft(List<Aircraft> aircraft) {
         this.aircraft = aircraft;
+    }
+
+    public int getNumberOfPets() {
+        return numberOfPets;
+    }
+
+    public void setNumberOfPets(int numberOfPets) {
+        this.numberOfPets = numberOfPets;
     }
 }

@@ -1,4 +1,4 @@
-package com.charterandgo.inventory.model;
+package com.charterandgo.model;
 
 import java.math.BigDecimal;
 import java.util.Date;
