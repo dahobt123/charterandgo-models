@@ -467,29 +467,33 @@ public class NewShoppingRequest implements Serializable {
 //    }
 
     public class OrderItem {
-        public Integer orderItemId;
-        public String supplierType;
-        public ZonedDateTime departureTimeStamp;
-        public String destinationAirportCode;
-        public String originAirportCode;
-        public String originCountry;
-        public String destinationCountry;
-        public String originCity;
+        private int linkedFromOrder;
+        private int linkedToOrder;
+        private int linkedFromOrderItem;
+        private int linkedToOrderItem;
+        private int orderItemId;
+        private String supplierType;
+        private ZonedDateTime departureTimeStamp;
+        private String destinationAirportCode;
+        private String originAirportCode;
+        private String originCountry;
+        private String destinationCountry;
+        private String originCity;
         private String destinationCity;
         private String originState;
         private String orderReference;
         private String destinationState;
-        public String nnumber;
-        public int cagAircraftId;
-        public ZonedDateTime arrivalTimeStamp;
-        public String segmentStatus;
-        public int supplierId;
-        public int travelTimeMinutes;
-        public int originTaxiTime;
-        public int destinationTaxiTime;
-        public int turnAroundTime;
-        public int segmentType;
-        public String originIcaoCode;
+        private String nnumber;
+        private int cagAircraftId;
+        private ZonedDateTime arrivalTimeStamp;
+        private String segmentStatus;
+        private int supplierId;
+        private int travelTimeMinutes;
+        private int originTaxiTime;
+        private int destinationTaxiTime;
+        private int turnAroundTime;
+        private int segmentType;
+        private String originIcaoCode;
         private String destinationIcaoCode;
         private int destinationCityRating;
         private int mileage;
@@ -520,7 +524,6 @@ public class NewShoppingRequest implements Serializable {
         private int ovrTurnAroundTime;
         private int originCityRating;
         private int departCityRating;
-        private int linedOrder;
         private ZoneId zoneId;
         private LocalDateTime startTime;
         private LocalDateTime endTime;
@@ -584,8 +587,29 @@ public class NewShoppingRequest implements Serializable {
             obj.put("ovrTurnAroundTime", ovrTurnAroundTime);
             obj.put("originCityRating", originCityRating);
             obj.put("departCityRating", departCityRating);
-            obj.put("linedOrder", linedOrder);
+            obj.put("linedOrderFrom", linkedFromOrder);
+            obj.put("linedOrderTo", linkedToOrder);
             return obj;
+        }
+
+        public int getLinkedFromOrder() {
+            return linkedFromOrder;
+        }
+
+        public void setLinkedFromOrder(int linkedFromOrder) {
+            this.linkedFromOrder = linkedFromOrder;
+        }
+
+        public int getLinkedToOrder() {
+            return linkedToOrder;
+        }
+
+        public void setLinkedToOrder(int linkedToOrder) {
+            this.linkedToOrder = linkedToOrder;
+        }
+
+        public void setOrderItemId(int orderItemId) {
+            this.orderItemId = orderItemId;
         }
 
         public Integer getOrderItemId() {
@@ -594,6 +618,22 @@ public class NewShoppingRequest implements Serializable {
 
         public void setOrderItemId(Integer orderItemId) {
             this.orderItemId = orderItemId;
+        }
+
+        public int getLinkedFromOrderItem() {
+            return linkedFromOrderItem;
+        }
+
+        public void setLinkedFromOrderItem(int linkedFromOrderItem) {
+            this.linkedFromOrderItem = linkedFromOrderItem;
+        }
+
+        public int getLinkedToOrderItem() {
+            return linkedToOrderItem;
+        }
+
+        public void setLinkedToOrderItem(int linkedToOrderItem) {
+            this.linkedToOrderItem = linkedToOrderItem;
         }
 
         public String getSupplierType() {
@@ -1007,14 +1047,6 @@ public class NewShoppingRequest implements Serializable {
             this.departCityRating = departCityRating;
         }
 
-        public int getLinedOrder() {
-            return linedOrder;
-        }
-
-        public void setLinedOrder(int linedOrder) {
-            this.linedOrder = linedOrder;
-        }
-
         public ZoneId getZoneId() {
             return zoneId;
         }
@@ -1057,6 +1089,34 @@ public class NewShoppingRequest implements Serializable {
     }
 
 
+    public class warnning {
+        private int number;
+        private String message;
+
+        public JSONObject toJson() {
+            JSONObject obj = new JSONObject();
+            JSONArray idArray = new JSONArray();
+            obj.put("number", number);
+            obj.put("message", message);
+            return obj;
+        }
+
+        public int getNumber() {
+            return number;
+        }
+
+        public void setNumber(int number) {
+            this.number = number;
+        }
+
+        public String getMessage() {
+            return message;
+        }
+
+        public void setMessage(String message) {
+            this.message = message;
+        }
+    }
 
     public class Ids {
         List<Integer> id = new ArrayList<>();
@@ -1077,19 +1137,23 @@ public class NewShoppingRequest implements Serializable {
     }
 
     public class Option {
-        public int orderId;
+        private int orderId;
+        private String orderStatus;
+        private String orderSubStatus;
+        private List<OrderItem> orderItems;
 
-        public JSONObject toJson(){
+
+        public JSONObject toJson() {
             JSONObject obj = new JSONObject();
             obj.put("orderId", orderId);
+            obj.put("orderStatus", orderStatus);
+            obj.put("orderSubStatus", orderSubStatus);
             JSONArray items = new JSONArray();
-            for(OrderItem item : orderItems)
+            for (OrderItem item : orderItems)
                 items.put(item.toShoppingRequestJson());
             obj.put("orderItems", items);
             return obj;
         }
-
-        public List<OrderItem> orderItems;
 
         public int getOrderId() {
             return orderId;
@@ -1105,6 +1169,22 @@ public class NewShoppingRequest implements Serializable {
 
         public void setOrderItems(List<OrderItem> orderItems) {
             this.orderItems = orderItems;
+        }
+
+        public String getOrderStatus() {
+            return orderStatus;
+        }
+
+        public void setOrderStatus(String orderStatus) {
+            this.orderStatus = orderStatus;
+        }
+
+        public String getOrderSubStatus() {
+            return orderSubStatus;
+        }
+
+        public void setOrderSubStatus(String orderSubStatus) {
+            this.orderSubStatus = orderSubStatus;
         }
     }
 
@@ -1208,7 +1288,7 @@ public class NewShoppingRequest implements Serializable {
     }
 
     public class Request {
-//        public List<Journey> journey;
+        //        public List<Journey> journey;
         public List<Option> options;
         //        public List<Cargo> cargo;
 //        public List<Pets> pets;
@@ -1249,8 +1329,6 @@ public class NewShoppingRequest implements Serializable {
 //            this.locations = locations;
 //        }
     }
-
-
 
 
 }

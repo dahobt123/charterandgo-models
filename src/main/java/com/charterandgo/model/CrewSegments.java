@@ -3,45 +3,62 @@ package com.charterandgo.model;
 import org.json.JSONObject;
 
 import java.io.Serializable;
-import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class CrewSegments implements Serializable {
     private int crewProfileId;
+    private int estimatedDuration;
+    private int actualDuration;
+    private int orderID;
+    private int turnAroundTime;
+    private int charterSupplierId;
+    private int lastUpdatedBy;
+    private int orderItemId;
+    private int UID;
+    private int linkedFromOrder;
+    private int linkedToOrder;
+    private int linkedFromOrderItem;
+    private int linkedToOrderItem;
+    private int flightPartType;
+    private int numberOfCrew;
     private LocalDateTime lastUpdated;
     private LocalDateTime estimatedStartTime;
     private LocalDateTime estimatedEndTime;
-    private int estimatedDuration;
     private LocalDateTime actualStartTime;
     private LocalDateTime actualEndTime;
-    private int actualDuration;
     private String destination;
     private String departure;
+    private String orderStatus;
+    private String orderSubStatus;
+    private String originCountry;
+    private String destinationCountry;
+    private String originCity;
+    private String destinationCity;
+    private String originState;
+    private String orderReference;
+    private String destinationState;
     private String segmentType;  // plane status (empty leg, repostition)
     private String tailNumber;
-    private int orderID;
     private String crewRole;  // pilot, co pilot, plane prep?...
-    private int charterSupplierId;
     private String manufacturer;
     private String model;
-    private boolean overRideFlag;
-    private int flightPartType;
-    private boolean international;
-    private int lastUpdatedBy;
-    private int UID;
-    private int orderItemId;
     private ZoneId zoneId;
     private String timeZone;
     private String flightType;
+    private String tripType;
+    private boolean overRideFlag;
+    private boolean international;
 
-    public CrewSegments(int crewProfileId, LocalDateTime actualStartTime, LocalDateTime actualEndTime, String destination, String departure, String segmentType, String tailNumber, int orderID, String crewRole, int charterSupplierId, int actualDuration) {
+    public CrewSegments(int crewProfileId, LocalDateTime actualStartTime, LocalDateTime actualEndTime, String destinationAirportCode, String departureAirportCode, String segmentType, String tailNumber, int orderID, String crewRole, int charterSupplierId, int actualDuration) {
         this.crewProfileId = crewProfileId;
         this.actualStartTime = actualStartTime;
         this.actualEndTime = actualEndTime;
-        this.destination = destination;
-        this.departure = departure;
+        this.destination = destinationAirportCode;
+        this.departure = departureAirportCode;
         this.segmentType = segmentType;
         this.tailNumber = tailNumber;
         this.orderID = orderID;
@@ -266,6 +283,134 @@ public class CrewSegments implements Serializable {
         this.flightType = flightType;
     }
 
+    public int getTurnAroundTime() {
+        return turnAroundTime;
+    }
+
+    public void setTurnAroundTime(int turnAroundTime) {
+        this.turnAroundTime = turnAroundTime;
+    }
+
+    public int getLinkedFromOrder() {
+        return linkedFromOrder;
+    }
+
+    public void setLinkedFromOrder(int linkedFromOrder) {
+        this.linkedFromOrder = linkedFromOrder;
+    }
+
+    public int getLinkedToOrder() {
+        return linkedToOrder;
+    }
+
+    public void setLinkedToOrder(int linkedToOrder) {
+        this.linkedToOrder = linkedToOrder;
+    }
+
+    public String getOrderStatus() {
+        return orderStatus;
+    }
+
+    public void setOrderStatus(String orderStatus) {
+        this.orderStatus = orderStatus;
+    }
+
+    public String getOrderSubStatus() {
+        return orderSubStatus;
+    }
+
+    public void setOrderSubStatus(String orderSubStatus) {
+        this.orderSubStatus = orderSubStatus;
+    }
+
+    public String getOriginCountry() {
+        return originCountry;
+    }
+
+    public void setOriginCountry(String originCountry) {
+        this.originCountry = originCountry;
+    }
+
+    public String getDestinationCountry() {
+        return destinationCountry;
+    }
+
+    public void setDestinationCountry(String destinationCountry) {
+        this.destinationCountry = destinationCountry;
+    }
+
+    public String getOriginCity() {
+        return originCity;
+    }
+
+    public void setOriginCity(String originCity) {
+        this.originCity = originCity;
+    }
+
+    public String getDestinationCity() {
+        return destinationCity;
+    }
+
+    public void setDestinationCity(String destinationCity) {
+        this.destinationCity = destinationCity;
+    }
+
+    public String getOriginState() {
+        return originState;
+    }
+
+    public void setOriginState(String originState) {
+        this.originState = originState;
+    }
+
+    public String getOrderReference() {
+        return orderReference;
+    }
+
+    public void setOrderReference(String orderReference) {
+        this.orderReference = orderReference;
+    }
+
+    public String getDestinationState() {
+        return destinationState;
+    }
+
+    public void setDestinationState(String destinationState) {
+        this.destinationState = destinationState;
+    }
+
+    public int getNumberOfCrew() {
+        return numberOfCrew;
+    }
+
+    public void setNumberOfCrew(int numberOfCrew) {
+        this.numberOfCrew = numberOfCrew;
+    }
+
+    public int getLinkedFromOrderItem() {
+        return linkedFromOrderItem;
+    }
+
+    public void setLinkedFromOrderItem(int linkedFromOrderItem) {
+        this.linkedFromOrderItem = linkedFromOrderItem;
+    }
+
+    public int getLinkedToOrderItem() {
+        return linkedToOrderItem;
+    }
+
+    public void setLinkedToOrderItem(int linkedToOrderItem) {
+        this.linkedToOrderItem = linkedToOrderItem;
+    }
+
+    public String getTripType() {
+        return tripType;
+    }
+
+    public void setTripType(String tripType) {
+        this.tripType = tripType;
+    }
+
     public JSONObject toJson() {
         JSONObject obj = new JSONObject();
         obj.put("crewProfileId", crewProfileId);
@@ -285,8 +430,128 @@ public class CrewSegments implements Serializable {
         obj.put("flightPartType", flightPartType);
         obj.put("orderItemId", orderItemId);
         obj.put("zoneId", zoneId);
+        obj.put("turnAroundTime", turnAroundTime);
+        obj.put("linedOrderFrom", linkedFromOrder);
+        obj.put("linedOrderTo", linkedToOrder);
+        obj.put("orderStatus", orderStatus);
+        obj.put("orderSubStatus", orderSubStatus);
+        obj.put("originCountry", originCountry);
+        obj.put("destinationCountry", destinationCountry);
+        obj.put("originCity", originCity);
+        obj.put("turnAroundTime", turnAroundTime);
+        obj.put("destinationCity", destinationCity);
+        obj.put("originState", originState);
+        obj.put("orderReference", orderReference);
+        obj.put("destinationState", destinationState);
+        obj.put("numberOfCrew", numberOfCrew);
+        obj.put("linkedFromOrderItem",linkedFromOrderItem);
+        obj.put("linkedToOrderItem", linkedToOrderItem);
+        obj.put("tripType", tripType);
 
         return obj;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof CrewSegments)) return false;
+        CrewSegments segments = (CrewSegments) o;
+        return crewProfileId == segments.crewProfileId && estimatedDuration == segments.estimatedDuration && actualDuration == segments.actualDuration && orderID == segments.orderID && turnAroundTime == segments.turnAroundTime && charterSupplierId == segments.charterSupplierId && lastUpdatedBy == segments.lastUpdatedBy && orderItemId == segments.orderItemId && UID == segments.UID && linkedFromOrder == segments.linkedFromOrder && linkedToOrder == segments.linkedToOrder && flightPartType == segments.flightPartType && numberOfCrew == segments.numberOfCrew && overRideFlag == segments.overRideFlag && international == segments.international && Objects.equals(lastUpdated, segments.lastUpdated) && Objects.equals(estimatedStartTime, segments.estimatedStartTime) && Objects.equals(estimatedEndTime, segments.estimatedEndTime) && Objects.equals(actualStartTime, segments.actualStartTime) && Objects.equals(actualEndTime, segments.actualEndTime) && Objects.equals(destination, segments.destination) && Objects.equals(departure, segments.departure) && Objects.equals(orderStatus, segments.orderStatus) && Objects.equals(orderSubStatus, segments.orderSubStatus) && Objects.equals(originCountry, segments.originCountry) && Objects.equals(destinationCountry, segments.destinationCountry) && Objects.equals(originCity, segments.originCity) && Objects.equals(destinationCity, segments.destinationCity) && Objects.equals(originState, segments.originState) && Objects.equals(orderReference, segments.orderReference) && Objects.equals(destinationState, segments.destinationState) && Objects.equals(segmentType, segments.segmentType) && Objects.equals(tailNumber, segments.tailNumber) && Objects.equals(crewRole, segments.crewRole) && Objects.equals(manufacturer, segments.manufacturer) && Objects.equals(model, segments.model) && Objects.equals(zoneId, segments.zoneId) && Objects.equals(timeZone, segments.timeZone) && Objects.equals(flightType, segments.flightType);
+    }
+
+    public List<String> findDifference(CrewSegments segments) {
+        List<String> difference = new ArrayList<>();
+        if (crewProfileId != segments.crewProfileId)
+            difference.add("crewProfileId");
+        if (estimatedDuration != segments.estimatedDuration)
+            difference.add("estimatedDuration");
+        if (actualDuration != segments.actualDuration)
+            difference.add("actualDuration");
+        if (orderID != segments.orderID)
+            difference.add("orderID");
+        if (turnAroundTime != segments.turnAroundTime)
+            difference.add("turnAroundTime");
+        if (charterSupplierId != segments.charterSupplierId)
+            difference.add("charterSupplierId");
+        if (lastUpdatedBy != segments.lastUpdatedBy)
+            difference.add("lastUpdatedBy");
+        if (orderItemId != segments.orderItemId)
+            difference.add("orderItemId");
+        if (UID != segments.UID)
+            difference.add("UID");
+        if (linkedFromOrder != segments.linkedFromOrder)
+            difference.add("linkedFromOrder");
+        if (linkedToOrder != segments.linkedToOrder)
+            difference.add("linkedToOrder");
+        if (linkedFromOrderItem != segments.linkedFromOrderItem)
+            difference.add("linkedFromOrderItem");
+        if (linkedToOrderItem != segments.linkedToOrderItem)
+            difference.add("linkedToOrderItem");
+        if (flightPartType != segments.flightPartType)
+            difference.add("flightPartType");
+        if (numberOfCrew != segments.numberOfCrew)
+            difference.add("numberOfCrew");
+        if (overRideFlag != segments.overRideFlag)
+            difference.add("overRideFlag");
+        if (international != segments.international)
+            difference.add("international");
+        if (!lastUpdated.equals(segments.lastUpdated))
+            difference.add("lastUpdated");
+        if (!estimatedStartTime.equals(segments.estimatedStartTime))
+            difference.add("estimatedStartTime");
+        if (!estimatedEndTime.equals(segments.estimatedEndTime))
+            difference.add("estimatedEndTime");
+        if (!actualStartTime.equals(segments.actualStartTime))
+            difference.add("actualStartTime");
+        if (!actualEndTime.equals(segments.actualEndTime))
+            difference.add("actualEndTime");
+        if (!destination.equals(segments.destination))
+            difference.add("destinationAirportCode");
+        if (!departure.equals(segments.departure))
+            difference.add("departureAirportCode");
+        if (!orderStatus.equals(segments.orderStatus))
+            difference.add("orderStatus");
+        if (!orderSubStatus.equals(segments.orderSubStatus))
+            difference.add("orderSubStatus");
+        if (!originCountry.equals(segments.originCountry))
+            difference.add("originCountry");
+        if (!destinationCountry.equals(segments.destinationCountry))
+            difference.add("destinationCountry");
+        if (!originCity.equals(segments.originCity))
+            difference.add("originCity");
+        if (!destinationCity.equals(segments.destinationCity))
+            difference.add("destinationCity");
+        if (!originState.equals(segments.originState))
+            difference.add("originState");
+        if (!orderReference.equals(segments.orderReference))
+            difference.add("orderReference");
+        if (!destinationState.equals(segments.destinationState))
+            difference.add("destinationState");
+        if (!segmentType.equals(segments.segmentType))
+            difference.add("segmentType");
+        if (!tailNumber.equals(segments.tailNumber))
+            difference.add("tailNumber");
+        if (! crewRole.equals(segments.crewRole))
+            difference.add("crewRole");
+        if (! manufacturer.equals(segments.manufacturer))
+            difference.add("manufacturer");
+        if (!model.equals(segments.model) )
+            difference.add("model");
+        if (!zoneId.equals(segments.zoneId))
+            difference.add("zoneId");
+        if (!timeZone.equals(segments.timeZone))
+            difference.add("timeZone");
+        if (!flightType.equals(segments.flightType))
+            difference.add("flightType");
+        if(!tripType.equals(segments.tripType))
+            difference.add("tripType");
+
+        return difference;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(crewProfileId, estimatedDuration, actualDuration, orderID, turnAroundTime, charterSupplierId, lastUpdatedBy, orderItemId, UID, linkedFromOrder, linkedToOrder, flightPartType, numberOfCrew, lastUpdated, estimatedStartTime, estimatedEndTime, actualStartTime, actualEndTime, destination, departure, orderStatus, orderSubStatus, originCountry, destinationCountry, originCity, destinationCity, originState, orderReference, destinationState, segmentType, tailNumber, crewRole, manufacturer, model, zoneId, timeZone, flightType, overRideFlag, international);
     }
 
     @Override
@@ -309,25 +574,18 @@ public class CrewSegments implements Serializable {
                 ", charterSupplierId=" + charterSupplierId +
                 ", manufacturer='" + manufacturer + '\'' +
                 ", model='" + model + '\'' +
+                ", overRideFlag=" + overRideFlag +
+                ", flightPartType=" + flightPartType +
+                ", international=" + international +
+                ", lastUpdatedBy=" + lastUpdatedBy +
+                ", UID=" + UID +
+                ", orderItemId=" + orderItemId +
+                ", zoneId=" + zoneId +
+                ", timeZone='" + timeZone + '\'' +
+                ", flightType='" + flightType + '\'' +
                 '}';
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        CrewSegments crewSegments = (CrewSegments) obj;
-        System.out.println(crewSegments);
-        return crewProfileId == crewSegments.crewProfileId
-                && actualStartTime.equals(crewSegments.actualStartTime)
-                && actualEndTime.equals(crewSegments.actualEndTime)
-                && destination.equals(crewSegments.destination)
-                && departure.equals(crewSegments.departure)
-                && segmentType.equals(crewSegments.segmentType)
-                && tailNumber.equals(crewSegments.tailNumber)
-                && orderID == crewSegments.orderID
-                && crewRole.equals(crewSegments.crewRole)
-                && charterSupplierId == (crewSegments.charterSupplierId)
-                && actualDuration == (crewSegments.actualDuration);
-    }
 
     /**
      * return the min number of pilots needed for a duty duration
@@ -405,13 +663,13 @@ public class CrewSegments implements Serializable {
         // setting rest periods
 
         if (minNumberOfPilots == 1)
-            return   9 * 60;
+            return 9 * 60;
         else if (minNumberOfPilots == 2)
             return 9 * 60;
         else if (minNumberOfPilots == 3)
-            return 12* 60;
+            return 12 * 60;
         else if (minNumberOfPilots == 4)
-            return 20* 60;
+            return 20 * 60;
         return 0;
     }
 

@@ -46,13 +46,14 @@ public class Crew implements Serializable {
     private ZoneId zoneId;
     private Identification passport = new Identification();
     private Identification visas = new Identification();
+    private boolean DutySegmentShifted = false;
+    private boolean DutySegmentAdded = false;
+    private String segmentType;
 
 
     public Crew() {
         BasicConfigurator.configure();
     }
-
-
 
 
     public Crew(int crewProfileId, String certCrewType) {
@@ -79,7 +80,7 @@ public class Crew implements Serializable {
         return obj;
     }
 
-    public JSONObject httpToJson(){
+    public JSONObject httpToJson() {
         JSONObject obj = new JSONObject();
         obj.put("crewProfileId", crewProfileId);
         obj.put("pilotID", pilotID);
@@ -92,13 +93,13 @@ public class Crew implements Serializable {
         obj.put("monthlyHours", actualMonthlyHours);
         obj.put("yearlyHours", actualYearlyHours);
         JSONArray segmentArray = new JSONArray();
-        for(CrewSegments segment : segments )
+        for (CrewSegments segment : segments)
             segmentArray.put(segment.toJson());
         obj.put("segments", segments);
         return obj;
     }
 
-    public JSONObject toJsonCrewRead(){
+    public JSONObject toJsonCrewRead() {
         JSONObject obj = new JSONObject();
         obj.put("crewProfileId", crewProfileId);
         obj.put("pilotID", pilotID);
@@ -116,16 +117,15 @@ public class Crew implements Serializable {
         return obj;
     }
 
-    public JSONObject toShoppingRequestJson(){
+    public JSONObject toShoppingRequestJson() {
         JSONObject obj = new JSONObject();
         obj.put("crewProfileId", crewProfileId);
         obj.put("crewType", crewRole);
         obj.put("firstName", firstName);
         obj.put("lastName", lastName);
-        obj.put("passport", passport.toJson());
-        obj.put("visas", visas.toJson());
         return obj;
     }
+
     public int getCrewProfileId() {
         return crewProfileId;
     }
@@ -374,9 +374,55 @@ public class Crew implements Serializable {
         this.zoneId = zoneId;
     }
 
+    public Identification getPassport() {
+        return passport;
+    }
 
+    public void setPassport(Identification passport) {
+        this.passport = passport;
+    }
 
-    public class Identification{
+    public Identification getVisas() {
+        return visas;
+    }
+
+    public void setVisas(Identification visas) {
+        this.visas = visas;
+    }
+
+    public String getTest() {
+        return test;
+    }
+
+    public void setTest(String test) {
+        this.test = test;
+    }
+
+    public boolean isDutySegmentShifted() {
+        return DutySegmentShifted;
+    }
+
+    public void setDutySegmentShifted(boolean dutySegmentShifted) {
+        DutySegmentShifted = dutySegmentShifted;
+    }
+
+    public boolean isDutySegmentAdded() {
+        return DutySegmentAdded;
+    }
+
+    public void setDutySegmentAdded(boolean dutySegmentAdded) {
+        DutySegmentAdded = dutySegmentAdded;
+    }
+
+    public String getSegmentType() {
+        return segmentType;
+    }
+
+    public void setSegmentType(String segmentType) {
+        this.segmentType = segmentType;
+    }
+
+    public class Identification {
         int idNubmer;
         String country;
 
