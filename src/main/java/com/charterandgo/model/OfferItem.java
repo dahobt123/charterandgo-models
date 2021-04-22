@@ -1,6 +1,5 @@
 package com.charterandgo.model;
 
-import com.charterandgo.charterhelpers.DateHelper;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -9,7 +8,6 @@ import java.math.BigDecimal;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class OfferItem implements Serializable {
@@ -18,12 +16,23 @@ public class OfferItem implements Serializable {
     private String supplierType;
     private int supplierId;
     private String nnumber;
+    private String originCity;
     private long cagAircraftId;
     private BigDecimal mileage;
-    private int originTaxiTime;
-    private int destinationTaxiTime;
+    private int originDepartTaxiTime;
+    private int originArriveTaxiTime;
+    private int destinationDepartTaxiTime;
+    private int destinationArriveTaxiTime;
     private int turnAroundTime;
-    private int charterSegmentType;
+    private int ovrTurnAourndTime;
+    private String destinationIcaoCode;
+    private long linkedFromOrder;
+    private int linkedFromOrderItem;
+    private long linkedToOrder;
+    private int linkedToOrderItem;
+    private int segmentType;
+    private String destinationCity;
+    private int originCityRating;
     private int operationTypeFAA;
     private int travelTimeMinutes;
     private String originAirportCode;
@@ -75,30 +84,51 @@ public class OfferItem implements Serializable {
     public JSONObject toJson() {
         JSONObject obj = new JSONObject();
         obj.put("offerItemId", offerItemId);
-        obj.put("originAirportCode", originAirportCode);
-        obj.put("originCountry", originCountry);
-        obj.put("originState", originState);
-        obj.put("originFboId", originFboId);
-        obj.put("originIcaoCode", originIcaoCode);
-        obj.put("destinationAirportCode", destinationAirportCode);
-        obj.put("destinationCountry", destinationCountry);
-        obj.put("destinationState", destinationState);
-        obj.put("destinationFboId", destinationFboId);
-        obj.put("segmentStatus", segmentStatus);
-        obj.put("destinationCityRating", destinationCityRating);
-        obj.put("mileage", mileage);
+        obj.put("supplierType", supplierType);
+        obj.put("supplierId", supplierId);
         obj.put("nnumber", nnumber);
+        obj.put("originCity", originCity);
+        obj.put("cagAircraftId", cagAircraftId);
+        obj.put("mileage", mileage);
+        obj.put("originDepartTaxiTime", originDepartTaxiTime);
+        obj.put("originArriveTaxiTime", originArriveTaxiTime);
+        obj.put("destinationDepartTaxiTime", destinationDepartTaxiTime);
+        obj.put("destinationArriveTaxiTime", destinationArriveTaxiTime);
+        obj.put("turnAroundTime", turnAroundTime);
+        obj.put("ovrTurnAourndTime", ovrTurnAourndTime);
+        obj.put("destinationIcaoCode", destinationIcaoCode);
+        obj.put("linkedFromOrder", linkedFromOrder);
+        obj.put("linkedFromOrderItem", linkedFromOrderItem);
+        obj.put("linkedToOrder", linkedToOrder);
+        obj.put("segmentType", segmentType);
+        obj.put("destinationCity", destinationCity);
+        obj.put("originCityRating", originCityRating);
+        obj.put("operationTypeFAA", operationTypeFAA);
+        obj.put("travelTimeMinutes", travelTimeMinutes);
+        obj.put("originAirportCode", originAirportCode);
+        obj.put("destinationAirportCode", destinationAirportCode);
         if (departureTimeStamp != null) {
             obj.put("departureTimestamp", departureTimeStamp.format(DateTimeFormatter.ISO_OFFSET_DATE_TIME));
         }
         if (arrivalTimeStamp != null) {
             obj.put("arrivalTimeStamp", arrivalTimeStamp.format(DateTimeFormatter.ISO_OFFSET_DATE_TIME));
         }
-        obj.put("supplierId", supplierId);
-        obj.put("travelTimeMinutes", travelTimeMinutes);
-        obj.put("supplierType", supplierType);
+        obj.put("aircraftType", aircraftType);
+        obj.put("segmentStatus", segmentStatus);
         obj.put("tripType", tripType);
+        obj.put("destinationCityRating", destinationCityRating);
+        obj.put("originIcaoCode", originIcaoCode);
+        obj.put("originCountry", originCountry);
+        obj.put("originState", originState);
+        obj.put("originFboId", originFboId);
+        obj.put("destinationCountry", destinationCountry);
+        obj.put("destinationState", destinationState);
+        obj.put("destinationFboId", destinationFboId);
+        obj.put("manufacturer", manufacturer);
+        obj.put("model", model);
         obj.put("crewstatus", crewstatus);
+        obj.put("duration", duration);
+
         JSONArray array = new JSONArray();
         for (Crew crew : crews) {
             array.put(crew.toJson());
@@ -345,20 +375,20 @@ public class OfferItem implements Serializable {
         this.cagAircraftId = cagAircraftId;
     }
 
-    public int getOriginTaxiTime() {
-        return originTaxiTime;
+    public int getOriginDepartTaxiTime() {
+        return originDepartTaxiTime;
     }
 
-    public void setOriginTaxiTime(int originTaxiTime) {
-        this.originTaxiTime = originTaxiTime;
+    public void setOriginDepartTaxiTime(int originDepartTaxiTime) {
+        this.originDepartTaxiTime = originDepartTaxiTime;
     }
 
-    public int getDestinationTaxiTime() {
-        return destinationTaxiTime;
+    public int getDestinationDepartTaxiTime() {
+        return destinationDepartTaxiTime;
     }
 
-    public void setDestinationTaxiTime(int destinationTaxiTime) {
-        this.destinationTaxiTime = destinationTaxiTime;
+    public void setDestinationDepartTaxiTime(int destinationDepartTaxiTime) {
+        this.destinationDepartTaxiTime = destinationDepartTaxiTime;
     }
 
     public int getTurnAroundTime() {
@@ -377,12 +407,12 @@ public class OfferItem implements Serializable {
         this.operationTypeFAA = operationTypeFAA;
     }
 
-    public int getCharterSegmentType() {
-        return charterSegmentType;
+    public int getSegmentType() {
+        return segmentType;
     }
 
-    public void setCharterSegmentType(int charterSegmentType) {
-        this.charterSegmentType = charterSegmentType;
+    public void setSegmentType(int segmentType) {
+        this.segmentType = segmentType;
     }
 
     public String getAircraftType() {
