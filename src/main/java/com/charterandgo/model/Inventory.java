@@ -25,6 +25,7 @@ public class Inventory {
     public static final String SOLD_REPOSITION = "CR";
     public static final String SOLD_EMPTYLEG = "CE";
     public static final String CANCELED = "XX";
+    public static final List<String> PASSENGER_CODES = Arrays.asList(AVAILABLE, SOLD, CANCELED);
     public static final List<String> AVAILABLE_CODES = Arrays.asList(AVAILABLE, AVAILABLE_EMPTYLEG, AVAIlABLE_REPOSITION);
     public static final List<String> UNAVAILABLE_CODES = Arrays.asList(SOLD, SOLD_EMPTYLEG, SOLD_REPOSITION);
 

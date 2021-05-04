@@ -422,4 +422,108 @@ public class OfferItem implements Serializable {
     public void setAircraftType(String aircraftType) {
         this.aircraftType = aircraftType;
     }
+
+    public String getOriginCity() {
+        return originCity;
+    }
+
+    public void setOriginCity(String originCity) {
+        this.originCity = originCity;
+    }
+
+    public int getOriginArriveTaxiTime() {
+        return originArriveTaxiTime;
+    }
+
+    public void setOriginArriveTaxiTime(int originArriveTaxiTime) {
+        this.originArriveTaxiTime = originArriveTaxiTime;
+    }
+
+    public int getDestinationArriveTaxiTime() {
+        return destinationArriveTaxiTime;
+    }
+
+    public void setDestinationArriveTaxiTime(int destinationArriveTaxiTime) {
+        this.destinationArriveTaxiTime = destinationArriveTaxiTime;
+    }
+
+    public int getOvrTurnAourndTime() {
+        return ovrTurnAourndTime;
+    }
+
+    public void setOvrTurnAourndTime(int ovrTurnAourndTime) {
+        this.ovrTurnAourndTime = ovrTurnAourndTime;
+    }
+
+    public String getDestinationIcaoCode() {
+        return destinationIcaoCode;
+    }
+
+    public void setDestinationIcaoCode(String destinationIcaoCode) {
+        this.destinationIcaoCode = destinationIcaoCode;
+    }
+
+    public long getLinkedFromOrder() {
+        return linkedFromOrder;
+    }
+
+    public void setLinkedFromOrder(long linkedFromOrder) {
+        this.linkedFromOrder = linkedFromOrder;
+    }
+
+    public int getLinkedFromOrderItem() {
+        return linkedFromOrderItem;
+    }
+
+    public void setLinkedFromOrderItem(int linkedFromOrderItem) {
+        this.linkedFromOrderItem = linkedFromOrderItem;
+    }
+
+    public long getLinkedToOrder() {
+        return linkedToOrder;
+    }
+
+    public void setLinkedToOrder(long linkedToOrder) {
+        this.linkedToOrder = linkedToOrder;
+    }
+
+    public int getLinkedToOrderItem() {
+        return linkedToOrderItem;
+    }
+
+    public void setLinkedToOrderItem(int linkedToOrderItem) {
+        this.linkedToOrderItem = linkedToOrderItem;
+    }
+
+    public String getDestinationCity() {
+        return destinationCity;
+    }
+
+    public void setDestinationCity(String destinationCity) {
+        this.destinationCity = destinationCity;
+    }
+
+    public int getOriginCityRating() {
+        return originCityRating;
+    }
+
+    public void setOriginCityRating(int originCityRating) {
+        this.originCityRating = originCityRating;
+    }
+
+    public String getOriginCountry() {
+        return originCountry;
+    }
+
+    public void setOriginCountry(String originCountry) {
+        this.originCountry = originCountry;
+    }
+
+    public List<Price> getItemPrices() {
+        return itemPrices;
+    }
+
+    public void setItemPrices(List<Price> itemPrices) {
+        this.itemPrices = itemPrices;
+    }
 }

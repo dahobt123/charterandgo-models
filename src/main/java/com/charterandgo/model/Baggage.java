@@ -1,13 +1,9 @@
 package com.charterandgo.model;
 
-import org.json.JSONObject;
-
-import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Cargo implements Serializable {
+public class Baggage {
 
     private String type;
     private String tagId;
@@ -16,17 +12,17 @@ public class Cargo implements Serializable {
     private int itemId;
     private int length;
     private int weight;
-    private String measure;
-    private int quantity;
-    private String specialInstructions;
-    private String finalDestination;
     private List<Integer> linkedToPax = new ArrayList<>();
     private List<Integer> linkedToOrderItems = new ArrayList<>();
+    private String specialInstructions;
+    private String finalDestination;
 
-    public Cargo() {
+
+
+
+    public Baggage() {
 
     }
-
 
     public String getType() {
         return type;
@@ -84,20 +80,20 @@ public class Cargo implements Serializable {
         this.weight = weight;
     }
 
-    public String getMeasure() {
-        return measure;
+    public List<Integer> getLinkedToPax() {
+        return linkedToPax;
     }
 
-    public void setMeasure(String measure) {
-        this.measure = measure;
+    public void setLinkedToPax(List<Integer> linkedToPax) {
+        this.linkedToPax = linkedToPax;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public List<Integer> getLinkedToOrderItems() {
+        return linkedToOrderItems;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setLinkedToOrderItems(List<Integer> linkedToOrderItems) {
+        this.linkedToOrderItems = linkedToOrderItems;
     }
 
     public String getSpecialInstructions() {
@@ -114,21 +110,5 @@ public class Cargo implements Serializable {
 
     public void setFinalDestination(String finalDestination) {
         this.finalDestination = finalDestination;
-    }
-
-    public List<Integer> getLinkedToPax() {
-        return linkedToPax;
-    }
-
-    public void setLinkedToPax(List<Integer> linkedToPax) {
-        this.linkedToPax = linkedToPax;
-    }
-
-    public List<Integer> getLinkedToOrderItems() {
-        return linkedToOrderItems;
-    }
-
-    public void setLinkedToOrderItems(List<Integer> linkedToOrderItems) {
-        this.linkedToOrderItems = linkedToOrderItems;
     }
 }

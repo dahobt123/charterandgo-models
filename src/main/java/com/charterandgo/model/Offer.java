@@ -10,12 +10,17 @@ import java.util.List;
 public class Offer implements Serializable {
 
     private int offerId;
+    private int totalExpectedPassengers;
     private String warningTyoe;
     private String warningText;
     private List<OfferItem> offerItems = new ArrayList<>();
-    private OfferPrice pricing;
+    private List<Price> pricing = new ArrayList<>();
+    private JSONObject pricingNotes;
     private RunwayItem runway;
     private List<Tax> taxes = new ArrayList<>();
+    private List<Aircraft> aircraft = new ArrayList<>();
+    private ShopLists lists;
+    private List<AirportInfo> airports = new ArrayList<>();
 
     public Offer() {
 
@@ -42,7 +47,14 @@ public class Offer implements Serializable {
             array.put(item.toJson());
         }
         if (pricing != null) {
-            obj.put("pricing", pricing.toJson());
+            JSONArray priceArray = new JSONArray();
+            for (Price price : pricing) {
+                priceArray.put(price.toJson());
+            }
+            obj.put("pricing", priceArray);
+        }
+        if (pricingNotes != null) {
+            obj.put("pricingNotes", pricingNotes);
         }
         if (runway != null) {
             obj.put("runway", runway.toJson());
@@ -52,6 +64,11 @@ public class Offer implements Serializable {
             taxArray.put(tax.toJson());
         }
         obj.put("taxes", taxArray);
+        JSONArray aircrafts = new JSONArray();
+        for (Aircraft ac : aircraft) {
+            aircrafts.put(ac.toJson());
+        }
+        obj.put("aircraft", aircrafts);
         return obj;
     }
 
@@ -79,11 +96,11 @@ public class Offer implements Serializable {
         this.runway = runway;
     }
 
-    public OfferPrice getPricing() {
+    public List<Price> getPricing() {
         return pricing;
     }
 
-    public void setPricing(OfferPrice pricing) {
+    public void setPricing(List<Price> pricing) {
         this.pricing = pricing;
     }
 
@@ -109,5 +126,45 @@ public class Offer implements Serializable {
 
     public void setWarningText(String warningText) {
         this.warningText = warningText;
+    }
+
+    public List<Aircraft> getAircraft() {
+        return aircraft;
+    }
+
+    public void setAircraft(List<Aircraft> aircraft) {
+        this.aircraft = aircraft;
+    }
+
+    public ShopLists getLists() {
+        return lists;
+    }
+
+    public void setLists(ShopLists lists) {
+        this.lists = lists;
+    }
+
+    public List<AirportInfo> getAirports() {
+        return airports;
+    }
+
+    public void setAirports(List<AirportInfo> airports) {
+        this.airports = airports;
+    }
+
+    public int getTotalExpectedPassengers() {
+        return totalExpectedPassengers;
+    }
+
+    public void setTotalExpectedPassengers(int totalExpectedPassengers) {
+        this.totalExpectedPassengers = totalExpectedPassengers;
+    }
+
+    public JSONObject getPricingNotes() {
+        return pricingNotes;
+    }
+
+    public void setPricingNotes(JSONObject pricingNotes) {
+        this.pricingNotes = pricingNotes;
     }
 }

@@ -1,14 +1,11 @@
 package com.charterandgo.model;
 
-import org.json.JSONObject;
-
-import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Cargo implements Serializable {
+public class Pet {
 
+    private String name;
     private String type;
     private String tagId;
     private int width;
@@ -16,17 +13,24 @@ public class Cargo implements Serializable {
     private int itemId;
     private int length;
     private int weight;
-    private String measure;
+    private String meeasure;
     private int quantity;
-    private String specialInstructions;
-    private String finalDestination;
     private List<Integer> linkedToPax = new ArrayList<>();
     private List<Integer> linkedToOrderItems = new ArrayList<>();
+    private String specialInstructions;
+    private String finalDestinationCode;
 
-    public Cargo() {
+    public Pet() {
 
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getType() {
         return type;
@@ -84,12 +88,12 @@ public class Cargo implements Serializable {
         this.weight = weight;
     }
 
-    public String getMeasure() {
-        return measure;
+    public String getMeeasure() {
+        return meeasure;
     }
 
-    public void setMeasure(String measure) {
-        this.measure = measure;
+    public void setMeeasure(String meeasure) {
+        this.meeasure = meeasure;
     }
 
     public int getQuantity() {
@@ -98,22 +102,6 @@ public class Cargo implements Serializable {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
-    }
-
-    public String getSpecialInstructions() {
-        return specialInstructions;
-    }
-
-    public void setSpecialInstructions(String specialInstructions) {
-        this.specialInstructions = specialInstructions;
-    }
-
-    public String getFinalDestination() {
-        return finalDestination;
-    }
-
-    public void setFinalDestination(String finalDestination) {
-        this.finalDestination = finalDestination;
     }
 
     public List<Integer> getLinkedToPax() {
@@ -130,5 +118,21 @@ public class Cargo implements Serializable {
 
     public void setLinkedToOrderItems(List<Integer> linkedToOrderItems) {
         this.linkedToOrderItems = linkedToOrderItems;
+    }
+
+    public String getSpecialInstructions() {
+        return specialInstructions;
+    }
+
+    public void setSpecialInstructions(String specialInstructions) {
+        this.specialInstructions = specialInstructions;
+    }
+
+    public String getFinalDestinationCode() {
+        return finalDestinationCode;
+    }
+
+    public void setFinalDestinationCode(String finalDestinationCode) {
+        this.finalDestinationCode = finalDestinationCode;
     }
 }
