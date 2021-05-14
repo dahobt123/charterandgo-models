@@ -2,6 +2,7 @@ package com.charterandgo.model;
 
 
 import java.math.BigDecimal;
+import java.time.ZonedDateTime;
 import java.util.Date;
 
 public class PaxRequest {
@@ -18,8 +19,8 @@ public class PaxRequest {
     private String arriveCountry;
     private int arriveCityRating;
     private String type;
-    private Date departureTimestamp;
-    private Date arrivalTimestamp;
+    private ZonedDateTime departureTimestamp;
+    private ZonedDateTime arrivalTimestamp;
     private String status;
     private String priorStatus;
     private String suppliertype;
@@ -101,19 +102,19 @@ public class PaxRequest {
         this.type = type;
     }
 
-    public Date getDepartureTimestamp() {
+    public ZonedDateTime getDepartureTimestamp() {
         return departureTimestamp;
     }
 
-    public void setDepartureTimestamp(Date departureTimestamp) {
+    public void setDepartureTimestamp(ZonedDateTime departureTimestamp) {
         this.departureTimestamp = departureTimestamp;
     }
 
-    public Date getArrivalTimestamp() {
+    public ZonedDateTime getArrivalTimestamp() {
         return arrivalTimestamp;
     }
 
-    public void setArrivalTimestamp(Date arrivalTimestamp) {
+    public void setArrivalTimestamp(ZonedDateTime arrivalTimestamp) {
         this.arrivalTimestamp = arrivalTimestamp;
     }
 

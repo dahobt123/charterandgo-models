@@ -20,7 +20,6 @@ public class ShoppingRequest implements Serializable {
     private CommonParms commonParms;
     private InputContext context = new InputContext();
     private Request request = new Request();
-    private List<AirportShopData> airports = new ArrayList<>();
     private List<Cargo> cargos = new ArrayList<>();
     private List<Luggage> luggage = new ArrayList<>();
 
@@ -59,16 +58,9 @@ public class ShoppingRequest implements Serializable {
         obj.put("commonParms", commonParms.toJson());
         obj.put("responseMessage", request.toJson());
         JSONArray cargos1 = new JSONArray();
-        for (Cargo carg : cargos) {
-            cargos1.put(carg.toJson());
-        }
-        if (airports.size() > 0) {
-            JSONArray airportArray = new JSONArray();
-            for (AirportShopData info : airports) {
-                airportArray.put(info.toJson());
-            }
-            obj.put("airports", airportArray);
-        }
+//        for (Cargo carg : cargos) {
+//            cargos1.put(carg.toJson());
+//        }
         obj.put("cargo", cargos1);
         JSONArray lugg = new JSONArray();
         for (Luggage lug : luggage) {
@@ -187,14 +179,6 @@ public class ShoppingRequest implements Serializable {
 
     public void setCurrency(String currency) {
         this.currency = currency;
-    }
-
-    public List<AirportShopData> getAirportInfo() {
-        return airports;
-    }
-
-    public void setAirportInfo(List<AirportShopData> airportInfo) {
-        this.airports = airportInfo;
     }
 
 }

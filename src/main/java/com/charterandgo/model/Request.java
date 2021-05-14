@@ -14,8 +14,8 @@ public class Request implements Serializable {
     private BigDecimal totalspend;
     private int supplierId;
     private int numberOfPax;
+    private int numberOfPets;
     private List<Journey> journey = new ArrayList<>();
-    private List<Aircraft> aircraft = new ArrayList<>();
     private List<Offer> options = new ArrayList<>();
 
 
@@ -33,13 +33,7 @@ public class Request implements Serializable {
 //        for (Journey jrny : journey) {
 //            array.put(jrny.toJson());
 //        }
-        if (aircraft.size() > 0) {
-            JSONArray aircraftArray = new JSONArray();
-            for (Aircraft info : aircraft) {
-                aircraftArray.put(info.toJson());
-            }
-            obj.put("aircraft", aircraftArray);
-        }
+
         if (options.size() > 0) {
             JSONArray optArray = new JSONArray();
             obj.put("options", optArray);
@@ -114,11 +108,11 @@ public class Request implements Serializable {
         this.numberOfPax = numberOfPax;
     }
 
-    public List<Aircraft> getAircraft() {
-        return aircraft;
+    public int getNumberOfPets() {
+        return numberOfPets;
     }
 
-    public void setAircraft(List<Aircraft> aircraft) {
-        this.aircraft = aircraft;
+    public void setNumberOfPets(int numberOfPets) {
+        this.numberOfPets = numberOfPets;
     }
 }

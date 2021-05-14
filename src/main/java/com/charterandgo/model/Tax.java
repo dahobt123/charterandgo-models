@@ -27,6 +27,8 @@ public class Tax implements Serializable {
         obj.put("taxtype", taxType);
         obj.put("taxamount", taxAmount);
         obj.put("taxcurrency", taxCurrency);
+        obj.put("isAdvisoryOnly", isAdvisoryOnly);
+        obj.put("isFee", isFee);
         return obj;
     }
 
