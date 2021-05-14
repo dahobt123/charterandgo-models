@@ -1,7 +1,5 @@
 package com.charterandgo.model;
 
-import org.apache.log4j.BasicConfigurator;
-import org.apache.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -36,7 +34,7 @@ public class Crew implements Serializable {
     private String crewStatus;
     private String manufacturer;
     private String model;
-    private String certCrewType;
+    private String crewType;
     private List<CrewCertifications> crewCerts;
     private List<RichMedia> richMedia;
     private List<CrewSegments> segments = new ArrayList<>();
@@ -52,13 +50,13 @@ public class Crew implements Serializable {
 
 
     public Crew() {
-        BasicConfigurator.configure();
+
     }
 
 
     public Crew(int crewProfileId, String certCrewType) {
         this.crewProfileId = crewProfileId;
-        this.certCrewType = certCrewType;
+        this.crewType = certCrewType;
     }
 
     public Crew(int crewProfileId, int pilotID, String firstName, String lastName, String homeBase) {
@@ -67,13 +65,12 @@ public class Crew implements Serializable {
         this.firstName = firstName;
         this.lastName = lastName;
         this.homeBase = homeBase;
-        BasicConfigurator.configure();
     }
 
 
     public JSONObject toJson() {
         JSONObject obj = new JSONObject();
-        obj.put("crewRole", certCrewType);
+        obj.put("crewRole", crewType);
         obj.put("firstName", firstName);
         obj.put("lastName", lastName);
         obj.put("crewProfileId", crewProfileId);
@@ -85,7 +82,10 @@ public class Crew implements Serializable {
         obj.put("crewProfileId", crewProfileId);
         obj.put("pilotID", pilotID);
         obj.put("homeBase", homeBase);
-        obj.put("crewType", crewRole);
+        if (crewType == null)
+            obj.put("crewType", crewRole);
+        else
+            obj.put("crewType", crewType);
         obj.put("firstName", firstName);
         obj.put("lastName", lastName);
         obj.put("dailyHours", actualDailyHours);
@@ -104,7 +104,7 @@ public class Crew implements Serializable {
         obj.put("crewProfileId", crewProfileId);
         obj.put("pilotID", pilotID);
         obj.put("homeBase", homeBase);
-        obj.put("crewType", crewRole);
+        obj.put("crewType", crewType);
         obj.put("firstName", firstName);
         obj.put("lastName", lastName);
         obj.put("dailyHours", actualDailyHours);
@@ -318,12 +318,12 @@ public class Crew implements Serializable {
         this.actualDailyHours = actualDailyHours;
     }
 
-    public String getCertCrewType() {
-        return certCrewType;
+    public String getCrewType() {
+        return crewType;
     }
 
-    public void setCertCrewType(String certCrewType) {
-        this.certCrewType = certCrewType;
+    public void setCrewType(String crewType) {
+        this.crewType = crewType;
     }
 
     public String getTailNumber() {

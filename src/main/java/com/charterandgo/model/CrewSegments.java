@@ -444,7 +444,7 @@ public class CrewSegments implements Serializable {
         obj.put("orderReference", orderReference);
         obj.put("destinationState", destinationState);
         obj.put("numberOfCrew", numberOfCrew);
-        obj.put("linkedFromOrderItem",linkedFromOrderItem);
+        obj.put("linkedFromOrderItem", linkedFromOrderItem);
         obj.put("linkedToOrderItem", linkedToOrderItem);
         obj.put("tripType", tripType);
 
@@ -477,8 +477,6 @@ public class CrewSegments implements Serializable {
             difference.add("lastUpdatedBy");
         if (orderItemId != segments.orderItemId)
             difference.add("orderItemId");
-        if (UID != segments.UID)
-            difference.add("UID");
         if (linkedFromOrder != segments.linkedFromOrder)
             difference.add("linkedFromOrder");
         if (linkedToOrder != segments.linkedToOrder)
@@ -489,17 +487,13 @@ public class CrewSegments implements Serializable {
             difference.add("linkedToOrderItem");
         if (flightPartType != segments.flightPartType)
             difference.add("flightPartType");
-        if (numberOfCrew != segments.numberOfCrew)
-            difference.add("numberOfCrew");
         if (overRideFlag != segments.overRideFlag)
             difference.add("overRideFlag");
         if (international != segments.international)
             difference.add("international");
-        if (!lastUpdated.equals(segments.lastUpdated))
-            difference.add("lastUpdated");
-        if (!estimatedStartTime.equals(segments.estimatedStartTime))
+        if (estimatedStartTime!= null && segments.estimatedStartTime!=null&& !estimatedStartTime.equals(segments.estimatedStartTime))
             difference.add("estimatedStartTime");
-        if (!estimatedEndTime.equals(segments.estimatedEndTime))
+        if (estimatedEndTime!= null && segments.estimatedEndTime!=null&& !estimatedEndTime.equals(segments.estimatedEndTime))
             difference.add("estimatedEndTime");
         if (!actualStartTime.equals(segments.actualStartTime))
             difference.add("actualStartTime");
@@ -509,9 +503,9 @@ public class CrewSegments implements Serializable {
             difference.add("destinationAirportCode");
         if (!departure.equals(segments.departure))
             difference.add("departureAirportCode");
-        if (!orderStatus.equals(segments.orderStatus))
+        if (orderStatus!= null && segments.orderStatus!=null&& !orderStatus.equals(segments.orderStatus))
             difference.add("orderStatus");
-        if (!orderSubStatus.equals(segments.orderSubStatus))
+        if (orderSubStatus!= null && segments.orderSubStatus!=null&& !orderSubStatus.equals(segments.orderSubStatus))
             difference.add("orderSubStatus");
         if (!originCountry.equals(segments.originCountry))
             difference.add("originCountry");
@@ -523,7 +517,7 @@ public class CrewSegments implements Serializable {
             difference.add("destinationCity");
         if (!originState.equals(segments.originState))
             difference.add("originState");
-        if (!orderReference.equals(segments.orderReference))
+        if (orderReference!= null && segments.orderReference!=null&& !orderReference.equals(segments.orderReference))
             difference.add("orderReference");
         if (!destinationState.equals(segments.destinationState))
             difference.add("destinationState");
@@ -531,19 +525,13 @@ public class CrewSegments implements Serializable {
             difference.add("segmentType");
         if (!tailNumber.equals(segments.tailNumber))
             difference.add("tailNumber");
-        if (! crewRole.equals(segments.crewRole))
+        if (crewRole!= null && segments.crewRole!=null&& !crewRole.equals(segments.crewRole))
             difference.add("crewRole");
-        if (! manufacturer.equals(segments.manufacturer))
-            difference.add("manufacturer");
-        if (!model.equals(segments.model) )
-            difference.add("model");
-        if (!zoneId.equals(segments.zoneId))
+        if (zoneId!= null && segments.zoneId!=null&& !zoneId.equals(segments.zoneId))
             difference.add("zoneId");
-        if (!timeZone.equals(segments.timeZone))
+        if (timeZone!= null && segments.timeZone!=null&& !timeZone.equals(segments.timeZone))
             difference.add("timeZone");
-        if (!flightType.equals(segments.flightType))
-            difference.add("flightType");
-        if(!tripType.equals(segments.tripType))
+        if (!tripType.equals(segments.tripType))
             difference.add("tripType");
 
         return difference;
@@ -703,4 +691,7 @@ public class CrewSegments implements Serializable {
 
         return restLength;
     }
+
+
+
 }

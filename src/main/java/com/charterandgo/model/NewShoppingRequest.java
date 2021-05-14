@@ -527,7 +527,7 @@ public class NewShoppingRequest implements Serializable {
         private ZoneId zoneId;
         private LocalDateTime startTime;
         private LocalDateTime endTime;
-
+        private int minPilots;
         public JSONObject toShoppingRequestJson() {
             JSONObject obj = new JSONObject();
             obj.put("orderItemId", orderItemId);
@@ -589,6 +589,7 @@ public class NewShoppingRequest implements Serializable {
             obj.put("departCityRating", departCityRating);
             obj.put("linedOrderFrom", linkedFromOrder);
             obj.put("linedOrderTo", linkedToOrder);
+            obj.put("minPilots", minPilots);
             return obj;
         }
 
@@ -1086,6 +1087,14 @@ public class NewShoppingRequest implements Serializable {
         public void setArrivalTimeStamp(ZonedDateTime arrivalTimeStamp) {
             this.arrivalTimeStamp = arrivalTimeStamp;
         }
+
+        public int getMinPilots() {
+            return minPilots;
+        }
+
+        public void setMinPilots(int minPilots) {
+            this.minPilots = minPilots;
+        }
     }
 
 
@@ -1140,6 +1149,9 @@ public class NewShoppingRequest implements Serializable {
         private int orderId;
         private String orderStatus;
         private String orderSubStatus;
+        private String assignCrew;
+        private String assignOfDuty;
+        private String assignShiftingDuty;
         private List<OrderItem> orderItems;
 
 
@@ -1185,6 +1197,30 @@ public class NewShoppingRequest implements Serializable {
 
         public void setOrderSubStatus(String orderSubStatus) {
             this.orderSubStatus = orderSubStatus;
+        }
+
+        public String getAssignCrew() {
+            return assignCrew;
+        }
+
+        public void setAssignCrew(String assignCrew) {
+            this.assignCrew = assignCrew;
+        }
+
+        public String getAssignOfDuty() {
+            return assignOfDuty;
+        }
+
+        public void setAssignOfDuty(String assignOfDuty) {
+            this.assignOfDuty = assignOfDuty;
+        }
+
+        public String getAssignShiftingDuty() {
+            return assignShiftingDuty;
+        }
+
+        public void setAssignShiftingDuty(String assignShiftingDuty) {
+            this.assignShiftingDuty = assignShiftingDuty;
         }
     }
 
